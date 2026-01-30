@@ -1,0 +1,97 @@
+﻿@page
+@model Recruitment.Pages.Backend.SectionCDDModel
+@{
+    ViewData["Title"] = "SectionCDD";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">CDD</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">CDD</a></li>
+                        <li class="breadcrumb-item">Data Tables</li>
+                        <li class="breadcrumb-item active">Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>ชื่อผู้สมัคร</th>
+                                        <th>ACtion</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+         $(()=>{
+            oTable = $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: true,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true,
+                retrieve: false,
+                ajax: {
+                    type: 'post',
+                    url: '/Backend/SectionCDD?handler=Table',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    }
+                },
+                columns: [
+                    { 'data': 'id', name: 'id' },
+                    { 'data': 'nameTH', name: 'nameTH' },
+                    {
+                        'data': 'id',
+                        render: function (data, type, row) {
+                            return '<center>' +
+                            '<a class="btn btn-sm btn-info" onclick="CDDDetail(\'' + data + '\')"><i class="fa fa-list" style="color:white"></i></a>' +
+                            '</center>';
+                        }
+                    }
+                ],
+            });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            // โหลดข้อมูลอีกรอบ
+            oTable.on('order.dt search.dt', function () {
+                let i = 1;
+                oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                    .every(function (cell) {
+                        this.data(i++);
+                    });
+            }).draw();
+        })
+
+        function CDDDetail(id) {
+            window.location.href = '/Backend/SectionCDDDetail/?Id=' + id;
+        }
+    </script>
+}

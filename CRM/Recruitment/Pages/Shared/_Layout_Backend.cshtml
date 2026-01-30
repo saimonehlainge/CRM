@@ -1,0 +1,632 @@
+﻿@using Recruitment.Helpers
+@inject Recruitment.Repositories.IUnitOfWork _unitofwork;
+@{
+    var Page = ViewData["Title"];
+    var Dashboard = "";
+    var Calendar = "";
+    var MasterData = "";
+    var ContactJob = "";
+    var HistoryCovid = "";
+    var Status = "";
+    var Project = "";
+    var Prefix = "";
+    var MilitaryStatus = "";
+    var JobPosition = "";
+    var MarriedStatus = "";
+    var WorkOtherProvinces = "";
+    var JobProvince = "";
+    var Users = "";
+    var SettingData = "";
+    var Email = "";
+    //var Notify = "";
+    var Summary = "";
+    var Report = "";
+    var Language = "";
+    var SetKpiComm = "";
+    //var FlowSummary = "";
+    var Qualification = "";
+    var Company = "";
+    switch (Page?.ToString())
+    {
+        case "Dashboard":
+            {
+                Dashboard = "active";
+            }
+            break;
+        case "Calendar":
+            {
+                Calendar = "active";
+            }
+            break;
+        case "Summary":
+            {
+                Summary = "active";
+            }
+            break;
+        case "SummaryDetail":
+            {
+                Summary = "active";
+            }
+            break;
+        case "SectionCDD":
+            {
+                Summary = "active";
+            }
+            break;
+        case "CDDDetail":
+            {
+                Summary = "active";
+            }
+            break;
+        case "FlowSummary":
+            {
+                Summary = "active";
+            }
+            break;
+        case "Report":
+            {
+                Report = "active";
+            }
+            break;
+        case "Users":
+            {
+                Users = "active";
+            }
+            break;
+        case "Permission":
+            {
+                Users = "active";
+            }
+            break;
+        case "Team":
+            {
+                Users = "active";
+            }
+            break;
+        case "TeamUser":
+            {
+                Users = "active";
+            }
+            break;
+        case "ContactJob":
+            {
+                ContactJob = "active";
+                MasterData = "active";
+            }
+            break;
+        case "HistoryCovid":
+            {
+                HistoryCovid = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Status":
+            {
+                Status = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Project":
+            {
+                Project = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Prefix":
+            {
+                Prefix = "active";
+                MasterData = "active";
+            }
+            break;
+        case "MilitaryStatus":
+            {
+                MilitaryStatus = "active";
+                MasterData = "active";
+            }
+            break;
+        case "JobPosition":
+            {
+                JobPosition = "active";
+                MasterData = "active";
+            }
+            break;
+        case "MarriedStatus":
+            {
+                MarriedStatus = "active";
+                MasterData = "active";
+            }
+            break;
+        case "WorkOtherProvinces":
+            {
+                WorkOtherProvinces = "active";
+                MasterData = "active";
+            }
+            break;
+        case "JobProvince":
+            {
+                JobProvince = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Districts":
+            {
+                JobProvince = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Subdistricts":
+            {
+                JobProvince = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Language":
+            {
+                Language = "active";
+                MasterData = "active";
+            }
+            break;
+        case "SetKpiComm":
+            {
+                SetKpiComm = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Qualification":
+            {
+                Qualification = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Company":
+            {
+                Company = "active";
+                MasterData = "active";
+            }
+            break;
+        case "Email":
+            {
+                Email = "active";
+                SettingData = "active";
+            }
+            break;
+    }
+
+    var (userid, roles, _, department) = User.GetUser();
+    var permission = await _unitofwork.PermissionSettingRepository.GetPermission(userid);
+    var getuser = await _unitofwork.UsersRepository.GetUser(userid);
+    //var getuser =
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="">
+    <title>@ViewData["Title"] - Recruitment</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+
+    <!-- Datetimepicker CSS -->
+    <link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css">
+
+    <!-- animation CSS -->
+    <link rel="stylesheet" href="/assets/css/animate.css">
+
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" href="/assets/plugins/select2/css/select2.min.css">
+
+    <!-- Datatable CSS -->
+    <link rel="stylesheet" href="/assets/css/dataTables.bootstrap4.min.css">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/plugins/fontawesome/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- FullCalendar -->
+    <link href="~/frontend/css/fullcalendar.css" rel="stylesheet" />
+
+    @* flatpickr *@
+    <link href="~/js/flatpickr.min.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="global-loader">
+        <div class="whirly-loader"> </div>
+    </div>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+
+        <!-- Header -->
+        <div class="header">
+
+            <!-- Logo -->
+            <div class="header-left active">
+                <a href="/Backend/Index" class="logo logo-normal">
+                    <img src="/assets/img/logo.png" alt="">
+                </a>
+                <a href="/Backend/Index" class="logo logo-white">
+                    <img src="/assets/img/logo-white.png" alt="">
+                </a>
+                <a href="/Backend/Index" class="logo-small">
+                    <img src="/assets/img/logo-small.png" alt="">
+                </a>
+                <a id="toggle_btn" href="javascript:void(0);">
+                    <i data-feather="chevrons-left" class="feather-16"></i>
+                </a>
+            </div>
+            <!-- /Logo -->
+
+            <a id="mobile_btn" class="mobile_btn" href="#sidebar">
+                <span class="bar-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </a>
+
+            <!-- Header Menu -->
+            <ul class="nav user-menu">
+
+                <!-- Search -->
+                <li class="nav-item nav-searchinputs">
+                </li>
+                <!-- /Search -->
+
+                <li class="nav-item nav-item-box">
+                    <a href="javascript:void(0);" id="btnFullscreen">
+                        <i data-feather="maximize"></i>
+                    </a>
+                </li>
+
+                <!-- Notifications -->
+                <li class="nav-item dropdown nav-item-box">
+                    <a href="javascript:void(0);" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                        <i data-feather="bell"></i><span class="badge rounded-pill" id="CountNoti"></span>
+                    </a>
+                    <div class="dropdown-menu notifications">
+                        <div class="topnav-dropdown-header">
+                            <span class="notification-title">Notifications</span>
+                            <a href="javascritpt:void(0)" class="clear-noti" onclick="ClearNoti()">Clear All</a>
+                        </div>
+                        <div class="noti-content">
+                            <ul class="notification-list" id="subDivNotification"></ul>
+                        </div>
+                    </div>
+                </li>
+                <!-- /Notifications -->
+                <li class="nav-item dropdown has-arrow main-drop">
+                    <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
+                        <span class="user-info">
+                            <span class="user-letter">
+                                <img src="/assets/img/profiles/avator1.jpg" alt="" class="img-fluid">
+                            </span>
+                            <span class="user-detail">
+                                <span class="user-name">@getuser.Firstname</span>
+                                <span class="user-role">@roles</span>
+                            </span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu menu-drop-user">
+                        <div class="profilename">
+                            <hr class="m-0">
+                            <a class="dropdown-item logout pb-0" href="/Identity/Account/Logout"><img src="/assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- /Header Menu -->
+            <!-- Mobile Menu -->
+            <div class="dropdown mobile-user-menu">
+                <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.html">My Profile</a>
+                    <a class="dropdown-item" href="generalsettings.html">Settings</a>
+                    <a class="dropdown-item" href="/Identity/Account/Logout">Logout</a> <!-- asp-page="/Areas/Identity/Account/Logout" -->
+                </div>
+            </div>
+            <!-- /Mobile Menu -->
+        </div>
+        <!-- Header -->
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-inner slimscroll">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="submenu-open">
+                            <h6 class="submenu-hdr">หลัก</h6>
+                            <ul>
+                                <li class="@Dashboard">
+                                    <a asp-page="/Backend/Index"><i data-feather="grid"></i><span>หน้าแรก</span></a>
+                                </li>
+                                <li class="@Calendar">
+                                    <a asp-page="/Backend/Calendar"><i data-feather="grid"></i><span>ปฎิทิน</span></a>
+                                </li>
+                                <li class="@Summary">
+                                    <a asp-page="/Backend/Summary"><i data-feather="grid"></i><span>สรุปข้อมูลผู้สมัคร</span></a>
+                                </li>
+                                <li class="@Report">
+                                    <a asp-page="/Backend/Report"><i data-feather="grid"></i><span>รายงาน</span></a>
+                                </li>
+                                @if (roles == "admin")
+                                {
+                                    <li class="@Users">
+                                        <a asp-page="/Backend/Users"><i data-feather="grid"></i><span>พนักงาน</span></a>
+                                    </li>
+                                }
+                                @if (permission?.FirstOrDefault()?.setting == true)
+                                {
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="@MasterData subdrop"><i data-feather="settings"></i><span>MasterData</span><span class="menu-arrow"></span></a>
+                                        <ul>
+                                            <li><a class="@Status" asp-page="/Backend/Status">สถานะ</a></li>
+                                            <li><a class="@Project" asp-page="/Backend/Project">โปรเจค</a></li>
+                                            <li><a class="@Prefix" asp-page="/Backend/Prefix">คำนำหน้า</a></li>
+                                            <li><a class="@ContactJob" asp-page="/Backend/ContactJob">เห็นประกาศจากช่องทาง</a></li>
+                                            <li><a class="@MilitaryStatus" asp-page="/Backend/MilitaryStatus">สถานะเกณฑ์ทหาร</a></li>
+                                            <li><a class="@MarriedStatus" asp-page="/Backend/MarriedStatus">สถานะสมรส</a></li>
+                                            <li><a class="@WorkOtherProvinces" asp-page="/Backend/WorkOtherProvinces">ทำงานนอกสถานที่</a></li>
+                                            <li><a class="@HistoryCovid" asp-page="/Backend/HistoryCovid">ประวัติโควิด</a></li>
+                                            <li><a class="@JobPosition" asp-page="/Backend/JobPosition">ตำแหน่งงาน</a></li>
+                                            <li><a class="@JobProvince" asp-page="/Backend/JobProvince">จังหวัด</a></li>
+                                            <li><a class="@Language" asp-page="/Backend/Language">ภาษา</a></li>
+                                            <li><a class="@SetKpiComm" asp-page="/Backend/SetKpiComm">วันเก็บเงิน</a></li>
+                                            <li><a class="@Qualification" asp-page="/Backend/Qualification">วุฒิการศึกษา</a></li>
+                                            <li><a class="@Company" asp-page="/Backend/Company">บริษัท</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                @if (roles == "admin")
+                                {
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);" class="@SettingData subdrop"><i data-feather="settings"></i><span>ตั้งค่า</span><span class="menu-arrow"></span></a>
+                                        <ul>
+                                            @* <li><a class="@Notify" asp-page="/Backend/Notify">แจ้งเตือน</a></li> *@
+                                            <li><a class="@Email" asp-page="/Backend/Email">อีเมล</a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Sidebar -->
+        @RenderBody()
+
+    </div>
+
+    @* flatckr *@
+    <script src="~/js/flatpickr.js"></script>
+
+    <!-- /Main Wrapper -->
+    <!-- jQuery -->
+    <script src="/assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Feather Icon JS -->
+    <script src="/assets/js/feather.min.js"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="/assets/js/jquery.slimscroll.min.js"></script>
+
+    <!-- Datatable JS -->
+    <script src="/assets/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Full Calendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js'></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="/assets/plugins/apexchart/apexcharts.min.js"></script>
+    <script src="/assets/plugins/apexchart/chart-data.js"></script>
+
+    <!-- Sweetalert 2 -->
+    <script src="/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="/assets/plugins/sweetalert/sweetalerts.min.js"></script>
+
+    <!-- Chart JS -->
+    @*     <script src="/assets/plugins/chartjs/chart.min.js"></script>
+    <script src="/assets/plugins/chartjs/chart-data.js"></script> *@
+
+    <!-- Custom JS -->
+    <script src="/assets/js/script.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="/assets/plugins/select2/js/select2.min.js"></script>
+    @* <script src="/assets/plugins/select2/js/custom-select.js"></script> *@
+
+    <!-- signalr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function displayError(e) {
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด',
+                text: e?.responseJSON?.message ?? "มีข้อผิดพลาด",
+            });
+        }
+
+        $(() => {
+            getnoti();
+        });
+
+        function getnoti()
+        {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Notify?handler=Notify',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    //console.log(data)
+                    var Count = 0;
+                    data.forEach(function (val) {
+                        if(val.type == 1)
+                        {
+                            $('#subDivNotification').append(`<a href="#" class="dropdown-item" onclick="clicknotify(` + val.id + `)"><small> ` + val.message + ` เมื่อวันที่ ` + val.createdDate.toLocaleString() + ` </small></a>`); //val.cddId
+                        }
+                        else if(val.type == 2)
+                        {
+                            $('#subDivNotification').append(`<a href="#" class="dropdown-item" onclick="clicknotify2(` + val.id + `)"><small> ` + val.message + ` เมื่อวันที่ ` + val.createdDate.toLocaleString() + ` </small></a>`);
+                        }
+                        else if(val.type == 3)
+                        {
+                             $('#subDivNotification').append(`<a href="#" class="dropdown-item" onclick="clicknotify3(` + val.id + `)"><small> ` + val.message + ` เมื่อวันที่ ` + val.createdDate.toLocaleString() + ` </small></a>`);
+                        }
+                        if (val.view == null) {
+                            Count++;
+                        }
+                    })
+                    $("#CountNoti").text(Count)
+                }
+            });
+        }
+
+        //var page = 0;
+        function clicknotify(id) {
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Notify?handler=ChangeViewNotify',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: { id: id },
+                success: function (response) {
+                    console.log(response)
+                    if(response.cddId != undefined || response.cddId != null)
+                    {
+                        location.href = '/Backend/CDDDetail/?Id=' + response.cddId;
+                    }
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            });
+        }
+
+        function clicknotify2(id) {
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Notify?handler=ChangeViewNotify',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: { id: id },
+                success: function (response) {
+                    if(response.cddId != undefined || response.cddId != null)
+                    {
+                        location.href = '/Backend/Summary/?Id=' + response.cddId;
+                    }
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            });
+        }
+
+        function clicknotify3(id) {
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Notify?handler=ChangeViewNotify',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: { id: id },
+                success: function (response) {
+                    location.href = '/Backend/Calendar';
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            });
+        }
+
+        function ClearNoti()
+        {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Notify?handler=DeleteNotify',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    getnoti();
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            });
+        }
+
+        //  // ปิด Insp
+        // document.addEventListener('contextmenu', function (event) {
+        //    event.preventDefault();
+        // });
+
+        // document.onkeydown = function (e) {
+        //    // Disable F12
+        //    if (e.keyCode == 123) {
+        //        return false;
+        //    }
+        //    // Disable Ctrl + Shift + I
+        //    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+        //        return false;
+        //    }
+        //    // Disable Ctrl + Shift + C
+        //    if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+        //        return false;
+        //    }
+        // };
+
+        // let devtoolsOpen = false;
+
+        // const checkDevTools = () => {
+        //    const widthThreshold = 100;  // threshold for detecting DevTools
+        //    const heightThreshold = 200;
+        //    if (window.outerWidth - window.innerWidth > widthThreshold || window.outerHeight - window.innerHeight > heightThreshold) {
+        //        devtoolsOpen = true;
+        //    } else {
+        //        devtoolsOpen = false;
+        //    }
+
+        //    if (devtoolsOpen) {
+        //        alert("Developer Tools Detected!");
+        //        // You can take other actions here, such as redirecting or blocking certain functionality
+        //    }
+        // };
+
+        // setInterval(checkDevTools, 1000); // Check every second
+
+        // Object.defineProperty(console, 'log', {
+        //    value: function () { },
+        //    writable: false
+        // });
+    </script>
+</body>
+</html>

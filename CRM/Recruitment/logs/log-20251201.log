@@ -1,0 +1,511 @@
+2025-12-01 10:47:49.693 +07:00 [INF] Now listening on: https://localhost:7167
+2025-12-01 10:47:49.770 +07:00 [INF] Now listening on: http://localhost:5084
+2025-12-01 10:47:49.841 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-12-01 10:47:49.841 +07:00 [INF] Hosting environment: Development
+2025-12-01 10:47:49.841 +07:00 [INF] Content root path: D:\Orange\Recruitment\CRM\Recruitment
+2025-12-01 10:47:50.478 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - null null
+2025-12-01 10:47:50.716 +07:00 [INF] Executing endpoint '/Frontend/Index'
+2025-12-01 10:47:50.744 +07:00 [INF] Route matched with {page = "/Frontend/Index", area = ""}. Executing page /Frontend/Index
+2025-12-01 10:47:50.756 +07:00 [INF] Executing handler method Recruitment.Pages.Frontend.IndexModel.OnGet - ModelState is "Valid"
+2025-12-01 10:47:50.757 +07:00 [INF] Executed handler method OnGet, returned result .
+2025-12-01 10:47:50.761 +07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-01 10:47:50.761 +07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-01 10:47:51.027 +07:00 [INF] Executed page /Frontend/Index in 277.141ms
+2025-12-01 10:47:51.028 +07:00 [INF] Executed endpoint '/Frontend/Index'
+2025-12-01 10:47:51.038 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - 200 null text/html; charset=utf-8 571.0987ms
+2025-12-01 10:47:51.058 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-01 10:47:51.058 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_vs/browserLink - null null
+2025-12-01 10:47:51.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 5.8893ms
+2025-12-01 10:47:51.392 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_vs/browserLink - 200 null text/javascript; charset=UTF-8 333.7033ms
+2025-12-01 10:47:51.470 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/favicon.ico - null null
+2025-12-01 10:47:51.567 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'D:\Orange\Recruitment\CRM\Recruitment\wwwroot\favicon.ico'
+2025-12-01 10:47:51.567 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/favicon.ico - 200 5430 image/x-icon 97.4001ms
+2025-12-01 10:47:55.698 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Index - null null
+2025-12-01 10:47:55.713 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-12-01 10:47:55.722 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-12-01 10:47:55.723 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Index - 302 0 null 25.3179ms
+2025-12-01 10:47:55.729 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Identity/Account/Login?ReturnUrl=%2FBackend%2FIndex - null null
+2025-12-01 10:47:55.734 +07:00 [INF] Executing endpoint '/Account/Login'
+2025-12-01 10:47:55.753 +07:00 [INF] Route matched with {page = "/Account/Login", area = "Identity"}. Executing page /Account/Login
+2025-12-01 10:47:56.299 +07:00 [INF] Executing handler method Recruitment.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2025-12-01 10:47:56.303 +07:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-12-01 10:47:56.304 +07:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-12-01 10:47:56.304 +07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-01 10:47:56.304 +07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-01 10:47:56.360 +07:00 [INF] Executed page /Account/Login in 606.5242ms
+2025-12-01 10:47:56.360 +07:00 [INF] Executed endpoint '/Account/Login'
+2025-12-01 10:47:56.362 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Identity/Account/Login?ReturnUrl=%2FBackend%2FIndex - 200 null text/html; charset=utf-8 632.9882ms
+2025-12-01 10:47:56.407 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-01 10:47:56.409 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 1.4779ms
+2025-12-01 10:47:56.410 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js - null null
+2025-12-01 10:47:56.410 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Identity/lib/jquery-validation/dist/jquery.validate.js - null null
+2025-12-01 10:47:56.411 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_vs/browserLink - null null
+2025-12-01 10:47:56.417 +07:00 [INF] The file /Identity/lib/jquery-validation/dist/jquery.validate.js was not modified
+2025-12-01 10:47:56.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Identity/lib/jquery-validation/dist/jquery.validate.js - 304 null text/javascript 8.1439ms
+2025-12-01 10:47:56.434 +07:00 [INF] The file /Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js was not modified
+2025-12-01 10:47:56.434 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Identity/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js - 304 null text/javascript 24.591ms
+2025-12-01 10:47:56.443 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.9489ms
+2025-12-01 10:47:56.605 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/assets/img/favicon.png - null null
+2025-12-01 10:47:56.643 +07:00 [INF] Sending file. Request path: '/assets/img/favicon.png'. Physical path: 'D:\Orange\Recruitment\CRM\Recruitment\wwwroot\assets\img\favicon.png'
+2025-12-01 10:47:56.644 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/assets/img/favicon.png - 200 1614 image/png 38.486ms
+2025-12-01 10:48:41.699 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7167/Identity/Account/Login?ReturnUrl=%2FBackend%2FIndex - multipart/form-data; boundary=----WebKitFormBoundaryeyVBZG7CQuBXmbB9 545
+2025-12-01 10:48:41.709 +07:00 [INF] Executing endpoint '/Account/Login'
+2025-12-01 10:48:41.710 +07:00 [INF] Route matched with {page = "/Account/Login", area = "Identity"}. Executing page /Account/Login
+2025-12-01 10:48:41.753 +07:00 [INF] Executing handler method Recruitment.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-12-01 10:48:44.538 +07:00 [INF] Executed DbCommand (130ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-12-01 10:48:44.824 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-12-01 10:48:44.898 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-12-01 10:48:44.914 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[deleteAt], [a].[Name], [a].[NormalizedName], [a].[UpdatedDate]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-12-01 10:48:44.947 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-12-01 10:48:44.952 +07:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-01 10:48:44.962 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-12-01 10:48:44.970 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-12-01 10:48:44.978 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-12-01 10:48:45.000 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__8__locals1_user_Id_0='?' (Size = 450), @__claim_Value_1='?' (Size = 4000), @__claim_Type_2='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__8__locals1_user_Id_0 AND [a].[ClaimValue] = @__claim_Value_1 AND [a].[ClaimType] = @__claim_Type_2
+2025-12-01 10:48:45.019 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-12-01 10:48:45.207 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@p0='?' (DbType = Int32), @p29='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 255), @p3='?' (Size = 4000), @p30='?' (Size = 4000), @p4='?' (Scale = 7) (DbType = DateTimeOffset), @p5='?' (DbType = Int32), @p6='?' (DbType = Int32), @p7='?' (Size = 256), @p8='?' (DbType = Boolean), @p9='?' (Size = 255), @p10='?' (DbType = Int32), @p11='?' (Size = 255), @p12='?' (DbType = Boolean), @p13='?' (DbType = DateTimeOffset), @p14='?' (Size = 256), @p15='?' (Size = 256), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = Boolean), @p19='?' (DbType = Int32), @p20='?' (Size = 255), @p21='?' (Size = 4000), @p22='?' (DbType = Int32), @p23='?' (DbType = Int32), @p24='?' (DbType = DateTime2), @p25='?' (DbType = DateTime2), @p26='?' (DbType = Boolean), @p27='?' (Scale = 7) (DbType = DateTimeOffset), @p28='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUserClaims]
+OUTPUT 1
+WHERE [Id] = @p0;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p1, [address] = @p2, [ConcurrencyStamp] = @p3, [createddate] = @p4, [deleteAt] = @p5, [DepartmentId] = @p6, [Email] = @p7, [EmailConfirmed] = @p8, [firstname] = @p9, [isactive] = @p10, [lastname] = @p11, [LockoutEnabled] = @p12, [LockoutEnd] = @p13, [NormalizedEmail] = @p14, [NormalizedUserName] = @p15, [PasswordHash] = @p16, [PhoneNumber] = @p17, [PhoneNumberConfirmed] = @p18, [Project] = @p19, [rawpassword] = @p20, [SecurityStamp] = @p21, [status_target] = @p22, [target_kpi] = @p23, [targetdate] = @p24, [todate] = @p25, [TwoFactorEnabled] = @p26, [updateddate] = @p27, [UserName] = @p28
+OUTPUT 1
+WHERE [Id] = @p29 AND [ConcurrencyStamp] = @p30;
+2025-12-01 10:48:45.286 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-12-01 10:48:45.313 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 450), @p31='?' (Size = 450), @p3='?' (DbType = Int32), @p4='?' (Size = 255), @p5='?' (Size = 4000), @p32='?' (Size = 4000), @p6='?' (Scale = 7) (DbType = DateTimeOffset), @p7='?' (DbType = Int32), @p8='?' (DbType = Int32), @p9='?' (Size = 256), @p10='?' (DbType = Boolean), @p11='?' (Size = 255), @p12='?' (DbType = Int32), @p13='?' (Size = 255), @p14='?' (DbType = Boolean), @p15='?' (DbType = DateTimeOffset), @p16='?' (Size = 256), @p17='?' (Size = 256), @p18='?' (Size = 4000), @p19='?' (Size = 4000), @p20='?' (DbType = Boolean), @p21='?' (DbType = Int32), @p22='?' (Size = 255), @p23='?' (Size = 4000), @p24='?' (DbType = Int32), @p25='?' (DbType = Int32), @p26='?' (DbType = DateTime2), @p27='?' (DbType = DateTime2), @p28='?' (DbType = Boolean), @p29='?' (Scale = 7) (DbType = DateTimeOffset), @p30='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserClaims] ([ClaimType], [ClaimValue], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p3, [address] = @p4, [ConcurrencyStamp] = @p5, [createddate] = @p6, [deleteAt] = @p7, [DepartmentId] = @p8, [Email] = @p9, [EmailConfirmed] = @p10, [firstname] = @p11, [isactive] = @p12, [lastname] = @p13, [LockoutEnabled] = @p14, [LockoutEnd] = @p15, [NormalizedEmail] = @p16, [NormalizedUserName] = @p17, [PasswordHash] = @p18, [PhoneNumber] = @p19, [PhoneNumberConfirmed] = @p20, [Project] = @p21, [rawpassword] = @p22, [SecurityStamp] = @p23, [status_target] = @p24, [target_kpi] = @p25, [targetdate] = @p26, [todate] = @p27, [TwoFactorEnabled] = @p28, [updateddate] = @p29, [UserName] = @p30
+OUTPUT 1
+WHERE [Id] = @p31 AND [ConcurrencyStamp] = @p32;
+2025-12-01 10:48:45.336 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-12-01 10:48:45.342 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2025-12-01 10:48:45.351 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[deleteAt], [a].[Name], [a].[NormalizedName], [a].[UpdatedDate]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2025-12-01 10:48:45.358 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2025-12-01 10:48:45.359 +07:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-12-01 10:48:45.359 +07:00 [INF] User logged in.
+2025-12-01 10:48:45.360 +07:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2025-12-01 10:48:45.364 +07:00 [INF] Executing LocalRedirectResult, redirecting to /Backend/Summary.
+2025-12-01 10:48:45.364 +07:00 [INF] Executed page /Account/Login in 3654.2277ms
+2025-12-01 10:48:45.364 +07:00 [INF] Executed endpoint '/Account/Login'
+2025-12-01 10:48:45.369 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary - null null
+2025-12-01 10:48:45.370 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7167/Identity/Account/Login?ReturnUrl=%2FBackend%2FIndex - 302 0 null 3671.1347ms
+2025-12-01 10:48:45.381 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:45.389 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:45.390 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGet - ModelState is "Valid"
+2025-12-01 10:48:45.390 +07:00 [INF] Executed handler method OnGet, returned result .
+2025-12-01 10:48:45.390 +07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-01 10:48:45.390 +07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-01 10:48:45.483 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__userid_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[UserId], [a].[RoleId], [a0].[Id], [a0].[ConcurrencyStamp], [a0].[CreatedDate], [a0].[deleteAt], [a0].[Name], [a0].[NormalizedName], [a0].[UpdatedDate]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userid_0
+2025-12-01 10:48:45.527 +07:00 [INF] Executed DbCommand (23ms) [Parameters=[@__FirstOrDefault_r_Name_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[permission], [p].[updateddate], [p].[userid], [p].[create], [p].[createcalendar], [p].[delete], [p].[edit], [p].[editinfo], [p].[editteam], [p].[onlyinfo], [p].[reportinfo], [p].[reportproject], [p].[reporttargetvsachieved], [p].[reportteam], [p].[setting], [p].[viewcalendar], [p].[viewproject], [p].[viewprojectmanage], [p].[viewteam]
+FROM [PermissionSetting] AS [p]
+WHERE [p].[permission] = @__FirstOrDefault_r_Name_0
+2025-12-01 10:48:45.585 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userid_0_contains='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] LIKE @__userid_0_contains ESCAPE N'\'
+2025-12-01 10:48:45.606 +07:00 [INF] Executed page /Backend/Summary in 216.3464ms
+2025-12-01 10:48:45.606 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:45.608 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary - 200 null text/html; charset=utf-8 239.7196ms
+2025-12-01 10:48:45.670 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/js/flatpickr.min.css - null null
+2025-12-01 10:48:45.670 +07:00 [INF] The file /js/flatpickr.min.css was not modified
+2025-12-01 10:48:45.670 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/js/flatpickr.min.css - 304 null text/css 0.4811ms
+2025-12-01 10:48:45.672 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-01 10:48:45.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/js/flatpickr.js - null null
+2025-12-01 10:48:45.682 +07:00 [INF] The file /js/flatpickr.js was not modified
+2025-12-01 10:48:45.682 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/js/flatpickr.js - 304 null text/javascript 11.9781ms
+2025-12-01 10:48:45.683 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 10.8859ms
+2025-12-01 10:48:45.713 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_vs/browserLink - null null
+2025-12-01 10:48:45.862 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_vs/browserLink - 200 null text/javascript; charset=UTF-8 149.1166ms
+2025-12-01 10:48:45.866 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7167/Backend/Summary?handler=Table - application/x-www-form-urlencoded; charset=UTF-8 2056
+2025-12-01 10:48:45.866 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7167/Backend/Summary?handler=Table - application/x-www-form-urlencoded; charset=UTF-8 2056
+2025-12-01 10:48:45.869 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - null null
+2025-12-01 10:48:45.869 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Status - null null
+2025-12-01 10:48:45.869 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:45.869 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:45.870 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:45.870 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:45.870 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Position - null null
+2025-12-01 10:48:45.870 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Company - null null
+2025-12-01 10:48:46.202 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=User&userId=5a72147f-10c6-4c96-a097-ddc7930392ca - null null
+2025-12-01 10:48:46.202 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Notify?handler=Notify - null null
+2025-12-01 10:48:46.206 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnPostTable - ModelState is "Valid"
+2025-12-01 10:48:46.206 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnPostTable - ModelState is "Valid"
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Notify'
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:46.220 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:46.220 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:46.220 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:46.220 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetPosition - ModelState is "Valid"
+2025-12-01 10:48:46.220 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetStatus - ModelState is "Valid"
+2025-12-01 10:48:46.221 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetUser - ModelState is "Valid"
+2025-12-01 10:48:46.220 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:46.221 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:46.221 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetCompany - ModelState is "Valid"
+2025-12-01 10:48:46.224 +07:00 [INF] Route matched with {page = "/Backend/Notify", area = ""}. Executing page /Backend/Notify
+2025-12-01 10:48:46.225 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.NotifyModel.OnGetNotify - ModelState is "Valid"
+2025-12-01 10:48:46.227 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:48:46.227 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetProject - ModelState is "Valid"
+2025-12-01 10:48:46.279 +07:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:48:46.325 +07:00 [INF] Executed handler method OnGetProject, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.343 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Project, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.356 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[createddate], [c].[deleteAt], [c].[name], [c].[status], [c].[updateddate]
+FROM [Company] AS [c]
+2025-12-01 10:48:46.357 +07:00 [INF] Executed handler method OnGetCompany, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.358 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Company, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.360 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:48:46.378 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[typeform], [p].[updateddate]
+FROM [Position] AS [p]
+WHERE [p].[deleteAt] <> 1 OR [p].[deleteAt] IS NULL
+2025-12-01 10:48:46.378 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate], [r0].[id], [r0].[createddate], [r0].[updateddate], [r0].[recruitStatusId], [r0].[typeform]
+FROM [RecruitStatus] AS [r]
+INNER JOIN [RecruitStatusFrom] AS [r0] ON [r].[id] = [r0].[recruitStatusId]
+2025-12-01 10:48:46.378 +07:00 [INF] Executed handler method OnGetUser, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.378 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType49`1[[Recruitment.Areas.Identity.Data.RecruitmentUser, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.403 +07:00 [INF] Executed handler method OnGetPosition, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.403 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+PositionResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.404 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[announcement], [c].[billingcycle], [c].[birthday], [c].[branch], [c].[cause], [c].[companyname], [c].[company], [c].[createddate], [c].[currentaddress], [c].[datestatus], [c].[deleteAt], [c].[documentBank], [c].[documentCDD], [c].[documentHistory], [c].[documentJng], [c].[documentWorkCertification], [c].[email], [c].[emergency_address], [c].[emergency_name], [c].[emergency_related], [c].[emergency_tel], [c].[enddateidcard], [c].[hr_contact], [c].[historyCovidVaccine], [c].[idcard], [c].[idcardaddress], [c].[kpi], [c].[languageability], [c].[languageAbilityOther], [c].[lineid], [c].[marriedstatus], [c].[militarstatus], [c].[nameeng], [c].[nameth], [c].[nationality], [c].[nikname], [c].[notestatus], [c].[notework], [c].[otherspecialability], [c].[position], [c].[prefix], [c].[project], [c].[qualification], [c].[religion], [c].[salary], [c].[start_end_work], [c].[status], [c].[status_end], [c].[status_start], [c].[studylocation], [c].[tel], [c].[type_cdd], [c].[updateddate], [c].[userid], [c].[whocancheck_address], [c].[whocancheck_name], [c].[whocancheck_related], [c].[whocancheck_tel], [c].[workarea], [c].[workOtheprovinces], [c].[workposition], [c].[worksalary]
+FROM [CDD] AS [c]
+2025-12-01 10:48:46.404 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[id], [n].[cdd_id], [n].[createddate], [n].[message], [n].[type], [n].[updateddate], [n].[view], [n].[userid]
+FROM [Notification] AS [n]
+ORDER BY [n].[createddate] DESC
+2025-12-01 10:48:46.459 +07:00 [INF] Executed handler method OnGetNotify, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.459 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Notification, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.462 +07:00 [INF] Executed DbCommand (44ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[announcement], [c].[billingcycle], [c].[birthday], [c].[branch], [c].[cause], [c].[companyname], [c].[company], [c].[createddate], [c].[currentaddress], [c].[datestatus], [c].[deleteAt], [c].[documentBank], [c].[documentCDD], [c].[documentHistory], [c].[documentJng], [c].[documentWorkCertification], [c].[email], [c].[emergency_address], [c].[emergency_name], [c].[emergency_related], [c].[emergency_tel], [c].[enddateidcard], [c].[hr_contact], [c].[historyCovidVaccine], [c].[idcard], [c].[idcardaddress], [c].[kpi], [c].[languageability], [c].[languageAbilityOther], [c].[lineid], [c].[marriedstatus], [c].[militarstatus], [c].[nameeng], [c].[nameth], [c].[nationality], [c].[nikname], [c].[notestatus], [c].[notework], [c].[otherspecialability], [c].[position], [c].[prefix], [c].[project], [c].[qualification], [c].[religion], [c].[salary], [c].[start_end_work], [c].[status], [c].[status_end], [c].[status_start], [c].[studylocation], [c].[tel], [c].[type_cdd], [c].[updateddate], [c].[userid], [c].[whocancheck_address], [c].[whocancheck_name], [c].[whocancheck_related], [c].[whocancheck_tel], [c].[workarea], [c].[workOtheprovinces], [c].[workposition], [c].[worksalary]
+FROM [CDD] AS [c]
+2025-12-01 10:48:46.477 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:48:46.496 +07:00 [INF] Executed page /Backend/Summary in 275.225ms
+2025-12-01 10:48:46.496 +07:00 [INF] Executed page /Backend/Summary in 275.5586ms
+2025-12-01 10:48:46.496 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.496 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.496 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=User&userId=5a72147f-10c6-4c96-a097-ddc7930392ca - 200 null application/json; charset=utf-8 294.5427ms
+2025-12-01 10:48:46.496 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Company - 200 null application/json; charset=utf-8 625.8978ms
+2025-12-01 10:48:46.512 +07:00 [INF] Executed page /Backend/Summary in 291.3343ms
+2025-12-01 10:48:46.512 +07:00 [INF] Executed page /Backend/Report in 284.5544ms
+2025-12-01 10:48:46.512 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.512 +07:00 [INF] Executed page /Backend/Notify in 286.5968ms
+2025-12-01 10:48:46.512 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:48:46.512 +07:00 [INF] Executed endpoint '/Backend/Notify'
+2025-12-01 10:48:46.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - 200 null application/json; charset=utf-8 643.2427ms
+2025-12-01 10:48:46.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Position - 200 null application/json; charset=utf-8 641.5411ms
+2025-12-01 10:48:46.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Notify?handler=Notify - 200 null application/json; charset=utf-8 310.1832ms
+2025-12-01 10:48:46.512 +07:00 [INF] Executed handler method OnGetStatus, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.513 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+RecruitStatusResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.523 +07:00 [INF] Executed page /Backend/Summary in 302.812ms
+2025-12-01 10:48:46.523 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.523 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Status - 200 null application/json; charset=utf-8 654.8206ms
+2025-12-01 10:48:46.552 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - null null
+2025-12-01 10:48:46.552 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Status - null null
+2025-12-01 10:48:46.553 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:48:46.553 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:48:46.553 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:48:46.553 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:48:46.553 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetStatus - ModelState is "Valid"
+2025-12-01 10:48:46.553 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetProject - ModelState is "Valid"
+2025-12-01 10:48:46.563 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate], [r0].[id], [r0].[createddate], [r0].[updateddate], [r0].[recruitStatusId], [r0].[typeform]
+FROM [RecruitStatus] AS [r]
+INNER JOIN [RecruitStatusFrom] AS [r0] ON [r].[id] = [r0].[recruitStatusId]
+2025-12-01 10:48:46.576 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:48:46.579 +07:00 [INF] Executed handler method OnGetStatus, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.579 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+RecruitStatusResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.580 +07:00 [INF] Executed page /Backend/Summary in 26.8864ms
+2025-12-01 10:48:46.580 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.580 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=Status - 200 null application/json; charset=utf-8 28.4093ms
+2025-12-01 10:48:46.605 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:48:46.605 +07:00 [INF] Executed handler method OnGetProject, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.605 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Project, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:48:46.607 +07:00 [INF] Executed page /Backend/Report in 53.5937ms
+2025-12-01 10:48:46.607 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:48:46.607 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - 200 null application/json; charset=utf-8 55.1048ms
+2025-12-01 10:48:46.801 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:48:46.807 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:48:46.813 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:48:46.836 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[permission], [p].[updateddate], [p].[userid], [p].[create], [p].[createcalendar], [p].[delete], [p].[edit], [p].[editinfo], [p].[editteam], [p].[onlyinfo], [p].[reportinfo], [p].[reportproject], [p].[reporttargetvsachieved], [p].[reportteam], [p].[setting], [p].[viewcalendar], [p].[viewproject], [p].[viewprojectmanage], [p].[viewteam]
+FROM [PermissionSetting] AS [p]
+2025-12-01 10:48:46.864 +07:00 [INF] Executed handler method OnPostTable, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.864 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType34`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+SummaryResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-01 10:48:46.872 +07:00 [INF] Executed page /Backend/Summary in 1002.0101ms
+2025-12-01 10:48:46.872 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.872 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7167/Backend/Summary?handler=Table - 200 null application/json; charset=utf-8 1005.6118ms
+2025-12-01 10:48:46.901 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:48:46.907 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:48:46.917 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:48:46.925 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[permission], [p].[updateddate], [p].[userid], [p].[create], [p].[createcalendar], [p].[delete], [p].[edit], [p].[editinfo], [p].[editteam], [p].[onlyinfo], [p].[reportinfo], [p].[reportproject], [p].[reporttargetvsachieved], [p].[reportteam], [p].[setting], [p].[viewcalendar], [p].[viewproject], [p].[viewprojectmanage], [p].[viewteam]
+FROM [PermissionSetting] AS [p]
+2025-12-01 10:48:46.927 +07:00 [INF] Executed handler method OnPostTable, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:48:46.927 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType34`4[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+SummaryResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-01 10:48:46.928 +07:00 [INF] Executed page /Backend/Summary in 1057.8636ms
+2025-12-01 10:48:46.928 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:48:46.928 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7167/Backend/Summary?handler=Table - 200 null application/json; charset=utf-8 1062.3714ms
+2025-12-01 10:49:20.454 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report - null null
+2025-12-01 10:49:20.458 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:20.458 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:20.458 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGet - ModelState is "Valid"
+2025-12-01 10:49:20.458 +07:00 [INF] Executed handler method OnGet, returned result .
+2025-12-01 10:49:20.458 +07:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-12-01 10:49:20.459 +07:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-12-01 10:49:20.477 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userid_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[UserId], [a].[RoleId], [a0].[Id], [a0].[ConcurrencyStamp], [a0].[CreatedDate], [a0].[deleteAt], [a0].[Name], [a0].[NormalizedName], [a0].[UpdatedDate]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userid_0
+2025-12-01 10:49:20.487 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__FirstOrDefault_r_Name_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[permission], [p].[updateddate], [p].[userid], [p].[create], [p].[createcalendar], [p].[delete], [p].[edit], [p].[editinfo], [p].[editteam], [p].[onlyinfo], [p].[reportinfo], [p].[reportproject], [p].[reporttargetvsachieved], [p].[reportteam], [p].[setting], [p].[viewcalendar], [p].[viewproject], [p].[viewprojectmanage], [p].[viewteam]
+FROM [PermissionSetting] AS [p]
+WHERE [p].[permission] = @__FirstOrDefault_r_Name_0
+2025-12-01 10:49:20.533 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@__userid_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[UserId], [a].[RoleId], [a0].[Id], [a0].[ConcurrencyStamp], [a0].[CreatedDate], [a0].[deleteAt], [a0].[Name], [a0].[NormalizedName], [a0].[UpdatedDate]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userid_0
+2025-12-01 10:49:20.541 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__FirstOrDefault_r_Name_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[permission], [p].[updateddate], [p].[userid], [p].[create], [p].[createcalendar], [p].[delete], [p].[edit], [p].[editinfo], [p].[editteam], [p].[onlyinfo], [p].[reportinfo], [p].[reportproject], [p].[reporttargetvsachieved], [p].[reportteam], [p].[setting], [p].[viewcalendar], [p].[viewproject], [p].[viewprojectmanage], [p].[viewteam]
+FROM [PermissionSetting] AS [p]
+WHERE [p].[permission] = @__FirstOrDefault_r_Name_0
+2025-12-01 10:49:20.548 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userid_0_contains='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] LIKE @__userid_0_contains ESCAPE N'\'
+2025-12-01 10:49:20.739 +07:00 [INF] Executed page /Backend/Report in 280.8157ms
+2025-12-01 10:49:20.739 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:20.739 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report - 200 null text/html; charset=utf-8 285.5377ms
+2025-12-01 10:49:20.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_vs/browserLink - null null
+2025-12-01 10:49:20.836 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - null null
+2025-12-01 10:49:20.838 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_framework/aspnetcore-browser-refresh.js - 200 16507 application/javascript; charset=utf-8 1.218ms
+2025-12-01 10:49:20.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.1776ms
+2025-12-01 10:49:20.867 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Summary?handler=User&userId=5a72147f-10c6-4c96-a097-ddc7930392ca - null null
+2025-12-01 10:49:20.867 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=User - null null
+2025-12-01 10:49:20.879 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Notify?handler=Notify - null null
+2025-12-01 10:49:20.880 +07:00 [INF] Executing endpoint '/Backend/Summary'
+2025-12-01 10:49:20.880 +07:00 [INF] Executing endpoint '/Backend/Notify'
+2025-12-01 10:49:20.880 +07:00 [INF] Route matched with {page = "/Backend/Summary", area = ""}. Executing page /Backend/Summary
+2025-12-01 10:49:20.880 +07:00 [INF] Route matched with {page = "/Backend/Notify", area = ""}. Executing page /Backend/Notify
+2025-12-01 10:49:20.880 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=RecruitmentStatus - null null
+2025-12-01 10:49:20.880 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.NotifyModel.OnGetNotify - ModelState is "Valid"
+2025-12-01 10:49:20.880 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.SummaryModel.OnGetUser - ModelState is "Valid"
+2025-12-01 10:49:20.883 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:20.883 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:20.886 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetRecruitmentStatus - ModelState is "Valid"
+2025-12-01 10:49:20.887 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:20.887 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:20.888 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetUser - ModelState is "Valid"
+2025-12-01 10:49:20.893 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:49:20.900 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:20.902 +07:00 [INF] Executed handler method OnGetRecruitmentStatus, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:20.902 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.RecruitStatus, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:49:20.902 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [n].[id], [n].[cdd_id], [n].[createddate], [n].[message], [n].[type], [n].[updateddate], [n].[view], [n].[userid]
+FROM [Notification] AS [n]
+ORDER BY [n].[createddate] DESC
+2025-12-01 10:49:20.903 +07:00 [INF] Executed handler method OnGetUser, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:20.903 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType49`1[[Recruitment.Areas.Identity.Data.RecruitmentUser, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:49:20.903 +07:00 [INF] Executed page /Backend/Summary in 23.2167ms
+2025-12-01 10:49:20.903 +07:00 [INF] Executed endpoint '/Backend/Summary'
+2025-12-01 10:49:20.904 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Summary?handler=User&userId=5a72147f-10c6-4c96-a097-ddc7930392ca - 200 null application/json; charset=utf-8 36.188ms
+2025-12-01 10:49:20.904 +07:00 [INF] Executed handler method OnGetNotify, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:20.905 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Notification, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:49:20.921 +07:00 [INF] Executed page /Backend/Report in 37.2149ms
+2025-12-01 10:49:20.921 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:20.921 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=RecruitmentStatus - 200 null application/json; charset=utf-8 41.0936ms
+2025-12-01 10:49:20.924 +07:00 [INF] Executed page /Backend/Notify in 43.628ms
+2025-12-01 10:49:20.924 +07:00 [INF] Executed endpoint '/Backend/Notify'
+2025-12-01 10:49:20.930 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Notify?handler=Notify - 200 null application/json; charset=utf-8 50.7704ms
+2025-12-01 10:49:20.960 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[address] AS [Address], [a0].[createddate] AS [CreatedDate], [a0].[deleteAt] AS [DeleteAt], [a0].[DepartmentId], [a0].[firstname] AS [Firstname], [a0].[isactive] AS [IsActive], [a0].[lastname] AS [Lastname], [a0].[Project], [a0].[rawpassword] AS [RawPassword], [a0].[updateddate] AS [UpdatedDate], [a1].[Id] AS [RoleId], [a0].[Id] AS [UserId]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetUsers] AS [a0] ON [a].[UserId] = [a0].[Id]
+INNER JOIN [AspNetRoles] AS [a1] ON [a].[RoleId] = [a1].[Id]
+2025-12-01 10:49:20.964 +07:00 [INF] Executed handler method OnGetUser, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:20.964 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+GroupUserResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:49:20.968 +07:00 [INF] Executed page /Backend/Report in 80.0628ms
+2025-12-01 10:49:20.968 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:20.968 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=User - 200 null application/json; charset=utf-8 100.5331ms
+2025-12-01 10:49:21.013 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - null null
+2025-12-01 10:49:21.014 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:21.014 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:21.014 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetProject - ModelState is "Valid"
+2025-12-01 10:49:21.020 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:49:21.021 +07:00 [INF] Executed handler method OnGetProject, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:21.021 +07:00 [INF] Executing JsonResult, writing value of type 'System.Collections.Generic.List`1[[Recruitment.Areas.Identity.Data.Project, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-12-01 10:49:21.022 +07:00 [INF] Executed page /Backend/Report in 8.6332ms
+2025-12-01 10:49:21.022 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:21.023 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=Project - 200 null application/json; charset=utf-8 9.9048ms
+2025-12-01 10:49:33.841 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7167/Backend/Report?handler=Table - application/x-www-form-urlencoded; charset=UTF-8 1966
+2025-12-01 10:49:33.842 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:33.842 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:33.842 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7167/Backend/Report?handler=Table - application/x-www-form-urlencoded; charset=UTF-8 1511
+2025-12-01 10:49:33.843 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:33.843 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:33.844 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7167/Backend/Report?handler=ChartData&start=2025-09-01&to=2025-12-31&type=4&userid=&Status=-1 - null null
+2025-12-01 10:49:33.844 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnPostTable - ModelState is "Valid"
+2025-12-01 10:49:33.844 +07:00 [INF] Executing endpoint '/Backend/Report'
+2025-12-01 10:49:33.844 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnPostTable - ModelState is "Valid"
+2025-12-01 10:49:33.844 +07:00 [INF] Route matched with {page = "/Backend/Report", area = ""}. Executing page /Backend/Report
+2025-12-01 10:49:33.845 +07:00 [INF] Executing handler method Recruitment.Pages.Backend.ReportModel.OnGetChartData - ModelState is "Valid"
+2025-12-01 10:49:33.879 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[announcement], [c].[billingcycle], [c].[birthday], [c].[branch], [c].[cause], [c].[companyname], [c].[company], [c].[createddate], [c].[currentaddress], [c].[datestatus], [c].[deleteAt], [c].[documentBank], [c].[documentCDD], [c].[documentHistory], [c].[documentJng], [c].[documentWorkCertification], [c].[email], [c].[emergency_address], [c].[emergency_name], [c].[emergency_related], [c].[emergency_tel], [c].[enddateidcard], [c].[hr_contact], [c].[historyCovidVaccine], [c].[idcard], [c].[idcardaddress], [c].[kpi], [c].[languageability], [c].[languageAbilityOther], [c].[lineid], [c].[marriedstatus], [c].[militarstatus], [c].[nameeng], [c].[nameth], [c].[nationality], [c].[nikname], [c].[notestatus], [c].[notework], [c].[otherspecialability], [c].[position], [c].[prefix], [c].[project], [c].[qualification], [c].[religion], [c].[salary], [c].[start_end_work], [c].[status], [c].[status_end], [c].[status_start], [c].[studylocation], [c].[tel], [c].[type_cdd], [c].[updateddate], [c].[userid], [c].[whocancheck_address], [c].[whocancheck_name], [c].[whocancheck_related], [c].[whocancheck_tel], [c].[workarea], [c].[workOtheprovinces], [c].[workposition], [c].[worksalary]
+FROM [CDD] AS [c]
+2025-12-01 10:49:33.898 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[announcement], [c].[billingcycle], [c].[birthday], [c].[branch], [c].[cause], [c].[companyname], [c].[company], [c].[createddate], [c].[currentaddress], [c].[datestatus], [c].[deleteAt], [c].[documentBank], [c].[documentCDD], [c].[documentHistory], [c].[documentJng], [c].[documentWorkCertification], [c].[email], [c].[emergency_address], [c].[emergency_name], [c].[emergency_related], [c].[emergency_tel], [c].[enddateidcard], [c].[hr_contact], [c].[historyCovidVaccine], [c].[idcard], [c].[idcardaddress], [c].[kpi], [c].[languageability], [c].[languageAbilityOther], [c].[lineid], [c].[marriedstatus], [c].[militarstatus], [c].[nameeng], [c].[nameth], [c].[nationality], [c].[nikname], [c].[notestatus], [c].[notework], [c].[otherspecialability], [c].[position], [c].[prefix], [c].[project], [c].[qualification], [c].[religion], [c].[salary], [c].[start_end_work], [c].[status], [c].[status_end], [c].[status_start], [c].[studylocation], [c].[tel], [c].[type_cdd], [c].[updateddate], [c].[userid], [c].[whocancheck_address], [c].[whocancheck_name], [c].[whocancheck_related], [c].[whocancheck_tel], [c].[workarea], [c].[workOtheprovinces], [c].[workposition], [c].[worksalary]
+FROM [CDD] AS [c]
+2025-12-01 10:49:33.905 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[announcement], [c].[billingcycle], [c].[birthday], [c].[branch], [c].[cause], [c].[companyname], [c].[company], [c].[createddate], [c].[currentaddress], [c].[datestatus], [c].[deleteAt], [c].[documentBank], [c].[documentCDD], [c].[documentHistory], [c].[documentJng], [c].[documentWorkCertification], [c].[email], [c].[emergency_address], [c].[emergency_name], [c].[emergency_related], [c].[emergency_tel], [c].[enddateidcard], [c].[hr_contact], [c].[historyCovidVaccine], [c].[idcard], [c].[idcardaddress], [c].[kpi], [c].[languageability], [c].[languageAbilityOther], [c].[lineid], [c].[marriedstatus], [c].[militarstatus], [c].[nameeng], [c].[nameth], [c].[nationality], [c].[nikname], [c].[notestatus], [c].[notework], [c].[otherspecialability], [c].[position], [c].[prefix], [c].[project], [c].[qualification], [c].[religion], [c].[salary], [c].[start_end_work], [c].[status], [c].[status_end], [c].[status_start], [c].[studylocation], [c].[tel], [c].[type_cdd], [c].[updateddate], [c].[userid], [c].[whocancheck_address], [c].[whocancheck_name], [c].[whocancheck_related], [c].[whocancheck_tel], [c].[workarea], [c].[workOtheprovinces], [c].[workposition], [c].[worksalary]
+FROM [CDD] AS [c]
+2025-12-01 10:49:34.086 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:34.112 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[firstname] AS [Firstname], [a].[lastname] AS [Lastname], [a1].[Name] AS [Permission], [a].[deleteAt] AS [DeleteAt], [a].[target_kpi] AS [Target], [a].[targetdate] AS [Targetdate], [a].[todate] AS [Todate], [a].[Project]
+FROM [AspNetUsers] AS [a]
+LEFT JOIN [AspNetUserRoles] AS [a0] ON [a].[Id] = [a0].[UserId]
+LEFT JOIN [AspNetRoles] AS [a1] ON [a0].[RoleId] = [a1].[Id]
+WHERE [a].[deleteAt] <> 1 OR [a].[deleteAt] IS NULL
+2025-12-01 10:49:34.118 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:49:34.120 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:49:34.125 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:49:34.136 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:34.136 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:44.172 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[AccessFailedCount], [a].[address], [a].[ConcurrencyStamp], [a].[createddate], [a].[deleteAt], [a].[DepartmentId], [a].[Email], [a].[EmailConfirmed], [a].[firstname], [a].[isactive], [a].[lastname], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[Project], [a].[rawpassword], [a].[SecurityStamp], [a].[status_target], [a].[target_kpi], [a].[targetdate], [a].[todate], [a].[TwoFactorEnabled], [a].[updateddate], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+2025-12-01 10:49:44.173 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:44.174 +07:00 [INF] Executed handler method OnGetChartData, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:44.174 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType39`3[[System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Nullable`1[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-01 10:49:44.177 +07:00 [INF] Executed page /Backend/Report in 10332.7236ms
+2025-12-01 10:49:44.177 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:44.177 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7167/Backend/Report?handler=ChartData&start=2025-09-01&to=2025-12-31&type=4&userid=&Status=-1 - 200 null application/json; charset=utf-8 10333.9145ms
+2025-12-01 10:49:44.179 +07:00 [INF] Executed handler method OnPostTable, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:44.179 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType42`1[[System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+ReportResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-01 10:49:44.191 +07:00 [INF] Executed page /Backend/Report in 10347.7087ms
+2025-12-01 10:49:44.191 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:44.191 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7167/Backend/Report?handler=Table - 200 null application/json; charset=utf-8 10348.903ms
+2025-12-01 10:49:44.522 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:44.532 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[firstname] AS [Firstname], [a].[lastname] AS [Lastname], [a1].[Name] AS [Permission], [a].[deleteAt] AS [DeleteAt], [a].[target_kpi] AS [Target], [a].[targetdate] AS [Targetdate], [a].[todate] AS [Todate], [a].[Project]
+FROM [AspNetUsers] AS [a]
+LEFT JOIN [AspNetUserRoles] AS [a0] ON [a].[Id] = [a0].[UserId]
+LEFT JOIN [AspNetRoles] AS [a1] ON [a0].[RoleId] = [a1].[Id]
+WHERE [a].[deleteAt] <> 1 OR [a].[deleteAt] IS NULL
+2025-12-01 10:49:44.542 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id], [p].[createddate], [p].[deleteAt], [p].[name], [p].[status], [p].[updateddate]
+FROM [Project] AS [p]
+2025-12-01 10:49:44.557 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:44.568 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[id], [r].[createddate], [r].[deleteAt], [r].[name], [r].[status], [r].[updateddate]
+FROM [RecruitStatus] AS [r]
+2025-12-01 10:49:44.570 +07:00 [INF] Executed handler method OnPostTable, returned result Microsoft.AspNetCore.Mvc.JsonResult.
+2025-12-01 10:49:44.570 +07:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType42`1[[System.Collections.Generic.List`1[[Recruitment.Models.ResponseDTO+ReportResponse, Recruitment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-12-01 10:49:44.571 +07:00 [INF] Executed page /Backend/Report in 10728.7305ms
+2025-12-01 10:49:44.572 +07:00 [INF] Executed endpoint '/Backend/Report'
+2025-12-01 10:49:44.573 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7167/Backend/Report?handler=Table - 200 null application/json; charset=utf-8 10732.0986ms

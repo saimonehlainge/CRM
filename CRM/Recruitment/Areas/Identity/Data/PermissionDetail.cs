@@ -1,0 +1,28 @@
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Recruitment.Areas.Identity.Data
+{
+    public class PermissionDetail
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("Id")]
+        public int Id { get; set; }
+
+        [Column("name", TypeName = "nvarchar(255)")]
+        public string? Name { get; set; }
+
+        [Column("status")] // สถานะข้อมูล 
+        public int? Status { get; set; }
+
+        [Column("createddate", TypeName = "datetimeoffset(7)")]
+        public DateTimeOffset? CreatedDate { get; set; }
+
+        [Column("updateddate", TypeName = "datetimeoffset(7)")]
+        public DateTimeOffset? UpdatedDate { get; set; }
+
+        [Column("deleteAt")] // สถานะการลบข้อมูล
+        public int? DeleteAt { get; set; }
+    }
+}

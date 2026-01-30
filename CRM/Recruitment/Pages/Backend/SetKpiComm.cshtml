@@ -1,0 +1,555 @@
+﻿@page
+@model Recruitment.Pages.Backend.SetKpiCommModel
+@using Recruitment.Helpers
+@inject Recruitment.Repositories.IUnitOfWork _unitofwork;
+@{
+    ViewData["Title"] = "SetKpiComm";
+    Layout = "_Layout_Backend";
+
+    var (userid, roles, _, department) = User.GetUser();
+    var permission = await _unitofwork.PermissionSettingRepository.GetPermission(userid);
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Master Data</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Master Data</a></li>
+                        <li class="breadcrumb-item active">JobPosition</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    @if (permission?.FirstOrDefault()?.create == true)
+                    {
+                        <div class="text-end" style="margin-right:20px;margin-top:20px">
+                            <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Project</th>
+                                        <th>Set kPI (Days)</th>
+                                        <th>Guarantee (Days)</th>
+                                        <th>Comm</th>
+                                        <th>KPI</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">เพิ่มข้อมูล</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="AddForm" enctype="multipart/form-data">
+                    <div class="col-lg-12 row">
+                        <div class="mb-3 mt-3 col-4">
+                            <label class="form-label">Project</label>
+                            <select class="form-control js-example-basic-single" name="Project" id="Project"></select>
+                        </div>
+
+                        <div class="mb-3 mt-3 col-4">
+                            <label class="form-label">Set Kpi (Day)</label>
+                            <input class="form-control" name="SetKpi_Day" />
+                        </div>
+
+                        <div class="mb-3 mt-3 col-4">
+                            <label class="form-label">Guarantee (Days)</label>
+                            <input class="form-control" name="GuaranteeDay" />
+                        </div>
+
+                        <div class="mb-3 mt-3 col-4">
+                            <label class="form-label">Comm</label>
+                            <input class="form-control" name="Comm" />
+                        </div>
+
+                        <div class="mb-3 mt-3 col-4">
+                            <label class="form-label">Kpi</label>
+                            <input class="form-control" name="Kpi" />
+                        </div>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rank" name="Rank" onclick="checkSwitchrank()">
+                        <label class="form-check-label" for="rank">ตาม Rank Salary</label>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="Status" name="Status" onclick="checkSwitch()">
+                        <label class="form-check-label" for="Status">IsActive</label>
+                    </div>
+
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">ปิด</button>
+                    <button class="btn btn-sm btn-primary" onclick="submit_add()">เพิ่มข้อมูล</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Edit-->
+<div class="modal" id="exampleEditModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">แก้ไขข้อมูล</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="EditForm" enctype="multipart/form-data">
+                    <div class="col-lg-12 row">
+                        <div class="col-md-4">
+                            <label class="form-label">Project</label>
+                            <select class="form-control js-example-basic-single" name="Project" id="EditProject"></select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Set Kpi (Day)</label>
+                            <input class="form-control" name="SetKpi_Day" id="SetKpi_Day" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Guarantee (Days)</label>
+                            <input class="form-control" name="GuaranteeDay" id="GuaranteeDay" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Comm</label>
+                            <input class="form-control" name="Comm" id="Comm" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Kpi</label>
+                            <input class="form-control" name="Kpi" id="Kpi" />
+                        </div>
+
+                        <div id="checkrack"></div>
+                        <div id="check"></div>
+
+                        <input type="hidden" id="Editid" name="Id" />
+
+                    </div>
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">ปิด</button>
+                    <button class="btn btn-sm btn-primary" onclick="submit_edit()">แก้ไขข้อมูล</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(() => {
+            oTable = $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: true,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true,
+                ajax: {
+                    type: "post",
+                    url: "/Backend/SetKpiComm?handler=Table",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                },
+                columns: [
+                    { 'data': 'id', name: 'id' },
+                    { 'data': 'project', name: 'project' },
+                    { 'data': 'setKpi_Day', name: 'setKpi_Day' },
+                    { 'data': 'guaranteeDay', name: 'guaranteeDay' },
+                    { 'data': 'comm', name: 'comm' },
+                    { 'data': 'kpi', name: 'kpi' },
+                    {
+                        'data': 'status', name: 'status',
+                        render: function (data, type, row) {
+                            var status = '';
+                            if (data == 1) {
+                                status = 'ใช้งาน';
+                            }
+                            else {
+                                status = 'ไม่ใช้งาน';
+                            }
+                            return status;
+                        }
+                    },
+                    {
+                        'data': 'id',
+                        render: function (data, type, row) {
+                            var result = '<center>';
+                                let edit = '@permission?.FirstOrDefault()?.edit';
+                                if (edit)
+                                {
+                                    result += '&emsp;<a class="btn btn-sm btn-warning" onclick="update(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#exampleEditModal"><i class="fa fa-edit" style="color:white"></i></a>';
+                                }
+
+                                let deletes = '@permission?.FirstOrDefault()?.delete';
+                                if(deletes)
+                                {
+                                    result += '&emsp;<a class="btn btn-sm btn-danger" onclick="change_delete(\'' + data + '\')"><i class="fa fa-trash" style="color:white"></a>';
+                                }
+                                result += '</center>';
+
+                            return result;
+                        }
+                    }
+                ],
+            });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            oTable.on('order.dt search.dt', function () {
+                let i = 1;
+                oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                    .every(function (cell) {
+                        this.data(i++);
+                    });
+            }).draw();
+
+            Project();
+        })
+
+        function Project(id)
+        {
+             if (id != undefined) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/SetKpiComm?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            var selected = '';
+                            if(c.id == id)
+                            {
+                                selected = 'selected';
+                            }
+                            s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                        });
+                        $("#EditProject").html(s);
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                 $.ajax({
+                    type: 'get',
+                    url: '/Backend/SetKpiComm?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#Project").html(s);
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            $(".js-example-basic-single").select2();
+        }
+
+        var check = 0;
+        function checkSwitch() {
+            if (document.getElementById("Status").checked == true) {
+                check = 1;
+            }
+            else {
+                check = 0;
+            }
+            $("#Status").val(check);
+        }
+
+        var check1 = 0;
+        function checkSwitchEdit() {
+            if (document.getElementById("EditStatus").checked == true) {
+                check1 = 1;
+            }
+            else {
+                check1 = 0;
+            }
+            $("#EditStatus").val(check1);
+        }
+
+        var check_rank = 0;
+        function checkSwitchrank() {
+            if (document.getElementById("rank").checked == true) {
+                check_rank = 1;
+            }
+            else {
+                check_rank = 0;
+            }
+            console.log(check_rank)
+            $("#rank").val(check_rank);
+        }
+
+        var check_rankedit = 0;
+        function checkSwitchrankedit() {
+            if (document.getElementById("editrank").checked == true) {
+                check_rankedit = 1;
+            }
+            else {
+                check_rankedit = 0;
+            }
+            console.log(check_rankedit)
+            $("#editrank").val(check_rankedit);
+        }
+
+        function submit_add() {
+            var forms = $('#AddForm')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/SetKpiComm?handler=AddData',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+                       setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+
+        function update(id) {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/SetKpiComm?handler=SetKpiComm',
+                data: { Id: id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#SetKpi_Day").val(data.setKpi_Day);
+                    $("#GuaranteeDay").val(data.guaranteeDay);
+                    $("#Comm").val(data.comm);
+                    $("#Kpi").val(data.kpi);
+                    $("#Editid").val(data.id);
+                    Project(data.project)
+                    var check = '';
+                    if (data.status == 1) {
+                        check = '<div class="form-group form-check">' +
+                            '<input type="checkbox" class="form-check-input" id="EditStatus" name="Status" value=' + data.status + ' checked  onclick="checkSwitchEdit()">' +
+                            '<label class="form-check-label" for= "EditStatus"> IsActive </label>' +
+                            '</div>';
+                    }
+                    else {
+                        check = '<div class="form-group form-check">' +
+                            '<input type="checkbox" class="form-check-input" id="EditStatus" name="Status" onclick="checkSwitchEdit()">' +
+                            '<label class="form-check-label" for= "EditStatus"> IsActive </label>' +
+                            '</div>';
+                    }
+                    $("#check").html(check);
+
+                    var rank = '';
+                    if(data.rank == 1)
+                    {
+                        rank = '<div class="form-group form-check">' +
+                            '<input type="checkbox" class="form-check-input" id="editrank" name="Rank" checked onclick="checkSwitchrankedit()">' +
+                            '<label class="form-check-label" for="editrank">ตาม Rank Salary</label>' +
+                        '</div>';
+                    }
+                    else
+                    {
+                         rank = '<div class="form-group form-check">' +
+                            '<input type="checkbox" class="form-check-input" id="editrank" name="Rank" onclick="checkSwitchrankedit()">' +
+                            '<label class="form-check-label" for="editrank">ตาม Rank Salary</label>' +
+                        '</div>';
+                    }
+                    $("#checkrack").html(rank);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function submit_edit() {
+            var forms = $('#EditForm')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/SetKpiComm?handler=EditData',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+                        setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                    } else if (data == 2) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+
+          function change_delete(id) {
+            Swal.fire({
+                title: 'คุณต้องการเปลื่ยนการใช้งานนี้ ใช่หรือไม่',
+                showDenyButton: true,
+                confirmButtonText: 'ok',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'get',
+                        url: '/Backend/SetKpiComm?handler=DeleteData',
+                        data: { Id: id },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        beforeSend: function () {
+                            Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                            Swal.showLoading()
+                        },
+                        success: function (data) {
+                            if (data == 1) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                    showConfirmButton: false,
+                                    timer: 3500
+                                });
+                                setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                            } else if (data == 2) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เกิดข้อผิดพลาด',
+                                    text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                })
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เกิดข้อผิดพลาด',
+                                    text: 'ข้อมูลรายการนี้เปิดใช้งานอยู่แล้ว',
+                                })
+                            }
+                        },
+                        error: (e) => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'เกิดข้อผิดพลาดกับระบบ',
+                                text: 'กรุณาติดต่อแอดมิน',
+                            })
+                        }
+                    });
+                }
+            })
+        }
+    </script>
+}

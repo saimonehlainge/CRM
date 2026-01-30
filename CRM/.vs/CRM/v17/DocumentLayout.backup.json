@@ -1,0 +1,248 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Orange\\Recruitment\\CRM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\report.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\report.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 142,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:146:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:147:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:148:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Summary.cshtml.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "ViewState": "AgIAANQAAAAAAAAAAAAqwOoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T02:38:32.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Index.cshtml",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Index.cshtml",
+              "ViewState": "AgIAACAAAAAAAAAAAAAowDIAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-17T02:41:37.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:19:10.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsersRepository.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
+              "RelativeDocumentMoniker": "Recruitment\\Repositories\\UsersRepository.cs",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
+              "RelativeToolTip": "Recruitment\\Repositories\\UsersRepository.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAcwC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T02:08:02.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Summary.cshtml",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "ViewState": "AgIAABoCAAAAAAAAAADwvycCAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-18T03:11:19.764Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 132,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Report.cshtml",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Report.cshtml",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Report.cshtml",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Report.cshtml",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Report.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAPsBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-18T02:14:43.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Report.cshtml.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Report.cshtml.cs",
+              "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Report.cshtml.cs",
+              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Report.cshtml.cs",
+              "RelativeToolTip": "Recruitment\\Pages\\Backend\\Report.cshtml.cs",
+              "ViewState": "AgIAAIsFAAAAAAAAAAA2wDUJAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-12T02:42:04.558Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+﻿@page
+@model Recruitment.Pages.Backend.NotifyModel
+@{
+    ViewData["Title"] = "Notify";
+    Layout = "_Layout_Backend";
+}
+
+<div class="page-wrapper cardhead">
+    <div class="content container-fluid">
+		<div class="page-header">
+			<div class="row">
+				<div class="col">
+					<h3 class="page-title">AppSetting</h3>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item"><a href="#">AppSetting</a></li>
+						<li class="breadcrumb-item active">Notify</li>
+					</ul>
+				</div>
+			</div>
+		</div>				
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="card">
+					<div class="card-header">
+						<h5 class="card-title">Setting Notify</h5>
+					</div>
+					<div class="card-body">
+						<form action="#">
+							<div class="form-group row">
+								<label class="col-form-label col-md-2">Text Input</label>
+								<div class="col-md-10">
+									<input type="text" class="form-control">
+								</div>
+							</div>						
+						</form>
+						<div class="text-end" style="margin-right:20px;margin-top:20px">
+							<a class="btn btn-sm btn-success" onclick="submit_edit()">Add</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+@section Scripts
+{
+    <script>
+
+	</script>
+}

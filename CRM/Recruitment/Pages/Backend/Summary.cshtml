@@ -1,0 +1,1308 @@
+﻿@page
+@model Recruitment.Pages.Backend.SummaryModel
+@using Recruitment.Helpers
+@inject IConfiguration Configuration
+@{
+    ViewData["Title"] = "Summary";
+    Layout = "_Layout_Backend";
+    var (userid, roles, _, department) = User.GetUser();
+
+    var Frontend = Configuration.GetSection("LinkWeb")["Frontend"];
+
+    var formA = Frontend + "Frontend/CDD_A?Id=" + userid;
+    var formB = Frontend + "Frontend/CDD_B?Id=" + userid;
+    var formC = Frontend + "Frontend/CDD_C?Id=" + userid;
+    var formD = Frontend + "Frontend/CDD_D?Id=" + userid;
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Summary</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                        <li class="breadcrumb-item active">Data Tables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <form id="SendFrom">
+                        <div class="card-header col-lg-12 row">
+                            <div class="col-md-6">
+                                <h4 class="card-title">ชื่อ</h4>
+                                <input class="form-control" placeholder="ค้นหารายละเอียดพนักงาน" id="firstname" />
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="card-title">นามสกุล</h4>
+                                <input class="form-control" placeholder="ค้นหารายละเอียดพนักงาน" id="lastname" />
+                            </div>
+                            @if (department != "3")
+                            {
+                                if (roles != "project owner")
+                                {
+                                    <div class="col-md-6" style="margin-top:10px">
+                                        <h4 class="card-title">โปรเจค</h4>
+                                        <select class="form-control js-example-basic-single" id="project"></select>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-6" style="margin-top:10px">
+                                        <h4 class="card-title">โปรเจค</h4>
+                                        <label class="form-control" id="project_owner"></label>
+                                    </div>
+                                }
+                            }
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">สถานะ</h4>
+                                <select class="form-control js-example-basic-single" id="Status"></select>
+                            </div>
+                            @if (department == "3")
+                            {
+                                <div class="col-md-6" style="margin-top:10px">
+                                    <h4 class="card-title">บริษัท</h4>
+                                    <select class="form-control js-example-basic-single" id="Company"></select>
+                                </div>
+                            }
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">ตำแหน่ง</h4>
+                                <select class="form-control js-example-basic-single" id="Position"></select>
+                            </div>
+                            @* 
+                            <div class="col-md-6 row" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">เริ่มวันที่</h4>
+                                    <input type="date" class="form-control" placeholder="ค้นหาวันที่" id="startdate" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="card-title">ถึงวันที่</h4>
+                                    <input type="date" class="form-control" placeholder="ค้นหาวันที่" id="enddate" />
+                                </div>
+                            </div> *@
+
+                            <div class="col-md-6 row" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">เริ่มวันที่</h4>
+                                    <div class="input-group" id="startdate_wrapper">
+                                        <input class="form-control" type="text" id="startdate" placeholder="dd/mm/yyyy" />
+                                        <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <input type="hidden" id="startdate_hidden" name="startdate" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h4 class="card-title">ถึงวันที่</h4>
+                                    <div class="input-group" id="enddate_wrapper">
+                                        <input class="form-control" type="text" id="enddate" placeholder="dd/mm/yyyy" />
+                                        <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <input type="hidden" id="enddate_hidden" name="enddate" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 row" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">เดือน</h4>
+                                    <select class="form-control" id="month">
+                                        <option value="-1">กรุณาเลือกรายการ</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="card-title">ปี</h4>
+                                    <input class="form-control" placeholder="กรุณาระบุปี" id="year" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-end" style="margin-right:20px">
+                        <a class="btn btn-sm btn-success" onclick="Search()">Search</a>
+                        <a class="btn btn-sm btn-success" onclick="Reset()">Reset</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-end">
+                            <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#LinkForm" onclick="form_user()">ส่งลิงก์สำหรับผู้สมัคร</a>
+                            @if (roles == "project owner" || roles == "admin")
+                            {
+                                <a class="btn btn-sm btn-success" asp-page="/Backend/SectionCDD"> Section Port</a>
+                                <a class="btn btn-sm btn-success" asp-page="/Backend/FlowSummary"> สำหรับหัวหน้าพอร์ท</a>
+                            }
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>recruit</th>
+                                        <th>CDD Name</th>
+                                        <th>Nickname</th>
+                                        <th>Tel</th>
+                                        <th>Project</th>
+                                        <th>KPI</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ChangeStatus-->
+<div id="ChangeStatus" class="modal custom-modal fade" role="dialog">
+    <div class="modal-xl modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">แก้ไขข้อมูล ผู้สมัครงาน</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="ChangeCDD" enctype="multipart/form-data">
+                    <div class="col-lg-12 row">
+                        <div class="col-md-6 form-group">
+                            <label>recruit </label>
+                            <select class="form-control js-example-basic-single" id="recruit" name="userid"></select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Project </label>
+                            <select class="form-control js-example-basic-single" name="Project" id="Editproject"></select>
+                        </div>
+                        <div class="col-md-6 form-group" id="showkpi" style="display:none">
+                            <label>KPI </label>
+                            <input class="form-control" name="KPI" id="getkpi" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>สถานะ ก่อนเปลื่ยน</label>
+                            <label class="form-control" id="oldstatus"></label>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>เปลื่ยน สถานะ</label>
+                            <select class="form-control js-example-basic-single" id="RecruitStatus" name="Status" onchange="OnChangeShowKpi()"></select>
+                        </div>
+                        @* <div class="col-md-6 form-group">
+                            <label>วันที่ Success</label>
+                            <input type="date" class="form-control" name="datestatus" id="datestatus" />
+                        </div> *@
+
+                         <div class="col-md-6" style="margin-top:10px">
+                            <label>วันที่ Success</label>
+                            <div class="input-group" id="datestatus_wrapper">
+                                <input class="form-control" type="text" id="datestatus" name="datestatus" placeholder="dd/mm/yyyy" required/>
+                                <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                            </div>
+                            <input type="hidden" id="datestatus_hidden" name="datestatus" />
+                        </div>
+
+                        <div class="col-md-6 form-group" id="ShowOut" style="display:none">
+                            <label>สาเหตุเด็กหลุด</label>
+                            <select class="form-control js-example-basic-single" id="DataOut" onchange="OnChangeDataOut()">
+                                <option value="-1">กรุณาเลือกรายการ สาเหตุเด็กหลุด</option>
+                                <option value="1">ผู้สมัคร_นัดแล้วไม่มา</option>
+                                <option value="2">ผู้สมัคร_ยกเลิก (แจ้งยกเลิก)</option>
+                                <option value="3">ผู้สมัคร_ไม่ไปเริ่มงาน (ไม่แจ้ง)</option>
+                                <option value="4">ผู้สมัคร_สอบใบอนุญาตไม่ผ่าน</option>
+                                <option value="5">ผู้สมัคร_ไปเริ่มงานแล้วไม่ชอบ</option>
+                                <option value="6">ผู้สมัคร_ไม่ผ่านเทรนงาน</option>
+                                <option value="7">ผู้สมัคร_ไม่ผ่านการสอบ</option>
+                                <option value="8">ผู้สมัคร_ไม่สนใจ</option>
+                                <option value="9">ผู้สมัคร_ขอพิจารณาก่อน</option>
+                                <option value="10">ลูกค้า_ผิดเงื่อนไขข้อตกลง</option>
+                                <option value="11">ลูกค้า_ไม่ไปตามนัด</option>
+                                <option value="12">ลูกค้า_ไม่ผ่านสัมภาษณ์</option>
+                                <option value="13">อื่นๆ (โปรดระบุ)</option>
+                            </select>
+                            <input class="form-control" style="margin-top:20px;display:none" id="ShowNotOut" placeholder="สาเหตุเด็กหลุด" />
+                        </div>
+
+                        <div class="col-md-6 form-group" id="show_Collection2" style="display:none">
+                            <label>วันที่เริ่ม สถานะ</label>
+                            <input type="date" class="form-control" name="StatusStart" id="StatusStart" />
+                        </div>
+                        <div class="col-md-6 form-group" id="show_Collection3" style="display:none">
+                            <label>ถึงวันที่ สถานะ</label>
+                            <input type="date" class="form-control" name="StatusEnd" id="StatusEnd" />
+                        </div>
+                        <div class="col-md-6 form-group" id="show_Collection4" style="display:none">
+                            <label>เงินเดือน</label>
+                            <input class="form-control" name="WorkSalary" id="WorkSalary" type="number" min="0" step="1" />
+                        </div>
+                        <div class="col-md-6 form-group" id="show_Collection" style="display:none">
+                            <label>วันเก็บเงิน</label>
+                            <input class="form-control" id="Collection" readonly />
+                        </div>
+                        <div class="col-md-6 form-group" id="show_kpiSuccess" style="display:none">
+                            <label>วันที่เก็บเงิน</label>
+                            <input type="date" class="form-control" name="datekpiSuccess" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>สาเหตุ</label>
+                            <input class="form-control" name="Cause" id="Cause" />
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>หมายเหตุ</label>
+                            <input class="form-control" name="NoteStatus" id="NoteStatus" />
+                        </div>
+
+                        <div class="col-md-6 form-group" id="show_Guaranteed" style="display:none">
+                            <label>วันครบการันตี</label>
+                            <input class="form-control" id="Guaranteed" readonly />
+                        </div>
+
+                        <input type="hidden" id="EditCDDId" name="Id" />
+                    </div>
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-primary submit-btn" onclick="SubmitChangeStatus()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Link Form CDD  -->
+<div id="LinkForm" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ลิงก์ฟอร์ม สำหรับส่งให้ผู้สมัคร</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped" style="width:100%" id="form_user">
+                    <thead>
+                        <tr>
+                            <th>Link</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trlink"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comment CDD -->
+<div id="CommentCDD" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">คอมเม้น ผู้สมัครงาน</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="SummentCDD" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>จุดเด่น </label>
+                        <input class="form-control" name="Highlights" id="Highlights" />
+                    </div>
+                    <div class="form-group">
+                        <label>ข้อสังเกต </label>
+                        <input class="form-control" name="Observations" id="Observations" />
+                    </div>
+                    <div class="form-group">
+                        <label>ให้คะแนน</label>
+                        <input class="form-control" name="Score" id="Score" />
+                    </div>
+                    <input type="hidden" id="CommentCDDId" name="CDDId" />
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-primary submit-btn" onclick="SubmitCommentCDD()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+
+        const startPicker = flatpickr("#startdate", {
+            altInput: true,
+            altFormat: "d/m/Y",   // UI format
+            dateFormat: "Y-m-d",  // Backend format
+        });
+
+        // End Date
+        const endPicker = flatpickr("#enddate", {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+        });
+
+        // Make icon open calendar
+        document.querySelector("#startdate_wrapper .input-group-text").addEventListener("click", () => {
+            startPicker.open();
+        });
+
+        document.querySelector("#enddate_wrapper .input-group-text").addEventListener("click", () => {
+            endPicker.open();
+        });
+
+        // status Date
+        const datestatus = flatpickr("#datestatus", {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+        });
+
+        // Make icon open calendar
+        document.querySelector("#datestatus_wrapper .input-group-text").addEventListener("click", () => {
+            datestatus.open();
+        });
+
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        var ChangedataId = getUrlParameter('Id');
+
+        var oTable;
+        $(() => {
+            oTable = $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: false,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true,
+                retrieve: false,
+                ajax: {
+                    type: 'post',
+                    url: '/Backend/Summary?handler=Table',
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                },
+                columns: [
+                    { 'data': 'id', name: 'id' },
+                    { 'data': 'recruit', name: 'recruit' },
+                    { 'data': 'name', name: 'name' },
+                    { 'data': 'nickname', name: 'nickname' },
+                    { 'data': 'tel', name: 'tel' },
+                    { 'data': 'project', name: 'project' },
+                    { 'data': 'kpi', name: 'kpi' },
+                    { 'data': 'status', name: 'status' },
+                    {
+                        'data': 'id',
+                        render: function (data, type, row) {
+                            return '<center>' +
+                                '<a class="btn btn-sm btn-success" onclick="changestatus(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#ChangeStatus"><i class="fa fa-edit" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-info" onclick="CDDDetail(\'' + data + '\', \'' + row.typeform + '\')"><i class="fa fa-list" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-danger" onclick="change_delete(\'' + data + '\')"><i class="fa fa-trash" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-primary" onclick="info(\'' + data + '\')"><i class="fa fa-th-list" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-primary" onclick="comment(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#CommentCDD"><i class="fa fa-th-list" style="color:white"></i></a>' +
+                                '</center>';
+                        }
+                    }
+                ],
+            });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            // $('#example').on('draw.dt', function () {
+            //     mergeRows('example', 1); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+            // });
+
+            oTable.on('order.dt search.dt', function () {
+                let i = 1;
+                oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                    .every(function (cell) {
+                        this.data(i++);
+                    });
+            }).draw();
+
+            Project();
+            RecruitStatus();
+            Getuser('@userid');
+            Company();
+            Position();
+            Changedata();
+        })
+
+        function mergeRows(tableId, columnIndex) {
+            var previous = null;
+            var rowspan = 1;
+
+            $('#' + tableId + ' tbody tr').each(function () {
+                var current = $('td', this).eq(columnIndex);
+                if (previous === null) {
+                    previous = current;
+                } else if (current.text().trim() === previous.text().trim()) {
+                    current.remove();
+                    previous.attr('rowspan', ++rowspan);
+                } else {
+                    previous = current;
+                    rowspan = 1;
+                }
+            });
+        }
+
+        function Changedata()
+        {
+            if(ChangedataId != null && ChangedataId != undefined)
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=CDD',
+                    data: { Id: ChangedataId },
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        $("#firstname").val(data.db.nameTH);
+                        Search();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+
+        function Search() {
+            oTable.ajax.url("?handler=Table&&firstname=" + $("#firstname").val() + "&&lastname=" + $("#lastname").val() + "&&project=" + $("#project").val() + "&&status=" + $("#Status").val() + "&&startdate=" + $("#startdate").val() + "&&enddate=" + $("#enddate").val() + "&&month=" + $("#month").val() + "&&year=" + $("#year").val() + "&&Company=" + $("#Company").val() + "&&Position=" + $("#Position").val() + "").load();
+        }
+
+        function Reset() {
+            document.getElementById("SendFrom").reset();
+            oTable.ajax.url("?handler=Table").load();
+        }
+
+        $(".js-example-basic-single").select2();
+
+        // function formatDateToDisplay(dateStr) {
+        //     if (!dateStr) return "";
+        //     const date = new Date(dateStr);
+        //     if (isNaN(date)) return "";
+        //     const day = String(date.getDate()).padStart(2, '0');
+        //     const month = String(date.getMonth() + 1).padStart(2, '0');
+        //     const year = date.getFullYear();
+        //     return `${day}-${month}-${year}`;
+        // }
+
+        // function formatDateToHidden(dateStr) {
+        //     if (!dateStr) return "";
+        //     const parts = dateStr.split("-");
+        //     if (parts.length !== 3) return "";
+        //     return `${parts[2]}-${parts[1]}-${parts[0]}`;
+        // }
+                
+        $(document).ready(function () {
+            // Initialize datepicker for the Success Date input
+            $('#datestatus').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true,
+                clearBtn: true
+            }).on('changeDate', function (e) {
+                // When the user picks a date, update the hidden field (ISO format)
+                const parts = $(this).val().split('/');
+                if (parts.length === 3) {
+                    const isoDate = `${parts[2]}-${parts[1]}-${parts[0]}`; // yyyy-mm-dd
+                    $('#datestatus_hidden').val(isoDate);
+                }
+            });
+        });
+                
+        $('#datestatus_wrapper .input-group-text').on('click', function () {
+            $('#datestatus').datepicker('show');
+        });
+
+        function GetCDD(id) {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=CDD',
+                data: { Id: id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    debugger;
+                    console.log("date is here:",data.db.datestatus);
+                    $("#EditCDDId").val(data.db.id);
+                    $("#kpi").val(data.db.kpi);
+                    $("#WorkSalary").val(data.db.workSalary);
+                    if(data.oldstatus != null)
+                    {
+                        $("#oldstatus").text(data.oldstatus.name);
+                    }
+                    else
+                    {
+                        $("#oldstatus").text("-");
+                    }
+                    RecruitStatus(data.db.status);
+                    CalculateDay(data.db.id,null);
+
+                    console.log("get status : " + data.db.status)
+                    $("#getkpi").val(data.db.kpi);
+                    if(data.db.status == 24 || data.db.status == 25 || data.db.status == 27 || data.db.status == 28 || data.db.status == 30 || data.db.status == 37 || data.db.status == 38)
+                    {
+                        //alert('เข้า')
+                         document.getElementById('showkpi').style.display = 'block';
+                         //document.getElementById('showkpi').style.display = 'none';
+
+                    }else
+                    {
+                        //document.getElementById('showkpi').style.display = 'block';
+                        document.getElementById('showkpi').style.display = 'none';
+                    }
+
+                    if(data.db.status == 11)
+                    {
+                        document.getElementById('show_Collection').style.display = 'block';
+                        document.getElementById('show_Collection2').style.display = 'block';
+                        document.getElementById('show_Collection3').style.display = 'block';
+                        document.getElementById('show_Collection4').style.display = 'block';
+                    }else
+                    {
+                        document.getElementById('show_Collection').style.display = 'none';
+                        document.getElementById('show_Collection2').style.display = 'none';
+                        document.getElementById('show_Collection3').style.display = 'none';
+                        document.getElementById('show_Collection4').style.display = 'none';
+                    }
+
+                    if(data.db.status == 32)
+                    {
+                        document.getElementById('show_Guaranteed').style.display = 'block';
+                    }else
+                    {
+                        document.getElementById('show_Guaranteed').style.display = 'none';
+                    }
+
+                    var startdate = new Date(data.db.statusStart);
+                    var todate = new Date(data.db.statusEnd);
+
+                    var format_month = startdate.getMonth();
+                    if(format_month.toString().length < 2)
+                    {
+                        format_month = "0" + format_month + 1;
+                    }
+                    else
+                    {
+                        format_month = format_month + 1;
+                    }
+
+                    var format_day = startdate.getDate();
+                    if(format_day.toString().length < 2)
+                    {
+                        format_day = "0" + format_day;
+                    }
+
+                    $("#StatusStart").val(startdate.getFullYear() + "-" + (format_month) + "-" + format_day);
+                    $("#StatusEnd").val(todate.getFullYear() + "-" + (format_month) + "-" + format_day);
+                    $("#Cause").val(data.db.cause)
+                    $("#NoteStatus").val(data.db.noteStatus)
+
+                    // // old
+                    // if(data.db.datestatus != null)
+                    // {
+                    //     var datestatus = new Date(data.db.datestatus);
+                    //     var year = datestatus.getFullYear();
+                    //     var month = (datestatus.getMonth() + 1).toString().padStart(2, '0'); // Add 1 because getMonth() is 0-indexed
+                    //     var day = datestatus.getDate().toString().padStart(2, '0');
+
+                    //     $("#datestatus").val(`${year}-${month}-${day}`); 
+                    // }
+                    // else
+                    // {
+                    //      $("#datestatus").val(null) 
+                    // }
+
+                    if (data.db.datestatus) {
+                        // Flatpickr expects a string in the same format as `dateFormat` ("Y-m-d")
+                        datestatus.setDate(data.db.datestatus, true, "Y-m-d");
+                    } else {
+                        datestatus.clear();
+                    }
+
+                    //OnChangeShowKpi();
+
+                    Project(data.db.project);
+                    Getrecruit(data.db.userId);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        // $('#datestatus').on('change', function () {
+        //     const value = $(this).val();
+        //     $('#datestatus_hidden').val(formatDateToHidden(value));
+        // });
+
+        // $('#datestatus_wrapper .input-group-text').on('click', function () {
+        //     $('#datestatus').focus();
+        // });
+
+        function Project(id) {
+            if (id != undefined) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Report?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            var selected = '';
+                            if(c.id == id)
+                            {
+                                selected = 'selected';
+                                $("#project_owner").text(c.name);
+                            }
+                            s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                        });
+                        $("#Editproject").html(s);
+
+                        $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Report?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#project").html(s);
+                        $("#Editproject").html(s);
+
+                        $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+        function RecruitStatus(id) {
+            if (id != undefined) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=Status',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data)
+                    {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            var selected = '';
+                            if(c.id == id)
+                            {
+                                selected = 'selected';
+                            }
+                            s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                        });
+                        $("#RecruitStatus").html(s);
+                        $("#Status").html(s);
+                        $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=Status',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#RecruitStatus").html(s);
+                        $("#Status").html(s);
+                        $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+         function Company() {
+             $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=Company',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Company").html(s);
+
+                    $(".js-example-basic-single").select2();
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function Position() {
+             $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=Position',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Position").html(s);
+
+                    $(".js-example-basic-single").select2();
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        $("#StatusStart").on('input',function(){
+            var StatusStart = new Date($("#StatusStart").val());
+            var EditCDDId = $("#EditCDDId").val();
+            CalculateDay(EditCDDId,StatusStart);
+        });
+
+        function info(id) {
+            window.location.href = '/Backend/SummaryDetail/?Id=' + id;
+        }
+
+        function CDDDetail(id,typeform) {
+            if(typeform == 1 || typeform == null || typeform == "null")
+            {
+                window.location.href = '/Backend/CDDDetail/?Id=' + id;
+            }
+            else if(typeform == 2)
+            {
+                window.location.href = '/Backend/CDDDetail_B/?Id=' + id;
+            }
+             else if(typeform == 3)
+            {
+                 window.location.href = '/Backend/CDDDetail_C/?Id=' + id;
+            }
+             else if(typeform == 4)
+            {
+                 window.location.href = '/Backend/CDDDetail_D/?Id=' + id;
+            }
+        }
+
+        function changestatus(id) {
+            GetCDD(id);
+            Getrecruit(null);
+        }
+
+        Date.prototype.addDays = function(days) {
+            var date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
+        function CalculateDay(id,date)
+        {
+            var StartDate = new Date(date);
+            var result = StartDate.toLocaleDateString("en-US");
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=CalculateDay',
+                data: {
+                    Id: id,
+                    Date:result
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    $("#Collection").val(data.collection);
+                    $("#Guaranteed").val(data.guaranteed);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function SubmitChangeStatus() {
+            var bool = true;
+            var out = $("#DataOut option:selected").text();
+            if(out == "อื่นๆ (โปรดระบุ)")
+            {
+                var DB = $("#ShowNotOut").val();
+                if(DB == null || DB == "")
+                {
+                    bool = false;
+                }
+            }
+
+            var check = $("#RecruitStatus").val();
+            console.log("submit status recruit :" + check)
+            if(check == 24 || check == 25 || check == 27|| check == 28 || check == 30 || check == 37 || check == 38)
+            {
+                console.log("datestatus",datestatus);
+                var checkdete = $("#datestatus").val();
+                if(checkdete == null || checkdete == "")
+                {
+                    bool = false;
+
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'เกิดข้อผิดพลาด',
+                        text: 'กรุณากรอกวันที่ ก่อน ยืนยีนข้อมูล และ กรุณาลองใหม่อีกครั้ง',
+                    })
+                }
+            }
+            if(bool)
+            {
+                var forms = $('#ChangeCDD')[0];
+                var data = new FormData(forms);
+                $.ajax({
+                    type: 'post',
+                    url: '/Backend/Summary?handler=ChangeCDD',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    beforeSend: function () {
+                        Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                        Swal.showLoading()
+                    },
+                    success: function (data) {
+                        if (data == 1) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                showConfirmButton: false,
+                                timer: 3500
+                            });
+
+                            setTimeout(function(){
+                            window.location.reload();
+                            },2000)
+
+                        } else {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                            })
+                        }
+                    },
+                    error: (e) => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'เกิดข้อผิดพลาดกับระบบ',
+                            text: 'กรุณาติดต่อแอดมิน',
+                        })
+                    }
+                });
+            }
+        }
+
+        function change_delete(id) {
+            Swal.fire({
+                title: 'คุณต้องการเปลื่ยนการใช้งานนี้ ใช่หรือไม่',
+                showDenyButton: true,
+                confirmButtonText: 'ok',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: 'get',
+                        url: '/Backend/Summary?handler=DeleteData',
+                        data: { Id: id },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        beforeSend: function () {
+                            Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                            Swal.showLoading()
+                        },
+                        success: function (data) {
+                            if (data == 1) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                    showConfirmButton: false,
+                                    timer: 3500
+                                });
+                                setTimeout(function(){
+                            window.location.reload();
+                            },2000)
+                            } else if (data == 2) {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เกิดข้อผิดพลาด',
+                                    text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                })
+                            }
+                            else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เกิดข้อผิดพลาด',
+                                    text: 'ข้อมูลรายการนี้เปิดใช้งานอยู่แล้ว',
+                                })
+                            }
+                        },
+                        error: (e) => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'เกิดข้อผิดพลาดกับระบบ',
+                                text: 'กรุณาติดต่อแอดมิน',
+                            })
+                        }
+                    });
+                }
+            })
+        }
+
+        function OnChangeShowKpi()
+        {
+            var DB = $("#RecruitStatus").val()
+            console.log("onchange status recruit :" + DB)
+            if(DB == 24 || DB == 25 || DB == 27|| DB == 28 || DB == 30 || DB == 37 || DB == 38)
+            {
+                document.getElementById('showkpi').style.display = 'block';
+            }else
+            {
+                document.getElementById('showkpi').style.display = 'none';
+            }
+
+            var out = $("#RecruitStatus option:selected").text();
+            if(out == "-")
+            {
+                document.getElementById('ShowOut').style.display = 'block';
+            }else
+            {
+                document.getElementById('ShowOut').style.display = 'none';
+            }
+
+            var start = $("#RecruitStatus option:selected").text();
+            if(start == "รอเริ่มงาน")
+            {
+                document.getElementById('show_Collection').style.display = 'block';
+                document.getElementById('show_Collection2').style.display = 'block';
+                document.getElementById('show_Collection3').style.display = 'block';
+                document.getElementById('show_Collection4').style.display = 'block';
+            }else
+            {
+                document.getElementById('show_Collection').style.display = 'none';
+                document.getElementById('show_Collection2').style.display = 'none';
+                document.getElementById('show_Collection3').style.display = 'none';
+                document.getElementById('show_Collection4').style.display = 'none';
+            }
+
+            var start = $("#RecruitStatus option:selected").text();
+            if(start == "ครบการันตี")
+            {
+                document.getElementById('show_Guaranteed').style.display = 'block';
+            }else
+            {
+                document.getElementById('show_Guaranteed').style.display = 'none';
+            }
+
+            var start = $("#RecruitStatus option:selected").text();
+            if(start == "Success KPI (เก็บเงินได้)")
+            {
+                document.getElementById('show_kpiSuccess').style.display = 'block';
+            }else
+            {
+                document.getElementById('show_kpiSuccess').style.display = 'none';
+            }
+
+        }
+
+        function OnChangeDataOut()
+        {
+            var out = $("#DataOut option:selected").text();
+            if(out == "อื่นๆ (โปรดระบุ)")
+            {
+                document.getElementById('ShowNotOut').style.display = 'block';
+            }else
+            {
+                document.getElementById('ShowNotOut').style.display = 'none';
+            }
+        }
+
+        function form_user()
+        {
+            var table = '';
+            table += '<tr>';
+            table += '<td>`@formA`</td>';
+            table += '<td><a class="btn btn-sm btn-success" onclick="CopyLick(1)"><i class="fa fa-edit" style="color:white"></i></a></td>';
+            table += '</tr>';
+
+            table += '<tr>';
+            table += '<td>`@formB`</td>';
+            table += '<td><a class="btn btn-sm btn-success" onclick="CopyLick(2)"><i class="fa fa-edit" style="color:white"></i></a></td>';
+            table += '</tr>';
+
+            table += '<tr>';
+            table += '<td>`@formC`</td>';
+            table += '<td><a class="btn btn-sm btn-success" onclick="CopyLick(3)"><i class="fa fa-edit" style="color:white"></i></a></td>';
+            table += '</tr>';
+
+            table += '<tr>';
+            table += '<td>`@formD`</td>';
+            table += '<td><a class="btn btn-sm btn-success" onclick="CopyLick(4)"><i class="fa fa-edit" style="color:white"></i></a></td>';
+            table += '</tr>';
+            $("#trlink").html(table);
+        }
+
+        function CopyLick(idform)
+        {
+            if(idform == 1)
+            {
+                let copyText = `@formA`
+                navigator.clipboard.writeText(copyText);
+                Swal.fire(
+                    '',
+                    'Copy Link Success',
+                    'success'
+                )
+            }
+            else if(idform == 2)
+            {
+                let copyText = `@formB`
+                navigator.clipboard.writeText(copyText);
+                Swal.fire(
+                    '',
+                    'Copy Link Success',
+                    'success'
+                )
+            }
+            else if(idform == 3)
+            {
+                let copyText = `@formC`
+                navigator.clipboard.writeText(copyText);
+                Swal.fire(
+                    '',
+                    'Copy Link Success',
+                    'success'
+                )
+            }
+            else if(idform == 4)
+            {
+                let copyText = `@formD`
+                navigator.clipboard.writeText(copyText);
+                Swal.fire(
+                    '',
+                    'Copy Link Success',
+                    'success'
+                )
+            }
+        }
+
+        function comment(id)
+        {
+            $("#CommentCDDId").val(id);
+            GetCommentCDD(id)
+        }
+
+        function GetCommentCDD(id)
+        {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=CommentCDD',
+                data: { Id: id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    if(data.db != null)
+                    {
+                        $("#Highlights").val(data.db.highlights);
+                        $("#Observations").val(data.db.observations);
+                        $("#Score").val(data.db.score);
+                    }
+                    else
+                    {
+                        $("#Highlights").val("");
+                        $("#Observations").val("");
+                        $("#Score").val("");
+                    }
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function Getuser(id)
+        {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=User',
+                data: { userId: id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    //document.getElementById('project').value = data.db.project;
+                    Project(data.db.project);
+                    RecruitStatus(undefined);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function Getrecruit(id)
+        {
+            console.log(id);
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Summary?handler=Recruitment',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        var selected = '';
+                        if(c.id == id)
+                        {
+                            selected = 'selected';
+                        }
+                        s += '<option value="' + c.id + '" ' + selected + '>' + c.firstname + '</option>';
+                    });
+                    $("#recruit").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function SubmitCommentCDD()
+        {
+            var forms = $('#SummentCDD')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Summary?handler=CommentCDD',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+                    setTimeout(function(){
+                            window.location.reload();
+                            },2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+
+    </script>
+}

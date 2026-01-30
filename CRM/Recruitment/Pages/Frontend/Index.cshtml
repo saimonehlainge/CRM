@@ -1,0 +1,128 @@
+﻿@page
+@model Recruitment.Pages.Frontend.IndexModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "Layout_Frontend";
+}
+
+<div class="container-fluid">
+    <div class="row wow fadeInDown">
+        <div class="col-12 wrap-bannercareer wrap_banner-inside">
+            <div class="caption-career">
+                <h1>สมัครงานกับเรา </h1>
+            </div>
+            <div class="owl-visitor owl-carousel owl-theme">
+                <div class="items">
+                    <div class="banner_visitor">
+                        <figure><img src="~/images/360_F_226341850_7XM3ivXOQeMozdnbEbuWR7wCkIP4ca4a.jpg" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-curve"><img src="~/images/curve.svg" alt=""></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 wrap_recruit wow fadeInDown">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 wow fadeInDown">
+                        <div class="wrap_recruit-history">
+                            <div class="row">
+                                <div class="col-12 col-lg-9 wow fadeInLeft">
+                                    <span>กรณีที่ท่านเคยกรอกประวัติสมัครงานกับทางเราแล้ว ท่านสามารถค้นหาใบสมัครของท่าน</span>
+                                </div>
+                                <div class="col-12 col-lg-3 wow fadeInRight">
+                                    <a data-fancybox data-src="#procure-download" href="javascript:;" class="btn-default btn-blue"><i class="bi bi-search"></i> ค้นหาใบสมัคร</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wrap-itemrecruit">
+                            <div class="item_procurelist">
+                                <div class="topicprocurelist have_subitem-pro"> ใบสมัคร A (แบบปกติทั่วไป)</div>
+                                <div class="content_procurelist">
+                                    <div>Qualifications :</div>
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                    <div class="carrer-btnapply"><a asp-page="/Frontend/CDD_A" class="btn-default btn-blue2">apply now</a></div>
+                                </div>
+                            </div>
+
+                            <div class="item_procurelist">
+                                <div class="topicprocurelist have_subitem-pro"> ใบสมัคร B (แบบของ BSP)</div>
+                                <div class="content_procurelist">
+                                    <div>Qualifications :</div>
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                    <div class="carrer-btnapply"><a asp-page="/Frontend/CDD_B" class="btn-default btn-blue2">apply now</a></div>
+                                </div>
+                            </div>
+
+                            <div class="item_procurelist">
+                                <div class="topicprocurelist have_subitem-pro"> ใบสมัคร C (แบบของแผนก Outsource เวอร์ชั่น CDD_A กรอก)</div>
+                                <div class="content_procurelist">
+                                    <div>Qualifications :</div>
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                    <div class="carrer-btnapply"><a asp-page="/Frontend/CDD_C" class="btn-default btn-blue2">apply now</a></div>
+                                </div>
+                            </div>
+
+                            <div class="item_procurelist">
+                                <div class="topicprocurelist have_subitem-pro"> ใบสมัคร D (แบบของแผนก Outsource เวอร์ชั่น RC กรอก)</div>
+                                <div class="content_procurelist">
+                                    <div>Qualifications :</div>
+                                    <ul>
+                                        <li></li>
+                                    </ul>
+                                    <div class="carrer-btnapply"><a asp-page="/Frontend/CDD_D" class="btn-default btn-blue2">apply now</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="prodesc-popup bg-whistle" style="display: none;" id="procure-download">
+    <div class="text-center">
+        <div class="topic-inside2">ค้นหาใบสมัครของท่าน</div>
+        <p>
+            กรณีที่ท่านเคยกรอกประวัติสมัครงานกับทางเราแล้ว ท่านสามารถค้นหาใบสมัครของท่าน โดยกรอกเลขบัตรประชาชนที่ท่านเคยทำการสมัคร
+        </p>
+        <form>
+            <div class="row">
+                <div class="col-12 box-formcareer">
+                    <input type="text" class="form-control" placeholder="เลขบัตรประชาชน*">
+                </div>
+
+                <div class="col-12 wrap-btncontact">
+                    <button class="btn-default btn-blue"><i class="bi bi-search"></i> ค้นหาใบสมัคร</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        $('.item_procurelist > .topicprocurelist').click(function (event) {
+            if ($(this).siblings('.content_procurelist').is(":hidden")) {
+                $('.item_procurelist').removeClass("active");
+                $('.content_procurelist').slideUp();
+                $(this).parent('.item_procurelist').addClass("active");
+                $(this).siblings('.content_procurelist').slideDown();
+            } else {
+                $('.item_procurelist').removeClass("active");
+                $('.content_procurelist').slideUp();
+            }
+            event.stopPropagation();
+        });
+    </script>
+}

@@ -1,0 +1,594 @@
+﻿@page
+@model Recruitment.Pages.Backend.CDDDetailModel
+@using Recruitment.Helpers
+@inject IConfiguration Configuration
+@inject Recruitment.Repositories.IUnitOfWork _unitofwork;
+@{
+    ViewData["Title"] = "CDDDetail";
+    Layout = "_Layout_Backend";
+
+    var (userid, roles, _, department) = User.GetUser();
+    var permission = await _unitofwork.PermissionSettingRepository.GetPermission(userid);
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">CDD</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">CDD</a></li>
+                        <li class="breadcrumb-item">Data Tables</li>
+                        <li class="breadcrumb-item active">Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form id="SendFrom" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>เห็นประกาศมาจากช่องทาง</label>
+                                <select class="form-control js-example-basic-single" id="Announcement" name="Announcement"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ตำแหน่งที่สมัคร</label>
+                                <select class="form-control js-example-basic-single" id="Position" name="Position"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>สาขา/ออฟฟิศที่ทำงาน</label>
+                                <input class="form-control" id="Branch" name="Branch" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>เงินเดือนที่คาดหวัง</label>
+                                <input class="form-control" id="Salary" name="Salary" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ต้องการงานในแถบพื้นที่</label>
+                                <select class="form-control js-example-basic-single" id="WorkArea" name="WorkArea"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>คำนำหน้า</label>
+                                <select class="form-control js-example-basic-single" id="Prefix" name="Prefix"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ชื่อ-นามสกุล(ภาษาไทย)</label>
+                                <input class="form-control" id="NameThai" name="NameTH" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ชื่อ-นามสกลุ(ภาษาอังกฤษ)</label>
+                                <input class="form-control" id="NameEng" name="NameENG" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ชื่อเล่น</label>
+                                <input class="form-control" id="Nikname" name="Nikname" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>เบอร์โทรศํพท์</label>
+                                <input class="form-control" id="Tel" name="Tel" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>Line ID</label>
+                                <input class="form-control" id="LineId" name="LineId" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>E-Mail</label>
+                                <input class="form-control" id="Email" name="Email" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>วันเดือนปีเกิด</label>
+                                <input type="date" class="form-control" id="Birthday" name="Birthday" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ศาสนา</label>
+                                <select class="form-control js-example-basic-single" id="Religion" name="Religion"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>สัญชาติ</label>
+                                <select class="form-control js-example-basic-single" id="Nationality" name="Nationality"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>เลขบัตรประชาชน</label>
+                                <input class="form-control" id="IDCard" name="IDCard" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>บัตรหมดอายุ</label>
+                                <input type="date" class="form-control" id="EndDateIDCard" name="EndDateIDCard" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>สถานะทางทหาร</label>
+                                <select class="form-control js-example-basic-single" id="MilitaryStatus" name="MilitaryStatus"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>สถานภาพ</label>
+                                <select class="form-control js-example-basic-single" id="MarriedStatus" name="MarriedStatus"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ที่อยู่ตามบัตรประชาชน</label>
+                                <input class="form-control" id="IdCardAddress" name="IdCardAddress" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ที่อยู่ปัจจุบัน</label>
+                                <input class="form-control" id="CurrentAddress" name="CurrentAddress" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>วุฒิ</label>
+                                <select class="form-control js-example-basic-single" id="Qualification" name="Qualification"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ชื่อสถานที่ศึกษา, ปีที่จบ </label>
+                                <input class="form-control" id="StudyLocation" name="StudyLocation" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ความสามารถด้านภาษา</label>
+                                <select class="form-control js-example-basic-single" id="LanguageAbility" name="LanguageAbility"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ความพิเศษอื่นๆ</label>
+                                <input class="form-control" id="OtherSpecialAbility" name="OtherSpecialAbility" />
+                            </div>
+                        </div>
+                        @*  <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ประวัติการทำงาน</label>
+                                <input class="form-control" id="WorkHistory" />
+                            </div>
+                        </div> *@
+                        <div class="col-lg-12 col-sm-12 col-12 row">
+                            <label>ประวัติการทำงาน</label>
+                            <div class="col-md-6 mb-6">
+                                <label>ชื่อบริษัท</label>
+                                <input type="text" class="form-control" name="ComapnyName" id="ComapnyName">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เดือนและปีที่เริ่ม-สิ้นสุด</label>
+                                <input type="text" class="form-control" name="StartEndWork" id="StartEndWork">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>ตำแหน่งงาน</label>
+                                <input type="text" class="form-control" name="WorkPosition" id="WorkPosition">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เงินเดือน</label>
+                                <input type="text" class="form-control" name="WorkSalary" id="WorkSalary">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เหตุผลที่ออก</label>
+                                <input type="text" class="form-control" name="NoteWork" id="NoteWork">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>สามารถไปปฎิบัติงานต่างจังหวัดได้หรือไม่</label>
+                                <select class="form-control js-example-basic-single" id="WorkOtheProvinces" name="WorkOtheProvinces"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>ประวัติ Covid</label>
+                                <select class="form-control js-example-basic-single" id="HistoryCovidVaccine" name="HistoryCovidVaccine"></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-12 row">
+                            <label>บุคคลอ้างอิงที่สามารถติดต่อได้</label>
+                            <div class="col-md-6 mb-6">
+                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="WhoCanCheckName" id="WhoCanCheckName">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="WhoCanCheckTel" id="WhoCanCheckTel">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="WhoCanCheckAdress" id="WhoCanCheckAdress">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="WhoCanCheckRelated" id="WhoCanCheckRelated">
+                            </div>
+                        </div>
+                        @* <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>บุคคลอ้างอิงที่สามารถติดต่อได้, เบอร์โทรติดต่อ,ที่อยู่ติดต่อ</label>
+                                <input class="form-control" id="PersonWhoCanCheck" />
+                            </div>
+                        </div> *@
+                        <div class="col-lg-12 col-sm-12 col-12 row">
+                            <label>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
+                            <div class="col-md-6 mb-6">
+                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="EmergencyName" id="EmergencyName">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="EmergencyTel" id="EmergencyTel">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="EmergencyAdress" id="EmergencyAdress">
+                            </div>
+                            <div class="col-md-6 mb-6">
+                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                <input type="text" class="form-control" name="EmergencyRelated" id="EmergencyRelated">
+                            </div>
+                        </div>
+                        @* <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group">
+                                <label>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
+                                <input class="form-control" id="PersonCaseEmergency" />
+                            </div>
+                        </div> *@
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group row">
+                                <label>เอกสารประกอบการสมัครงาน</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" type="file" name="DocumentCDD" />
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="btn btn-sm btn-success" onclick="DocWork()">ดาวน์โหลดใบสมัครงาน</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-6">
+                            <div class="form-group row">
+                                <label>เอกสารรับรองการทำงาน</label>
+                                <div class="col-md-6">
+                                    <input class="form-control" type="file" name="DocumentWorkCertification" />
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="btn btn-sm btn-success" onclick="DocCert()">ดาวน์โหลดใบรับรอง</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="Id" name="Id">
+                </form>
+                @if (permission?.FirstOrDefault()?.editinfo == true)
+                {
+                    <div class="text-end" id="hiddensubmit">
+                        <button class="btn btn-primary" onclick="Submit()">EditData</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        var Id = getUrlParameter('Id');
+
+        $(() => {
+            GetCDD();
+        })
+
+        $(".js-example-basic-single").select2();
+
+        let DocumentCDD = "";
+        let DocumentWorkCertification = "";
+
+        function GetCDD() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/CDDDetail?handler=CDD',
+                data: { Id: Id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    console.log(data)
+                    var a = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.announcement, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.announcement) {
+                            selected = 'selected';
+                        }
+                        a += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Announcement").html(a);
+
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.position, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.position) {
+                            selected = 'selected';
+
+                        }
+                        s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Position").html(s);
+
+                    var wo = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.workOtherProvinces, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.workOtheProvinces) {
+                            selected = 'selected';
+
+                        }
+                        wo += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#WorkOtheProvinces").html(wo);
+
+                    $("#Branch").val(data.select.branch);
+                    $("#Salary").val(data.select.salary);
+
+                    var w = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.provinces, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.workArea) {
+                            selected = 'selected';
+
+                        }
+                        w += '<option value="' + c.id + '" ' + selected + '>' + c.nameInThai + '</option>';
+                    });
+                    $("#WorkArea").html(w);
+
+                    $("#NameThai").val(data.select.nameThai);
+                    $("#NameEng").val(data.select.nameEng);
+                    $("#Nikname").val(data.select.nikname);
+                    $("#Tel").val(data.select.tel);
+                    $("#LineId").val(data.select.lineId);
+                    $("#Email").val(data.select.email);
+                    $("#Birthday").val(data.select.birthday);
+
+                    var r = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.religion, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.religion) {
+                            selected = 'selected';
+
+                        }
+                        r += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Religion").html(r);
+
+                    var n = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.nationality, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.nationality) {
+                            selected = 'selected';
+
+                        }
+                        n += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Nationality").html(n);
+
+                    $("#IDCard").val(data.select.idCard);
+                    $("#EndDateIDCard").val(data.select.endDateIDCard);
+
+                    var m = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.militaryStatus, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.militaryStatus) {
+                            selected = 'selected';
+
+                        }
+                        m += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#MilitaryStatus").html(m);
+
+                    var ma = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.marriedStatus, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.marriedStatus) {
+                            selected = 'selected';
+
+                        }
+                        ma += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#MarriedStatus").html(ma);
+
+                    $("#IdCardAddress").val(data.select.idCardAddress);
+                    $("#CurrentAddress").val(data.select.currentAddress);
+
+                    var q = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.qualification, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.qualification) {
+                            selected = 'selected';
+
+                        }
+                        q += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Qualification").html(q);
+                    $("#StudyLocation").val(data.select.studyLocation);
+
+                    var q = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.languageAbility, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.languageAbility) {
+                            selected = 'selected';
+
+                        }
+                        q += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#LanguageAbility").html(q);
+
+                    $("#OtherSpecialAbility").val(data.select.otherSpecialAbility);
+
+                    var h = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.historyCovid, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.historyCovidVaccine) {
+                            selected = 'selected';
+
+                        }
+                        h += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#HistoryCovidVaccine").html(h);
+
+                    var p = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data.prefix, function (v, c) {
+                        var selected = '';
+                        if (c.id == data.select.prefix) {
+                            selected = 'selected';
+                        }
+                        p += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#Prefix").html(p);
+
+                    $("#PersonWhoCanCheck").val(data.select.personWhoCanCheck);
+                    $("#PersonCaseEmergency").val(data.select.personCaseEmergency);
+                    $("#WorkHistory").val(data.select.workHistory);
+
+                    DocumentCDD = data.select.documentCDD;
+                    DocumentWorkCertification = data.select.documentWorkCertification;
+                    $("#Id").val(data.select.id);
+                    $("#ComapnyName").val(data.select.comapnyName);
+                    $("#StartEndWork").val(data.select.startEndWork);
+                    $("#WorkPosition").val(data.select.workPosition);
+                    $("#WorkSalary").val(data.select.workSalary);
+                    $("#NoteWork").val(data.select.noteWork);
+                    $("#WhoCanCheckName").val(data.select.whoCanCheckName);
+                    $("#WhoCanCheckTel").val(data.select.whoCanCheckTel);
+                    $("#WhoCanCheckAdress").val(data.select.whoCanCheckAdress);
+                    $("#WhoCanCheckRelated").val(data.select.whoCanCheckRelated);
+                    $("#EmergencyName").val(data.select.emergencyName);
+                    $("#EmergencyTel").val(data.select.emergencyTel);
+                    $("#EmergencyAdress").val(data.select.emergencyAdress);
+                    $("#EmergencyRelated").val(data.select.emergencyRelated);
+                },
+                error: (e) => {
+                    console.log(e)
+                    displayError(e);
+                }
+            })
+        }
+
+        function DocWork() {
+            if(DocumentCDD != null && DocumentCDD != "")
+            {
+                window.location.href = '/Upload/File/' + DocumentCDD;
+            }
+            else
+            {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: 'ไม่มีไฟล์ กรุณาลองใหม่อีกครั้ง',
+                })
+            }
+        }
+
+        function DocCert() {
+            if(DocumentWorkCertification != null && DocumentWorkCertification != "")
+            {
+                window.location.href = '/Upload/File/' + DocumentWorkCertification;
+            }
+            else
+            {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: 'ไม่มีไฟล์ กรุณาลองใหม่อีกครั้ง',
+                })
+            }      
+        }
+
+        function Submit() {
+              var forms = $('#SendFrom')[0];
+                    var data = new FormData(forms);
+              $.ajax({
+                        type: 'post',
+                        url: '/Backend/CDDDetail?handler=EditCDD',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        beforeSend: function () {
+                            Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                            Swal.showLoading()
+                        },
+                        success: function (data) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                showConfirmButton: false,
+                                timer: 3500
+                            });
+                           setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                        },
+                        error: (e) => {
+                            displayError(e);
+                        }
+                    });
+        }
+    </script>
+}

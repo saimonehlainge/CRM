@@ -1,0 +1,84 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "_Layout_Login";
+}
+
+<style>
+    input::-ms-reveal {
+        display: none;
+    }
+</style>
+
+<div class="main-wrapper">
+    <div class="account-content">
+        <div class="login-wrapper">
+            <div class="login-content">
+                <div class="login-userset">
+                    <form id="account" method="post" enctype="multipart/form-data">
+                        <div class="login-logo logo-normal">
+                            <img src="/assets/img/logo.png" alt="img">
+                        </div>
+                        <a href="index.html" class="login-logo logo-white">
+                            <img src="/assets/img/logo-white.png" alt="">
+                        </a>
+                        <div class="login-userheading">
+                            <h3>Sign In</h3>
+                            <h4>Please login to your account</h4>
+                        </div>
+                        <div class="form-login">
+                            <label>Email</label>
+                            <div class="form-addons">
+                                <input asp-for="Input.Email" type="email" class="form-control"
+                                       id="floatingInput" placeholder="Enter email" autocomplete="username" aria-required="true">
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                <img src="/assets/img/icons/mail.svg" alt="img">
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <label>Password</label>
+                            <div class="pass-group">
+                                <input asp-for="Input.Password" type="password" class="form-control mb-0 login-password"
+                                       id="floatingPassword" placeholder="Password" autocomplete="current-password" aria-required="true">
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                <span class="fas toggle-password fa-eye-slash" id="toggler"></span>
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <div class="alreadyuser">
+                                <h4><a asp-page="/Backend/Forgetpassword" class="hover-a">Forgot Password?</a></h4>
+                            </div>
+                        </div>
+                        <div class="form-login">
+                            <button type="submit" class="btn btn-login">Sign In</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+            <div class="login-img">
+                <img src="/assets/img/login.jpg" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var password = document.getElementById('floatingPassword');
+        var toggler = document.getElementById('toggler');
+        showHidePassword = () => {
+        if (password.type == 'password') {
+        password.setAttribute('type', 'text');
+        toggler.classList.add('fa-eye-slash');
+        } else {
+        toggler.classList.remove('fa-eye-slash');
+        password.setAttribute('type', 'password');
+        }
+        };
+        toggler.addEventListener('click', showHidePassword);
+    </script>
+}

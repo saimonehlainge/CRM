@@ -1,0 +1,638 @@
+﻿@page
+@model Recruitment.Pages.Backend.CalendarModel
+@using Recruitment.Helpers
+@inject Recruitment.Repositories.IUnitOfWork _unitofwork;
+@{
+    ViewData["Title"] = "Calendar";
+    Layout = "_Layout_Backend";
+
+    var (userid, roles, _, department) = User.GetUser();
+    var permission = await _unitofwork.PermissionSettingRepository.GetPermission(userid);
+}
+
+@Html.AntiForgeryToken()
+
+<style>
+    .calendar-events {
+        border: 1px solid transparent;
+        cursor: move;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .fc-list-event-title {
+        color: black !important;
+    }
+</style>
+
+
+<div class="page-wrapper">
+    <div class="content">
+
+        <div class="page-header">
+            <div class="row align-items-center w-100">
+                <div class="col-lg-10 col-sm-12">
+                    <h3 class="page-title">Calendar</h3>
+                </div>
+                @*  if (permission?.FirstOrDefault()?.createcalendar == true)
+                { *@
+                <div class="col-lg-2 col-sm-12">
+                    <a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_event">Create Event</a>
+                </div>
+                @*} *@
+            </div>
+        </div>
+
+
+        <div class="card">
+            <form id="SendFrom">
+                <div class="card-header col-lg-12 row">
+                    @* <div class="col-md-6" style="margin-top:10px">
+                        <h4 class="card-title">เริ่มวันที่ </h4>
+                        <input class="form-control" type="date" id="startdate" placeholder="วัยที่เริ่ม" />
+                    </div>
+                    <div class="col-md-6" style="margin-top:10px">
+                        <h4 class="card-title">ถึงวันที่</h4>
+                        <input class="form-control" type="date" id="enddate" placeholder="ถึงวันที่" />
+                    </div> *@
+                    <div class="col-md-6" style="margin-top:10px">
+                        <h4 class="card-title">เริ่มวันที่</h4>
+                        <div class="input-group" id="startdate_wrapper">
+                            <input class="form-control" type="text" id="startdate" placeholder="dd/mm/yyyy" />
+                            <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <input type="hidden" id="startdate_hidden" name="startdate" />
+                    </div>
+
+                    <div class="col-md-6" style="margin-top:10px">
+                        <h4 class="card-title">ถึงวันที่</h4>
+                        <div class="input-group" id="enddate_wrapper">
+                            <input class="form-control" type="text" id="enddate" placeholder="dd/mm/yyyy" />
+                            <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                        </div>
+                        <input type="hidden" id="enddate_hidden" name="enddate" />
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="card-title">สถานะ</h4>
+                        <select class="form-control" id="status">
+                            <option value="-1">- กรุณาเลือก -</option>
+                            <option value="1">ทำแล้ว</option>
+                            <option value="2">ยังไม่ได้ทำ</option>
+                            <option value="3">ยกเลิก</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="text-end" style="margin-right:20px;margin-bottom:20px">
+                <a class="btn btn-sm btn-success" onclick="Search()">Search</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <h4 class="card-title">Event</h4>
+                <div class="mb-3" id="calendar-events">
+                    <div class="calendar-events" data-class="bg-info"><i class="fas fa-circle text-info"></i> My Event One</div>
+                </div>
+                @*  if (permission?.FirstOrDefault()?.delete == true)
+                {
+                <div class="checkbox  mb-3">
+                    <a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#remove_event"> Remove Event </a>
+                </div>
+                } *@
+            </div>
+            <div class="col-lg-9 col-md-8">
+                <div class="card bg-white">
+                    <div class="card-body">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Event Modal -->
+<div id="add_event" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="AddForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Event Name <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="Detail">
+                    </div>
+                    <div class="form-group">
+                        <label>Start Event Date <span class="text-danger">*</span></label>
+                        <div class="cal-icon">
+                            <input class="form-control " type="date" name="StartDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>To Event Date <span class="text-danger">*</span></label>
+                        <div class="cal-icon">
+                            <input class="form-control " type="date" name="EndDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="Description">
+                    </div>
+                    @if (roles != "recruiter")
+                    {
+                        <div class="form-group">
+                            <label>Recruit <span class="text-danger">*</span></label>
+                            <select class="form-control js-example-basic-single" id="getuser" name="userid[]" multiple></select>
+                        </div>
+                    }
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-primary submit-btn" onclick="submit_add()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Change Event Modal -->
+<div id="ChangeEvent" class="modal custom-modal fade" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Change Event</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="EditEvents" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>ชื่อกิจกรรม <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="ChangeEventName" id="ChangeEventName">
+                    </div>
+                    <div class="form-group">
+                        <label>เริ่มวันที่ <span class="text-danger">*</span></label>
+                        <div class="cal-icon">
+                            <input class="form-control " type="date" name="ChangeStart" id="ChangeStart">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ถึงวันที่ <span class="text-danger">*</span></label>
+                        <div class="cal-icon">
+                            <input class="form-control " type="date" name="ChangeEnd" id="ChangeEnd">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="Changedescription" id="Changedescription">
+                    </div>
+                    <div class="form-group">
+                        <label>สถานะ</label>
+                        <select class="form-control" name="ChangeStatus" id="ChangeStatus">
+                            <option value="-1">- กรุณาเลือก -</option>
+                            <option value="1">ทำแล้ว</option>
+                            <option value="2">ยังไม่ได้ทำ</option>
+                            <option value="3">ยกเลิก</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="ChangeId" id="ChangeId" />
+                    <input type="hidden" name="EventName" id="EventName" />
+                    <input type="hidden" name="start" id="Change_start" />
+                    <input type="hidden" name="end" id="Change_end" />
+                    <input type="hidden" name="description" id="Change_description" />
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-primary submit-btn" onclick="submit_ChangeEvent()" id="ChangeSubmit">Submit Data</button>
+                    <button class="btn btn-primary submit-btn" onclick="submit_remove()" id="ChangeDelect">Delete Date</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+
+        const startPicker = flatpickr("#startdate", {
+            altInput: true,
+            altFormat: "d/m/Y",   // UI format
+            dateFormat: "Y-m-d",  // Backend format
+        });
+
+        // End Date
+        const endPicker = flatpickr("#enddate", {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+        });
+
+        // Make icon open calendar
+        document.querySelector("#startdate_wrapper .input-group-text").addEventListener("click", () => {
+            startPicker.open();
+        });
+
+        document.querySelector("#enddate_wrapper .input-group-text").addEventListener("click", () => {
+            endPicker.open();
+        });
+        //
+        $(".js-example-basic-single").select2();
+            let calendar;                // calendar instance
+            let calendarEventsData = []; // ข้อมูล event ทั้งหมด
+
+            document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Calendar?handler=DataCalendar',
+                headers: {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    calendarEventsData = response; // เก็บข้อมูลไว้ใช้ทีหลัง
+
+                    renderCalendarEvents(response);
+                    renderCalendar(response, calendarEl);
+                }
+            });
+        });
+
+        function renderCalendarEvents(events) {
+            var s = '';
+            $.each(events, function (v, c) {
+                let style = `style="color:${c.color} !important;"`;
+                s += `<div class="calendar-events" data-bs-toggle="modal" data-bs-target="#ChangeEvent" onclick="OnChangeEvent('${c.title}', '${c.start}', '${c.end}', '${c.description}')"><i class="fas fa-circle text-info" ${style}></i>${c.title}</div>`;
+            });
+            $("#calendar-events").html(s);
+        }
+
+        function renderCalendar(events, calendarEl) {
+            if (calendar) {
+                calendar.removeAllEvents();
+                calendar.addEventSource(events);
+                return;
+            }
+
+            calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                eventDidMount: function(info) {
+                    $(info.el).tooltip({
+                        title: info.event.extendedProps.description,
+                        placement: 'top',
+                        trigger: 'hover',
+                        container: 'body'
+                    });
+                },
+                headerToolbar: {
+                    left: 'prev,next,today',
+                    center: 'title',
+                    right: 'dayGridMonth,listWeek,timeGridWeek'
+                },
+                initialDate: new Date(),
+                navLinks: true,
+                editable: true,
+                dayMaxEvents: 2,
+                eventTimeFormat: {
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    meridiem: false
+                },
+                displayEventTime: false,
+                events: events,
+                eventClick: function(info) {
+                    $("#ChangeEvent").modal('show');
+                    $.ajax({
+                        type: 'get',
+                        url: '/Backend/Calendar?handler=CheckDateEvent',
+                        headers: {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        data: {
+                            check_date: info.event.startStr,
+                            EventName: info.event._def.title
+                        },
+                        success: function (data) {
+
+                            //สำหรับแสดงและเก็บค่า
+                            $("#ChangeId").val(data.db.id);
+                            $("#EventName").val(data.db.detail);
+                            $("#Change_start").val(data.db.startDate);
+                            $("#Change_end").val(data.db.endDate);
+                            $("#Change_description").val(data.db.description);
+
+                            //สำหรับไว้แก้ไข
+                            $("#ChangeEventName").val(data.db.detail);
+                            let startDate = new Date(data.db.startDate);
+                            let endDate = new Date(data.db.endDate);
+                            $("#ChangeStart").val(formatDate(startDate));
+                            $("#ChangeEnd").val(formatDate(endDate));
+                            $("#Changedescription").val(data.db.description)
+                            //$("#ChangeStatus").value = data.db.status;
+                            if(data.db.status != null)
+                            {
+                                document.getElementById('ChangeStatus').value = data.db.status;
+                            }
+                            else
+                            {
+                                document.getElementById('ChangeStatus').value = -1;
+                            }
+
+                            if(data.checkedit == 0)
+                            {
+                                $("#ChangeEventName").attr("readonly", true);
+                                $("#ChangeStart").attr("readonly", true);
+                                $("#ChangeEnd").attr("readonly", true);
+                                $("#Changedescription").attr("readonly", true);
+                                $("#ChangeDelect").prop("disabled", true);
+                            }
+                            else
+                            {
+                                $("#ChangeEventName").attr("readonly", false);
+                                $("#ChangeStart").attr("readonly", false);
+                                $("#ChangeEnd").attr("readonly", false);
+                                $("#Changedescription").attr("readonly", false);
+                                $("#ChangeDelect").prop("disabled", false);
+                            }
+                        }, error: function (e) {
+                            console.log(e.statusText);
+                        }
+                    });
+                }
+            });
+
+            calendar.render();
+        }
+
+        let formatDate = (d) => {
+            let yyyy = d.getFullYear();
+            let mm = (d.getMonth() + 1).toString().padStart(2, '0');
+            let dd = d.getDate().toString().padStart(2, '0');
+            return `${yyyy}-${mm}-${dd}`;
+        };
+
+        function Search() {
+            let start = $('#startdate').val();
+            let end = $('#enddate').val();
+            let status = $('#status').val();
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Calendar?handler=DataCalendar', // หรือเปลี่ยนชื่อ handler ถ้าแยก
+                headers: {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: {
+                    startdate: start,
+                    enddate: end,
+                    status: status
+                },
+                success: function (response) {
+                    calendarEventsData = response;
+                    renderCalendarEvents(response);
+                    renderCalendar(response); // อัปเดตบน calendar
+                },
+                error: function (err) {
+                    console.log("Search error:", err);
+                }
+            });
+        }
+
+          function submit_add() {
+            var forms = $('#AddForm')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Calendar?handler=AddData',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+
+                        setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+
+        function submit_remove() {
+            Swal.fire({
+                title: 'คุณต้องการเปลื่ยนการใช้งานนี้ ใช่หรือไม่',
+                showDenyButton: true,
+                confirmButtonText: 'ok',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var forms = $('#EditEvents')[0];
+                    var data = new FormData(forms);
+                    $.ajax({
+                        type: 'post',
+                        url: '/Backend/Calendar?handler=RemoveData',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        beforeSend: function () {
+                            Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                            Swal.showLoading()
+                        },
+                        success: function (data) {
+                            if (data == 1) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                    showConfirmButton: false,
+                                    timer: 3500
+                                });
+                               setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                            } else {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'เกิดข้อผิดพลาด',
+                                    text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                })
+                            }
+                        },
+                        error: (e) => {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'เกิดข้อผิดพลาดกับระบบ',
+                                text: 'กรุณาติดต่อแอดมิน',
+                            })
+                        }
+                    });
+                }
+            })
+        }
+
+        function OnChangeEvent(name, start, end, description)
+        {
+            let valueEvent = name.replace(/\s*\(.*?\)/g, '');
+            $("#EventName").val(valueEvent);
+            $("#ChangeEventName").val(valueEvent);
+
+            let startDate = new Date(start);
+            let endDate = new Date(end);
+            $("#ChangeStart").val(formatDate(startDate));
+            $("#ChangeEnd").val(formatDate(endDate));
+            $("#Changedescription").val(description)
+
+            $("#Change_start").val(formatDate(startDate));
+            $("#Change_end").val(formatDate(endDate));
+            $("#Change_description").val(description);
+
+            let GetStatus = $("#status").val();
+            if(GetStatus != null)
+            {
+                document.getElementById('ChangeStatus').value = GetStatus;
+            }
+            else
+            {
+                document.getElementById('ChangeStatus').value = -1;
+            }
+
+
+             $.ajax({
+                type: 'get',
+                url: '/Backend/Calendar?handler=CheckDateEvent',
+                headers: {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: {
+                        check_date:start,
+                    EventName:valueEvent
+                },
+                success: function (data) {
+                    if(data.checkedit == 0)
+                    {
+                        $("#ChangeEventName").attr("readonly", true);
+                        $("#ChangeStart").attr("readonly", true);
+                        $("#ChangeEnd").attr("readonly", true);
+                        $("#Changedescription").attr("readonly", true);
+                        $("#ChangeDelect").prop("disabled", true);
+                    }
+                    else
+                    {
+                        $("#ChangeEventName").attr("readonly", false);
+                        $("#ChangeStart").attr("readonly", false);
+                        $("#ChangeEnd").attr("readonly", false);
+                        $("#Changedescription").attr("readonly", false);
+                        $("#ChangeDelect").prop("disabled", false);
+                    }
+               }
+            })
+        }
+
+        function submit_ChangeEvent()
+        {
+            var forms = $('#EditEvents')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Calendar?handler=ChangeEvent',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+                        setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+
+        $(()=>{
+            GetUser();
+        })
+
+        function GetUser() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=User',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = ''; //<option value="-1">กรุณาเลือกรายการ</option>
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.userId + '">' + c.firstname + '</option>';
+                    });
+                    $("#getuser").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+    </script>
+}

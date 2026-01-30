@@ -1,0 +1,370 @@
+﻿@page
+@model Recruitment.Pages.Backend.PermissionModel
+@{
+    ViewData["Title"] = "Permission";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper cardhead">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">กำหนดสิทธิ</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">ผู้ใช้งาน</a></li>
+                        <li class="breadcrumb-item active">กำหนดสิทธิ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">ตำแหน่งงาน</h5>
+                    </div>
+                    <form id="SendFrom" enctype="multipart/form-data">
+                        <div class="card-body" id="html"></div>
+                    </form>
+                    <div class="text-center" style="margin-bottom:20px">
+                        <button class="btn btn-primary" onclick="Submit()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(() => {
+            GetRole();
+        })
+
+        function GetRole() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Permission?handler=ListPermission',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    console.log(response)
+                    var html = '';
+                    $.each(response.getrole, function (v, c) {
+                        html += '<div class="form-group row">';
+                        html += '<div class="col-md-1">';
+                        html += '<label class="col-form-label">' + c.name + '</label>';
+                        html += '<input hidden value="' + c.name + '" name="Permission[]"/> ';
+                        html += '</div>';
+                        html += '<div class="col-md-10 row">';
+
+
+                        const a = response.permission.find(i => i.permission === c.name);
+                        var index = 0;
+                        $.each(response.permissiondetails, function (vv, cc) {
+
+                            if (cc.id == 1) {
+                                if (response.permission.length != 0 && a.create == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Create[]" type="checkbox" value="1,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Create[]" type="checkbox" value="1,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 2) {
+                                if (response.permission.length != 0 && a.edit == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Edit[]" type="checkbox" value="2,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Edit[]" type="checkbox" value="2,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 3) {
+                                if (response.permission.length != 0 && a.setting == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Setting[]" type="checkbox" value="3,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Setting[]" type="checkbox" value="3,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 4) {
+                                if (response.permission.length != 0 && a.delete == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Delete[]" type="checkbox" value="4,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="Delete[]" type="checkbox" value="4,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 5) {
+                                if (response.permission.length != 0 && a.viewteam == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewTeam[]" type="checkbox" value="5,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewTeam[]" type="checkbox" value="5,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 6) {
+                                if (response.permission.length != 0 && a.viewproject == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewProject[]" type="checkbox" value="6,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewProject[]" type="checkbox" value="6,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 7) {
+                                if (response.permission.length != 0 && a.createcalendar == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="CreateCalendar[]" type="checkbox" value="7,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="CreateCalendar[]" type="checkbox" value="7,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 8) {
+                                if (response.permission.length != 0 && a.viewcalendar == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewCalendar[]" type="checkbox" value="8,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewCalendar[]" type="checkbox" value="8,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 9) {
+                                if (response.permission.length != 0 && a.onlyinfo == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="OnlyInfo[]" type="checkbox" value="9,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="OnlyInfo[]" type="checkbox" value="9,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 10) {
+                                if (response.permission.length != 0 && a.viewprojectmanage == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewProjectManage[]" type="checkbox" value="10,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ViewProjectManage[]" type="checkbox" value="10,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 11) {
+                                if (response.permission.length != 0 && a.editinfo == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="EditInfo[]" type="checkbox" value="11,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="EditInfo[]" type="checkbox" value="11,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 12) {
+                                if (response.permission.length != 0 && a.editteam == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="EditTeam[]" type="checkbox" value="12,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="EditTeam[]" type="checkbox" value="12,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 13) {
+                                if (response.permission.length != 0 && a.reportteam == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportTeam[]" type="checkbox" value="13,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportTeam[]" type="checkbox" value="13,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div';
+                                }
+                            }
+                            else if (cc.id == 14) {
+                                if (response.permission.length != 0 && a.reportinfo == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportInfo[]" type="checkbox" value="14,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportInfo[]" type="checkbox" value="14,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 15) {
+                                if (response.permission.length != 0 && a.reportproject == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportProject[]" type="checkbox" value="15,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportProject[]" type="checkbox" value="15,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                            else if (cc.id == 16) {
+                                if (response.permission.length != 0 && a.reporttargetvsachieved == true) {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportTargetvsAchieved[]" type="checkbox" value="16,'+c.name+'" checked>&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                } else {
+                                    html += '<div class="col-md-3">';
+                                    html += '<label class="form-check-label">';
+                                    html += '<input class="form-check-input" name="ReportTargetvsAchieved[]" type="checkbox" value="16,'+c.name+'">&emsp;' + cc.name + '';
+                                    html += '</label>';
+                                    html += '</div>';
+                                }
+                            }
+                        });
+                        html += '</div>';
+                        html += '</div>';
+                    });
+                    $("#html").html(html);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function Submit() {
+            var forms = $('#SendFrom')[0];
+            var data = new FormData(forms);
+
+            // console.log($("[name$='Create[]']").val())
+
+            // var checkboxvalue = [];
+            // $("[name$='Create[]']:checked").each(function (i) {
+            //     console.log($(this).val())
+            //     //checkboxvalue.push(i.value);
+            // });
+
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Permission?handler=PermissionSubmit',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                        showConfirmButton: false,
+                        timer: 3500
+                    });
+                    setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            });
+        }
+
+    </script>
+}

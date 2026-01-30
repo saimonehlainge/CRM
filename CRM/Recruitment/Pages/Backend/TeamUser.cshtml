@@ -1,0 +1,342 @@
+﻿@page
+@model Recruitment.Pages.Backend.TeamUserModel
+@{
+    ViewData["Title"] = "TeamUser";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">กำหนดทีม</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">ผู้ใช้งาน</a></li>
+                        <li class="breadcrumb-item active">กำหนดทีม</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="text-end" style="margin-right:20px;margin-top:20px">
+                        <a class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">เพิ่มข้อมูล</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="AddForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="mb-6 mt-6 col-6">
+                            <label class="form-label">เลือกพนักงาน</label>
+                            <select class="form-control js-example-basic-single" id="getuser" name="userId"></select>
+                        </div>
+                        <div class="mb-6 mt-6 col-6">
+                            <label class="form-label">เลือกแผนก</label>
+                            <select class="form-control js-example-basic-single" id="getdepartment" name="departmentId"></select>
+                        </div>
+                        <div class="mb-6 mt-6 col-6">
+                            <label class="form-label">เลือกตำแหน่งทีม</label>
+                            <select class="form-control js-example-basic-single" name="teamposition">
+                                <option value="-1">กรุณาเลือกรายการ</option>
+                                <option value="1">หัวหน้าทีม</option>
+                                <option value="2">ลูกทีม</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input type="hidden" name="teamId" id="teamId" />
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-sm btn-secondary" type="button" data-bs-dismiss="modal">ปิด</button>
+                    <button class="btn btn-sm btn-primary" onclick="submit_add()">เพิ่มข้อมูล</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+            var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+            var Parmeter_id = getUrlParameter('Id');
+
+            var check = 0;
+            function checkSwitch() {
+                if (document.getElementById("Status").checked == true) {
+                    check = 1;
+                }
+                else {
+                    check = 0;
+                }
+                $("#Status").val(check);
+            }
+
+            var check1 = 0;
+            function checkSwitchEdit() {
+                if (document.getElementById("EditStatus").checked == true) {
+                    check1 = 1;
+                }
+                else {
+                    check1 = 0;
+                }
+                $("#EditStatus").val(check1);
+            }
+
+            var oTable;
+            $(() => {
+                oTable = $('#example').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    searching: true,
+                    lengthChange: true,
+                    fixedHeader: true,
+                    responsive: true,
+                    retrieve: false,
+                    ajax: {
+                        type: 'post',
+                        url: '/Backend/TeamUser?handler=TableTeam',
+                        dataType: "json",
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                    },
+                    columns: [
+                        { 'data': 'name', name: 'name' },
+                        { 'data': 'name', name: 'name' },
+                        { 'data': 'department', name: 'department' },
+                        {
+                            'data': 'id',
+                            render: function (data, type, row) {
+                                return '<center>' +
+                                    '<a class="btn btn-sm btn-danger" onclick="change_delete(\'' + data + '\')"><i class="fa fa-trash" style="color:white"></a>' +
+                                    '</center>';
+                            }
+                        }
+                    ],
+                });
+                $.fn.dataTable.ext.errMode = 'throw';
+
+                // โหลดข้อมูลอีกรอบ
+                oTable.on('order.dt search.dt', function () {
+                    let i = 1;
+                    oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                        .every(function (cell) {
+                            this.data(i++);
+                        });
+                }).draw();
+
+                GetUser();
+                GetDepartment();
+            })
+
+            $(".js-example-basic-single").select2();
+
+            function GetUser() {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/TeamUser?handler=User',
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.firstname + '  ' + c.lastname + '</option>';
+                        });
+                        $("#getuser").html(s);
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+
+            function GetDepartment() {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/TeamUser?handler=Department',
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#getdepartment").html(s);
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+
+            function change_delete(id) {
+                Swal.fire({
+                    title: 'คุณต้องการเปลื่ยนการใช้งานนี้ ใช่หรือไม่',
+                    showDenyButton: true,
+                    confirmButtonText: 'ok',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            type: 'get',
+                            url: '/Backend/TeamUser?handler=DeleteData',
+                            data: { Id: id },
+                            headers:
+                            {
+                                "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                            },
+                            beforeSend: function () {
+                                Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                                Swal.showLoading()
+                            },
+                            success: function (data) {
+                                if (data == 1) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                        showConfirmButton: false,
+                                        timer: 3500
+                                    });
+                                    setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                                } else if (data == 2) {
+                                    Swal.fire({
+                                        icon: 'warning',
+                                        title: 'เกิดข้อผิดพลาด',
+                                        text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                                    })
+                                }
+                                else {
+                                    Swal.fire({
+                                        icon: 'warning',
+                                        title: 'เกิดข้อผิดพลาด',
+                                        text: 'ข้อมูลรายการนี้เปิดใช้งานอยู่แล้ว',
+                                    })
+                                }
+                            },
+                            error: (e) => {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'เกิดข้อผิดพลาดกับระบบ',
+                                    text: 'กรุณาติดต่อแอดมิน',
+                                })
+                            }
+                        });
+                    }
+                })
+            }
+
+            function submit_add() {
+                $("#teamId").val(Parmeter_id);
+
+                var forms = $('#AddForm')[0];
+                var data = new FormData(forms);
+                $.ajax({
+                    type: 'post',
+                    url: '/Backend/TeamUser?handler=UserTeamSubmit',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    beforeSend: function () {
+                        Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                        Swal.showLoading()
+                    },
+                    success: function (data) {
+                        if (data == 1) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                showConfirmButton: false,
+                                timer: 3500
+                            });
+                            setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                        } else if (data == 2) {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                            })
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'เกิดข้อผิดพลาด',
+                                text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                            })
+                        }
+                    },
+                    error: (e) => {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'เกิดข้อผิดพลาดกับระบบ',
+                            text: 'กรุณาติดต่อแอดมิน',
+                        })
+                    }
+                });
+            }
+    </script>
+}

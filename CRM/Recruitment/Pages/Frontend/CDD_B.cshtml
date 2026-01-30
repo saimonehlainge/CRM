@@ -1,0 +1,1757 @@
+﻿@page
+@model Recruitment.Pages.Frontend.CDD_BModel
+@{
+    ViewData["Title"] = "CDD_B";
+    Layout = "Layout_Frontend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="container-fluid">
+    <div class="row wow fadeInDown">
+        <div class="col-12 wrap-bannercareer wrap_banner-inside">
+            <div class="caption-career">
+                <h1>สมัครงานกับเรา </h1>
+            </div>
+            <div class="owl-visitor owl-carousel owl-theme">
+                <div class="items">
+                    <div class="banner_visitor">
+                        <figure><img src="~/images/360_F_226341850_7XM3ivXOQeMozdnbEbuWR7wCkIP4ca4a.jpg" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-curve"><img src="~/images/curve.svg" alt=""></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-wrapper cardhead">
+            <div class="content container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Form CDD B</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="/Frontend/Index">Home</a></li>
+                                <li class="breadcrumb-item active">Form CDD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="SendFrom" enctype="multipart/form-data">
+                                    <div class="form-row row">
+                                        <div class="col-md-6 mb-6">
+                                            <label>ท่านเห็นประกาศมาจากช่องทางใด</label>
+                                            <select class="form-control js-example-basic-single js-states" name="Announcement" id="Announcement"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>Position / ตำแหน่งที่สมัคร</label>
+                                            <select class="form-control js-example-basic-single js-states" name="Position" id="Position"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>HR ฝ่ายสรรหาที่ติดต่อสมัครงาน</label>
+                                            <select class="form-control" name="HRContact">
+                                                <option value="Anawin K. (HR ไอซ์)">Anawin K. (HR ไอซ์)</option>
+                                                <option value="Patsakorn K. (HR มายด์)">Patsakorn K. (HR มายด์)</option>
+                                                <option value="Atchara S. (HR บุ๋ม)">Atchara S. (HR บุ๋ม)</option>
+                                                <option value="Nattawut M. (HR อาร์ม)">Nattawut M. (HR อาร์ม)</option>
+                                                <option value="Supreecha H. (HR เอ็ม)">Supreecha H. (HR เอ็ม)</option>
+                                                <option value="Wanapa R. (HR ภา)">Wanapa R. (HR ภา)</option>
+                                                <option value="Panachakorn K. (HR พรีม)">Panachakorn K. (HR พรีม)</option>
+                                                <option value="Jeerawat U. (HR เต๋า)">Jeerawat U. (HR เต๋า)</option>
+                                                <option value="Woratham T. (HR โปเต้)">Woratham T. (HR โปเต้)</option>
+                                                <option value="Chopaka P. (HR เดียร์)">Chopaka P. (HR เดียร์)</option>
+                                                <option value="Jirasin S. (HR จิ)">Jirasin S. (HR จิ)</option>
+                                                <option value="Weerakam W. (HR กานต์)">Weerakam W. (HR กานต์)</option>
+                                                <option value="Natthapong P. (HR โตโต้)">Natthapong P. (HR โตโต้)</option>
+                                                <option value="อื่นๆ">อื่นๆ</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สาขา/ออฟฟิศที่ทำงาน</label>
+                                            <input type="text" class="form-control" name="Branch">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เงินเดือนที่คาดหวัง</label>
+                                            <input type="number" class="form-control" name="Salary">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ต้องการงานในแถบพื้นที่</label>
+                                            <select class="form-control js-example-basic-single" name="WorkArea" id="WorkArea"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>คำนำหน้า</label>
+                                            <select class="form-control js-example-basic-single" name="Prefix" id="Prefix"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="NameTH" id="NameTH">
+                                            <div class="valid-feedback" id="validNameTH"></div>
+                                            <div class="invalid-feedback" id="invalidNameTH"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อ-นามสกุล (ภาษาอังกฤษ)</label>
+                                            <input type="text" class="form-control" name="NameENG">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อเล่น</label>
+                                            <input type="text" class="form-control" name="Nikname">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เบอร์โทรศัพท์ <span style="color:red">*</span></label>
+                                            <input type="number" class="form-control" id="validationtel" name="Tel" pattern="\d*" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                            <div class="valid-feedback" id="validTel"></div>
+                                            <div class="invalid-feedback" id="invalidTel"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>Line ID</label>
+                                            <input type="text" class="form-control" name="LineId">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>E-Mail</label>
+                                            <input type="text" class="form-control" name="Email">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>วันเดือนปีเกิด <span style="color:red">*</span></label>
+                                            <input type="date" class="form-control" name="Birthday" id="Birthday">
+                                            <div class="valid-feedback" id="validBirthday"></div>
+                                            <div class="invalid-feedback" id="invalidBirthday"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ศาสนา</label>
+                                            <select class="form-control js-example-basic-single" name="Religion" id="Religion"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สัญชาติ <span style="color:red">*</span></label>
+                                            <select class="form-control js-example-basic-single" name="Nationality" id="Nationality"></select>
+                                            <div class="valid-feedback" id="validNationality"></div>
+                                            <div class="invalid-feedback" id="invalidNationality"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เลขบัตรประชาชน ID Card <span style="color:red">*</span></label>
+                                            <input type="number" id="validationIdCard" name="IDCard" class="form-control" pattern="\d*" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                            <div class="valid-feedback" id="validIdCard"></div>
+                                            <div class="invalid-feedback" id="invalidIdCard"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>บัตรหมดอายุ</label>
+                                            <input type="date" class="form-control" name="EndDateIDCard">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สถานะทางทหาร</label>
+                                            <select class="form-control js-example-basic-single" name="MilitaryStatus" id="MilitaryStatus"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สถานภาพ</label>
+                                            <select class="form-control js-example-basic-single" name="MarriedStatus" id="MarriedStatus"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ที่อยู่ตามบัตรประชาชน <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="IdCardAddress" id="IdCardAddress">
+                                            <div class="valid-feedback" id="validIdCardAddress"></div>
+                                            <div class="invalid-feedback" id="invalidIdCardAddress"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ที่อยู่ปัจจุบัน รหัส ปณ. ที่อยู่ปัจจุบัน <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="CurrentAddress" id="CurrentAddress">
+                                            <div class="valid-feedback" id="validCurrentAddress"></div>
+                                            <div class="invalid-feedback" id="invalidCurrentAddress"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>วุฒิ</label>
+                                            <select class="form-control js-example-basic-single" name="Qualification" id="Qualification"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อสถานที่ศึกษาที่จบ, ปีที่จบ(พ.ศ.)</label>
+                                            <input type="text" class="form-control" name="StudyLocation">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ความสามารถด้านภาษา <span style="color:red">ระดับในการอ่าน เขียน ฟัง พูด</span></label>
+                                            <select class="form-control js-example-basic-single" name="LanguageAbility" id="LanguageAbility"></select>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label>ความสามารถพิเศษอื่นๆ <span>(พิมพ์,คอมพิวเตอร์,ขับรถยนต์)</span></label>
+                                            <input type="text" class="form-control" name="OtherSpecialAbility">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ความสามารถด้านภาษา อื่นๆ</label>
+                                            <input type="text" class="form-control" name="LanguageAbilityOther" placeholder="กรณีไม่มีภาษาให้เลือก กรุณากรอกช่องนี้">
+                                        </div>
+                                        <div class="col-lg-12 row">
+                                            <label>ประวัติการทำงาน</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อบริษัท</label>
+                                                <input type="text" class="form-control" name="ComapnyName">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เดือนและปีที่เริ่ม-สิ้นสุด</label>
+                                                <input type="text" class="form-control" name="StartEndWork">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ตำแหน่งงาน</label>
+                                                <input type="text" class="form-control" name="WorkPosition">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เงินเดือน</label>
+                                                <input type="text" class="form-control" name="WorkSalary">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เหตุผลที่ออก</label>
+                                                <input type="text" class="form-control" name="NoteWork">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สามารถไปปฎิบัติงานต่างจังหวัดได้หรือไม่</label>
+                                            <select class="form-control js-example-basic-single" name="WorkOtheProvinces">
+                                                <option value="-1">กรุณาเลือกรายการ</option>
+                                                <option value="1">ไม่ได้</option>
+                                                <option value="2">ได้</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ประวัติวัคซีน Covid</label>
+                                            <select class="form-control js-example-basic-single" name="HistoryCovidVaccine" id="HistoryCovidVaccine"></select>
+                                        </div>
+                                        <div class="col-lg-12 row">
+                                            <label>บุคคลอ้างอิงที่สามารถติดต่อได้</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckName" id="WhoCanCheckName">
+                                                <div class="valid-feedback" id="validWhoCanCheckName"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckName"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckTel" id="WhoCanCheckTel">
+                                                <div class="valid-feedback" id="validWhoCanCheckTel"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckTel"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckAdress" id="WhoCanCheckAdress">
+                                                <div class="valid-feedback" id="validWhoCanCheckAdress"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckAdress"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckRelated" id="WhoCanCheckRelated">
+                                                <div class="valid-feedback" id="validWhoCanCheckRelated"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckRelated"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 row">
+                                            <label>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyName" id="EmergencyName">
+                                                <div class="valid-feedback" id="validEmergencyName"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyName"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyTel" id="EmergencyTel">
+                                                <div class="valid-feedback" id="validEmergencyTel"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyTel"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyAdress" id="EmergencyAdress">
+                                                <div class="valid-feedback" id="validEmergencyAdress"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyAdress"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyRelated" id="EmergencyRelated">
+                                                <div class="valid-feedback" id="validEmergencyRelated"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyRelated"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เอกสารประกอบการสมัครงาน</label>
+                                            <input type="file" class="form-control" name="DocumentCDD">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เอกสารรับรองการทำงาน</label>
+                                            <input type="file" class="form-control" name="DocumentWorkCertification">
+                                        </div>
+
+                                        <!-- รายละเอียด -->
+
+                                        <h6 style="margin-top:40px">รายละเอียดงาน</h6>
+                                        <div class="col-md-6 mb-6">
+                                            <label>อุปกรณ์ที่ใช้ในการทำงาน <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validusedwork"></div>
+                                            <div class="invalid-feedback" id="invalidusedwork"></div>
+                                        </div>
+
+                                        <div class="col-md-6 md-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Usedwork" id="Usedwork" value="1" checked>
+                                                <label class="form-check-label" for="Usedwork">Windows</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Usedwork" id="Usedwork2" value="2">
+                                                <label class="form-check-label" for="Usedwork2">Android และ Windows</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Usedwork" id="Usedwork3" value="3">
+                                                <label class="form-check-label" for="Usedwork3">ไม่มีอุปกรณ์</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label>ผู้สมัครมีอายุระหว่าง 18-40 ปี <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validapplicant_age"></div>
+                                            <div class="invalid-feedback" id="invalidapplicant_age"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Applicant_age" id="applicant_age" value="1" checked>
+                                                <label class="form-check-label" for="applicant_age">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Applicant_age" id="applicant_age2" value="2">
+                                                <label class="form-check-label" for="applicant_age2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ผู้สมัครอยู่ระหว่างตั้งครรภ์ หรือมีแผนการตั้งครรภ์ในระยะเวลาเร็วๆ นี้ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validapplicant_pregnant"></div>
+                                            <div class="invalid-feedback" id="invalidapplicant_pregnant"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Applicant_pregnant" id="applicant_pregnant" value="1" checked>
+                                                <label class="form-check-label" for="applicant_pregnant">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Applicant_pregnant" id="applicant_pregnant2" value="2">
+                                                <label class="form-check-label" for="applicant_pregnant2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ท่านเคยสมัครหรือทำงานที่ บริษัท ไบร์ทสเปซ หรือไม่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validever_applied"></div>
+                                            <div class="invalid-feedback" id="invalidever_applied"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Ever_applied" id="ever_applied" value="1" checked>
+                                                <label class="form-check-label" for="ever_applied">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Ever_applied" id="ever_applied2" value="2">
+                                                <label class="form-check-label" for="ever_applied2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> อยู่ในระหว่างกำลังศึกษาอยู่ หรือมีแผนที่จะเรียนต่อ ใช่หรือไม่ใช่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validstudying"></div>
+                                            <div class="invalid-feedback" id="invalidstudying"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Studying" id="studying" value="1" checked>
+                                                <label class="form-check-label" for="studying">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Studying" id="studying2" value="2">
+                                                <label class="form-check-label" for="studying2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> มีความบกพร่อง หรือพิการทางด้านร่างกาย ใช่หรือไม่ใช่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validdefect"></div>
+                                            <div class="invalid-feedback" id="invaliddefect"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Defect" id="defect" value="1" checked>
+                                                <label class="form-check-label" for="defect">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Defect" id="defect2" value="2">
+                                                <label class="form-check-label" for="defect2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> วุฒิปัจจุบันของท่านน้อยกว่า ม.6 ใช่หรือไม่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validcurrent_degree"></div>
+                                            <div class="invalid-feedback" id="invalidcurrent_degree"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Current_degree" id="current_degree" value="1" checked>
+                                                <label class="form-check-label" for="current_degree">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Current_degree" id="current_degree2" value="2">
+                                                <label class="form-check-label" for="current_degree2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ผู้สมัครสามารถรับเเรงกดดันได้ดีในการทำงานที่มียอด และทำงานเลยเวลางานเลิกปกติได้ ถึง 20.00 น. ใช่หรือไม่ใช่  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validunder_pressure"></div>
+                                            <div class="invalid-feedback" id="invalidunder_pressure"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Under_pressure" id="under_pressure" value="1" checked>
+                                                <label class="form-check-label" for="under_pressure">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Under_pressure" id="under_pressure2" value="2">
+                                                <label class="form-check-label" for="under_pressure2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ผู้สมัครเพศชายผ่านการเกณฑ์ทหารเรียบร้อยแล้ว หรือเรียนรด. ไม่ต้องเข้าเกณ์ทหาร  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validmilitarstatus"></div>
+                                            <div class="invalid-feedback" id="invalidmilitarstatus"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="MilitaryStatus" id="militarstatus" value="1" checked>
+                                                <label class="form-check-label" for="militarstatus">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="MilitaryStatus" id="militarstatus2" value="2">
+                                                <label class="form-check-label" for="militarstatus2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ผู้สมัครมีญาติพี่น้องที่รับราชการใช่ หรือ ไม่ใช่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validgovernment_work"></div>
+                                            <div class="invalid-feedback" id="invalidgovernment_work"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Government_work" id="government_work" value="1" checked>
+                                                <label class="form-check-label" for="government_work">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Government_work" id="government_work2" value="2">
+                                                <label class="form-check-label" for="government_work2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ผู้สมัครมีวุฒิ ป.ตรี  คณะรัฐศาสตร์ คณะนิติศาสตร์  คณะศึกษาศาสตร์ ดังที่กล่าวมานี้ ใช่หรือไม่ใช่  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validspecific_qualifications"></div>
+                                            <div class="invalid-feedback" id="invalidspecific_qualifications"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Specific_qualifications" id="specific_qualifications" value="1" checked>
+                                                <label class="form-check-label" for="specific_qualifications">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Specific_qualifications" id="specific_qualifications2" value="2">
+                                                <label class="form-check-label" for="specific_qualifications2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ท่านมีโรคประจำตัว ใช่หรือไม่ใช่ <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validhistory_congenital_disease"></div>
+                                            <div class="invalid-feedback" id="invalidhistory_congenital_disease"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="History_congenital_disease" id="history_congenital_disease" value="1" onchange="CheckCongenital_disease()" checked>
+                                                <label class="form-check-label" for="history_congenital_disease">ใช่</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="History_congenital_disease" id="history_congenital_disease2" value="2" onchange="CheckCongenital_disease2()">
+                                                <label class="form-check-label" for="history_congenital_disease2">ไม่ใช่</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6" style="display:none" id="Showcongenital_disease">
+                                            <label> หากมีโรคประจำตัว โปรดระบุ  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validcongenital_disease"></div>
+                                            <div class="invalid-feedback" id="invalidcongenital_disease"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6" style="display:none" id="ShowInputcongenital_disease">
+                                            <input class="form-control" name="congenitaldisease_detail" id="congenitaldisease_detail">
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ค่าแรงวันละ 363/วัน ต่อเดือนเฉลี่ยประมาณ 9,438 ขึ้นอยู่กับจำนวณวันในแต่ล่ะเดือน และมีค่าคอมมิชชั่นขึ้นอยู่กับความสามารถ ซึ่งค่าคอมมิชชั่นจะออกทุกเดือนในรอบวันที่ 5  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validwage"></div>
+                                            <div class="invalid-feedback" id="invalidwage"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Wage" id="wage" value="1" checked>
+                                                <label class="form-check-label" for="wage">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Wage" id="wage2" value="2">
+                                                <label class="form-check-label" for="wage2">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ทางบริษัทมีสวัสดิการเป็น ประกันสังคมให้ นับจากวันที่เซ็นสัญญาเป็นพนักงานประจำ  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validsocial_security"></div>
+                                            <div class="invalid-feedback" id="invalidsocial_security"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Social_security" id="social_security" value="1" checked>
+                                                <label class="form-check-label" for="social_security">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Social_security" id="social_security2" value="2">
+                                                <label class="form-check-label" for="social_security2">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ทำงาน 6 วันต่อสัปดาห์ วันหยุด 1 วัน จะหยุดพร้อมกันทั้งทีม ทางหัวหน้าทีมจะทำตารางแจ้งให้ทราบในกลุ่มทีม(วันหยุดอาจไม่ตรงกับเสาร์/อาทิตย์) <span style="color:red">*</span> </label>
+                                            <div class="valid-feedback" id="validwork6stop1"></div>
+                                            <div class="invalid-feedback" id="invalidwork6stop1"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Work6stop1" id="work6stop1" value="1" checked>
+                                                <label class="form-check-label" for="work6stop1">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Work6stop1" id="work6stop12" value="2">
+                                                <label class="form-check-label" for="work6stop12">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> เป็นงานทำประจำแต่คิดค่าแรงเป็นรายวันจ่ายตามวันทำงานจริง การขาดงานไม่มีเหตุผลเพียงพอ บริษัทจะหักค่าแรง 2 เท่า  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validdeduction_wages"></div>
+                                            <div class="invalid-feedback" id="invaliddeduction_wages"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Deduction_wages" id="deduction_wages" value="1" checked>
+                                                <label class="form-check-label" for="deduction_wages">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Deduction_wages" id="deduction_wages2" value="2">
+                                                <label class="form-check-label" for="deduction_wages2">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> ทำงาน 8.30 น. เลิกงาน 18.00 น. และถ้าหากทำยอดไม่ถึง 50% - 70 % ของยอดที่ได้รับมา ต้องทำงานต่อถึง 20.00 โดยเป็นความรับผิดชอบในการทำยอดจะไม่มีการจ่ายค่าโอทีเพิ่มให้  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validdeduction_wages50"></div>
+                                            <div class="invalid-feedback" id="invaliddeduction_wages50"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Deduction_wages50" id="deduction_wages50" value="1" checked>
+                                                <label class="form-check-label" for="deduction_wages50">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Deduction_wages50" id="deduction_wages502" value="2">
+                                                <label class="form-check-label" for="deduction_wages50">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> จำนวนการโทรต้องมากกว่าวันละ 280 รายชื่อ และมีระยะเวลาการคุยกับลูกค้ามากกว่า 2 ชม. ต่อวัน  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validnumbercalls"></div>
+                                            <div class="invalid-feedback" id="invalidnumbercalls"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Numbercalls" id="numbercalls" value="1" checked>
+                                                <label class="form-check-label" for="numbercalls">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Numbercalls" id="numbercalls2" value="2">
+                                                <label class="form-check-label" for="numbercalls2">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> การโทรในเวลางานหากหยุดโทรติดต่อกันเกิน 15 นาทีหากมีการตรวจพบจะถูกเช็คขาดวันนั้นทันที  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validnumbercalls15"></div>
+                                            <div class="invalid-feedback" id="invalidnumbercalls15"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Numbercalls15" id="numbercalls12" value="1" checked>
+                                                <label class="form-check-label" for="numbercalls12">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Numbercalls15" id="numbercalls152" value="2">
+                                                <label class="form-check-label" for="numbercalls152">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> หากมีการขาดงานบ่อย หรือ ลางานบ่อย หรือ ทำยอดไม่ได้ติดต่อกันเป็นเวลาหลายวัน บริษัทอาจมีการพิจารณาให้ออก ทันที  <span style="color:red">*</span></label>
+                                            <div class="valid-feedback" id="validmissing_work"></div>
+                                            <div class="invalid-feedback" id="invalidmissing_work"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Missing_work" id="missing_work" value="1" checked>
+                                                <label class="form-check-label" for="missing_work">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Missing_work" id="missing_work2" value="2">
+                                                <label class="form-check-label" for="missing_work2">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label> วันหยุดนักขัตฤกษ์ทางบริษัทจะมีการจ่ายค่าแรงเป็น 2 เท่าให้หากมีการตกลงให้เข้ามาทำงาน <span style="color:red">*</span> </label>
+                                            <div class="valid-feedback" id="validcost_work2"></div>
+                                            <div class="invalid-feedback" id="invalidcost_work2"></div>
+                                        </div>
+
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Cost_work2" id="cost_work2" value="1" checked>
+                                                <label class="form-check-label" for="cost_work2">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Cost_work2" id="cost_work22" value="2">
+                                                <label class="form-check-label" for="cost_work22">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label>
+                                                ลงชื่อแล้วไม่สามารถเข้าเทรนตามรอบได้ทางบริษัทจะขออนุญาตตัดสิทธิ์ในการเข้าเทรน หรือ ถ้าผู้สมัครมีเหตุผลอันสมควร ทางเจ้าหน้าที่จะขออนุญาตนำส่งเรื่องเพื่อพิจารณาอนุมัติอีกครั้ง
+                                                ในกรณีที่ เข้าเทรนแล้ว ไม่ผ่านใน 1-2 วันแรก สามารถแจ้งเจ้าหน้าที่เพื่อขอเข้าเทรนได้อีก 1 ครั้งเท่านั้น <span style="color:red">*</span>
+                                            </label>
+                                            <div class="valid-feedback" id="validtrend12"></div>
+                                            <div class="invalid-feedback" id="invalidtrend12"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Trend12" id="trend12" value="1" checked>
+                                                <label class="form-check-label" for="trend12">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Trend12" id="trend122" value="2">
+                                                <label class="form-check-label" for="trend122">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <label>
+                                                การเทรนงานอบรม แต่ละรอบจะทำการอบรม 2-3 วัน ผ่านโปรแกรม Zoom
+                                                สำหรับท่านที่ผ่านการสอบทั้ง 2 วันแล้วเท่านั้นที่จะได้อบรมต่อวันที่ 3 เพื่อติดตั้ง Program หรือ Application ที่ใช้ทำงานและเซ็นสัญญาจ้างงานโดย HR จะส่งให้ทาง E-mail
+                                                *การเทรนงาน 9:00-18.00 หลังเทรนเสร็จ 3 วัน ทำงานต่อเนื่องจนกว่าจะถึงวันหยุดที่หัวหน้าทีมแจ้ง เงินเดือนคิดให้ตั้งแต่วันแรกที่เริ่มเทรนสำหรับผู้ที่ผ่านเทรนทั้ง 3 วัน* <span style="color:red">*</span>
+                                            </label>
+                                            <div class="valid-feedback" id="validtrend23"></div>
+                                            <div class="invalid-feedback" id="invalidtrend23"></div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Trend23" id="trend23" value="1" checked>
+                                                <label class="form-check-label" for="trend23">รับทราบ</label>
+                                            </div>
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="Trend23" id="trend232" value="2">
+                                                <label class="form-check-label" for="trend232">ไม่รับทราบ</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <label>ข้าพเจ้าในนามของ "ผู้สมัครงาน" ขอยืนยันว่าเป็นคนถือสัญชาติไทย และมีบัตรประจำตัวประชาชนที่ออกโดยประเทศไทย <span style="color:red">*</span></label>
+                                                <input class="form-check-input" type="checkbox" id="Nationality2">
+                                                <div class="valid-feedback" id="validNationality2"></div>
+                                                <div class="invalid-feedback" id="invalidNationality2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <label>ข้าพเจ้าในนามของ "ผู้สมัครงาน" ขอยืนยันว่าขอมูลทั้งหมดที่ให้ในใบสมัครงานนี้เป็นความจริงทุกประการ ถ้ามีการให้ข้อมูลเท็จหรือจริงกับที่แจ้ง ข้าพเจ้ายินยอมให้ตัดสิทธิ์ในการสมัครงานทันที (รบกวนผู้สมัครพิมพ์คำว่า "ยืนยัน" เท่านั้น) <span style="color:red">*</span></label>
+                                                <input class="form-check-input" type="checkbox" id="confirm_info">
+                                                <div class="valid-feedback" id="validconfirm_info"></div>
+                                                <div class="invalid-feedback" id="invalidconfirm_info"></div>
+                                                @* <input class="form-control" id="confirm_info" name="congenitaldisease_detail" placeholder="กรุณาพิมพ์ยืนยัน" /> *@
+                                            </div>
+
+                                        </div>
+
+                                        <!-- จัดเก็บข้อมูลส่วนบุคคล -->
+
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <h6 style="margin-top:ค0px">จัดเก็บข้อมูลส่วนบุคคล</h6>
+                                                <label>
+                                                    ข้าพเจ้า ซึ่งเป็นผู้ใช้บริการ ("ลูกค้า" หรือ "ผู้สมัครงาน") ของบริษัทจัดหางาน 89 (ประเทศไทย) จำกัด ยินยอมให้บริษัทเก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าที่มีอยู่กับบริษัทภายใต้ข้อกำหนดและเงื่อนไขตามที่ประกาศไว้ในเว็บไซต์บริษัท
+                                                    <br />
+                                                    ท่านสามารอ่านประกาศความเป็นส่วนตัวได้ <a href="https://sites.google.com/recruitment89.com/recruitment89/privacy">ที่นี่</a>
+                                                </label>
+                                                <input class="form-check-input" type="checkbox" id="check1">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <h6>ยินยอมให้ตรวจประวัติบุคคล ดูรายละเอียด <a href="~/file/หนังสือยินยอม_ตรวจสอบประวัติ_update23112023.pdf">ที่นี่</a></h6>
+                                                <div class="mb-3 mt-3 col-4">
+                                                    <label class="form-label">แนบไฟล์ประวัติบุคคล</label>
+                                                    <input type="file" class="form-control col-lg-12" name="DocumentHistroy" id="DocumentHistroy" />
+                                                    <div class="form-group">
+                                                        <div class="form-check" style="margin-top:20px">
+                                                            <label>ยินยอมให้ตรวจประวัติบุคคล</label>
+                                                            <input class="form-check-input" type="checkbox" id="check2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <h6>แบบฟอร์ม จง. ดูรายละเอียด <a href="~/file/จง32_update_161023.pdf">ที่นี่</a> </h6>
+                                                <div class="mb-3 mt-3 col-4">
+                                                    <label class="form-label">แนบไฟล์ แบบฟอร์ม จง</label>
+                                                    <input type="file" class="form-control col-lg-12" name="DocumentJng" id="DocumentJng" />
+                                                    <div class="form-group">
+                                                        <div class="form-check" style="margin-top:20px">
+                                                            <label>ยินยอมให้ จง.</label>
+                                                            <input class="form-check-input" type="checkbox" id="check3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <h6>ยืนยันตัวตน</h6>
+                                                <label> ข้าพเจ้าในนามของ "ผู้สมัครงาน" ขอยืนยันว่าเป็นคนถือสัญชาติไทย และมีบัตรประจำตัวประชาชนที่ออกโดยประเทศไทย </label>
+                                                <input class="form-check-input" type="checkbox" id="check4">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" style="margin-top:20px">
+                                            <div class="form-check">
+                                                <h6>ยินยอมข้อมูลการสมัครงาน</h6>
+                                                <label> ข้าพเจ้าในนามของ ผู้สมัครงาน ขอยืนยันว่าข้อมูลทั้งหมดที่ให้ในใบสมัครงานนี้เป็นความจริงทุกประการ ถ้ามีการให้ข้อมูลเท็จหรือไม่จริงกับที่แจ้ง ข้าพเจ้ายืนยันให้ตัดสิทธิ </label>
+                                                <input class="form-check-input" type="checkbox" id="check5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="userId" id="userId" />
+                                </form>
+                                <div class="text-center">
+                                    <button class="btn btn-primary" onclick="Submit()">Submit</button>
+                                    <button class="btn btn-danger" onclick="Reset()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        var userId = getUrlParameter('Id');
+
+        $(() => {
+            GetAnnouncement();
+            GetPosition();
+            GetProvince();
+            GetPrefix();
+            GetReligion();
+            GetNationality();
+            GetMilitaryStatus();
+            GetMarriedStatus();
+            GetQualification();
+            GetLanguageAbility();
+            GetHistoryCovid();
+            CheckCongenital_disease();
+
+            $("#userId").val(userId);
+        });
+
+        $(".js-example-basic-single").select2();
+
+        function GetAnnouncement() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Announcement',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Announcement").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetPosition() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Position',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Position").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetProvince() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Province',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.nameInThai + '</option>';
+                    });
+                    $("#WorkArea").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetPrefix() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Prefix',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Prefix").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetReligion() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Religion',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Religion").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetNationality() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Nationality',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Nationality").html(s);
+
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetMilitaryStatus() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=MilitaryStatus',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#MilitaryStatus").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetMarriedStatus() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=MarriedStatus',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#MarriedStatus").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetQualification() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=Qualification',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Qualification").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetLanguageAbility() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=LanguageAbility',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#LanguageAbility").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetHistoryCovid()
+        {
+                $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_B?handler=HistoryCovid',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#HistoryCovidVaccine").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function validatePhoneNumber(phoneNumber) {
+            // เช็คว่าเบอร์โทรตรงตามรูปแบบ 10 หลัก
+            const pattern = /^[0-9]{10}$/;
+
+            if (pattern.test(phoneNumber)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validateIDCard(phoneNumber) {
+            // เช็คว่าเบอร์โทรตรงตามรูปแบบ 10 หลัก
+            const pattern = /^[0-9]{13}$/;
+            if (pattern.test(phoneNumber)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function Submit()
+        {
+            let Check = true;
+            try
+            {
+                try
+                {
+               
+                if ($("#EmergencyRelated").val() == null || $("#EmergencyRelated").val() == "") {
+                    $("#invalidEmergencyRelated").text("กรุณากรอกผู้เกี่ยวข้องกับ ผู้ติดต่อฉุกเฉิน* ");
+                    $("#EmergencyRelated").removeClass("is-valid");
+                    $("#EmergencyRelated").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validEmergencyRelated").text("ข้อมูลครบถ้วน");
+                    $("#EmergencyRelated").removeClass("is-invalid");
+                    $("#EmergencyRelated").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#EmergencyAdress").val() == null || $("#EmergencyAdress").val() == "") {
+                    $("#invalidEmergencyAdress").text("กรุณากรอกที่อยู่ ผู้ติดต่อฉุกเฉิน* ");
+                    $("#EmergencyAdress").removeClass("is-valid");
+                    $("#EmergencyAdress").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validEmergencyAdress").text("ข้อมูลครบถ้วน");
+                    $("#EmergencyAdress").removeClass("is-invalid");
+                    $("#EmergencyAdress").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#EmergencyTel").val() == null || $("#EmergencyTel").val() == "") {
+                    $("#invalidEmergencyTel").text("กรุณากรอกเบอร์โทร ผู้ติดต่อฉุกเฉิน* ");
+                    $("#EmergencyTel").removeClass("is-valid");
+                    $("#EmergencyTel").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validEmergencyTel").text("ข้อมูลครบถ้วน");
+                    $("#EmergencyTel").removeClass("is-invalid");
+                    $("#EmergencyTel").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#EmergencyName").val() == null || $("#EmergencyName").val() == "") {
+                    $("#invalidEmergencyName").text("กรุณากรอกข้อมูล ชื่อ-นามสกุล ผู้ติดต่อ* ");
+                    $("#EmergencyName").removeClass("is-valid");
+                    $("#EmergencyName").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validEmergencyName").text("ข้อมูลครบถ้วน");
+                    $("#EmergencyName").removeClass("is-invalid");
+                    $("#EmergencyName").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#WhoCanCheckRelated").val() == null || $("#WhoCanCheckRelated").val() == "") {
+                    $("#invalidWhoCanCheckRelated").text("กรุณากรอกผู้เกี่ยวข้องกับ ผู้ติดต่อ* ");
+                    $("#WhoCanCheckRelated").removeClass("is-valid");
+                    $("#WhoCanCheckRelated").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validWhoCanCheckRelated").text("ข้อมูลครบถ้วน");
+                    $("#WhoCanCheckRelated").removeClass("is-invalid");
+                    $("#WhoCanCheckRelated").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#WhoCanCheckAdress").val() == null || $("#WhoCanCheckAdress").val() == "") {
+                    $("#invalidWhoCanCheckAdress").text("กรุณากรอกที่อยู่ ผู้ติดต่อ* ");
+                    $("#WhoCanCheckAdress").removeClass("is-valid");
+                    $("#WhoCanCheckAdress").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validWhoCanCheckAdress").text("ข้อมูลครบถ้วน");
+                    $("#WhoCanCheckAdress").removeClass("is-invalid");
+                    $("#WhoCanCheckAdress").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#WhoCanCheckTel").val() == null || $("#WhoCanCheckTel").val() == "") {
+                    $("#invalidWhoCanCheckTel").text("กรุณากรอกเบอร์โทร ผู้ติดต่อ* ");
+                    $("#WhoCanCheckTel").removeClass("is-valid");
+                    $("#WhoCanCheckTel").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validWhoCanCheckTel").text("ข้อมูลครบถ้วน");
+                    $("#WhoCanCheckTel").removeClass("is-invalid");
+                    $("#WhoCanCheckTel").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#WhoCanCheckName").val() == null || $("#WhoCanCheckName").val() == "") {
+                    $("#invalidWhoCanCheckName").text("กรุณากรอกข้อมูล ชื่อ-นามสกุล ผู้ติดต่อ* ");
+                    $("#WhoCanCheckName").removeClass("is-valid");
+                    $("#WhoCanCheckName").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validWhoCanCheckName").text("ข้อมูลครบถ้วน");
+                    $("#WhoCanCheckName").removeClass("is-invalid");
+                    $("#WhoCanCheckName").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#NameTH").val() == null || $("#NameTH").val() == "") {
+                    $("#invalidNameTH").text("กรุณากรอกชื่อ * ");
+                    $("#NameTH").removeClass("is-valid");
+                    $("#NameTH").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validNameTH").text("ข้อมูลครบถ้วน");
+                    $("#NameTH").removeClass("is-invalid");
+                    $("#NameTH").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#validationtel").val() != "" && $("#validationtel").val() != null) { //validatePhoneNumber($("#validationtel").val()) &&
+                    $("#validTel").text("ข้อมูลครบถ้วน");
+                    $("#validationtel").removeClass("is-invalid");
+                    $("#validationtel").addClass("is-valid");
+                    Check = true;
+                } else {
+                    $("#invalidTel").text("กรุณาใส่ข้อมูลโทรศํพท์ ให้ครบถ้วน 10 หลัก * ");
+                    $("#validationtel").removeClass("is-valid");
+                    $("#validationtel").addClass("is-invalid");
+                    Check = false;
+                }
+
+                if ($("#Birthday").val() == null || $("#Birthday").val() == "") {
+                    $("#invalidBirthday").text("กรุณากรอกข้อมูล วันเดือนปีเกิด *");
+                    $("#Birthday").removeClass("is-valid");
+                    $("#Birthday").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validBirthday").text("ข้อมูลครบถ้วน");
+                    $("#Birthday").removeClass("is-invalid");
+                    $("#Birthday").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#Nationality").val() == -1) {
+                    $("#invalidNationality").text("กรุณาเลือกรายการ สัญชาติ * ");
+                    $("#Nationality").removeClass("is-valid");
+                    $("#Nationality").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validNationality").text("ข้อมูลครบถ้วน");
+                    $("#Nationality").removeClass("is-invalid");
+                    $("#Nationality").addClass("is-valid");
+                    Check = true;
+                }
+
+                if (validateIDCard($("#validationIdCard").val()) && $("#validationIdCard").val() != "" && $("#validationIdCard").val() != null) {
+                    $("#validIdCard").text("ข้อมูลครบถ้วน");
+                    $("#validationIdCard").removeClass("is-invalid");
+                    $("#validationIdCard").addClass("is-valid");
+                    Check = true;
+                } else {
+                    $("#invalidIdCard").text("กรุณาใส่ข้อมูล บัตรประชาชน ให้ครบถ้วน 13 หลัก * ");
+                    $("#validationIdCard").removeClass("is-valid");
+                    $("#validationIdCard").addClass("is-invalid");
+                    Check = false;
+                }
+
+                if ($("#IdCardAddress").val() == null || $("#IdCardAddress").val() == "") {
+                    $("#invalidIdCardAddress").text("กรุณากรอกข้อมูล ที่อยู่ตามบัตรประชาชน *");
+                    $("#IdCardAddress").removeClass("is-valid");
+                    $("#IdCardAddress").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validIdCardAddress").text("ข้อมูลครบถ้วน");
+                    $("#IdCardAddress").removeClass("is-invalid");
+                    $("#IdCardAddress").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#CurrentAddress").val() == null || $("#CurrentAddress").val() == "") {
+                    $("#invalidCurrentAddress").text("กรุณากรอกข้อมูล ที่อยู่ตามบัตรประชาชน *");
+                    $("#CurrentAddress").removeClass("is-valid");
+                    $("#CurrentAddress").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validCurrentAddress").text("ข้อมูลครบถ้วน");
+                    $("#CurrentAddress").removeClass("is-invalid");
+                    $("#CurrentAddress").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#usedwork").val() == -1) {
+                    $("#invalidusedwork").text("กรุณาเลือกรายการ อุปกรณ์ที่ใช้ในการทำงาน * ");
+                    $("#usedwork").removeClass("is-valid");
+                    $("#usedwork").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validusedwork").text("ข้อมูลครบถ้วน");
+                    $("#usedwork").removeClass("is-invalid");
+                    $("#usedwork").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#applicant_age").val() == -1) {
+                    $("#invalidapplicant_age").text("กรุณาเลือกรายการ ผู้สมัครมีอายุระหว่าง 18-40 ปี * ");
+                    $("#applicant_age").removeClass("is-valid");
+                    $("#applicant_age").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validapplicant_age").text("ข้อมูลครบถ้วน");
+                    $("#applicant_age").removeClass("is-invalid");
+                    $("#applicant_age").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#applicant_pregnant").val() == -1) {
+                    $("#invalidapplicant_pregnant").text("กรุณาเลือกรายการ ผู้สมัครอยู่ระหว่างตั้งครรภ์ * ");
+                    $("#applicant_pregnant").removeClass("is-valid");
+                    $("#applicant_pregnant").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validapplicant_pregnant").text("ข้อมูลครบถ้วน");
+                    $("#applicant_pregnant").removeClass("is-invalid");
+                    $("#applicant_pregnant").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#ever_applied").val() == -1) {
+                    $("#invalidever_applied").text("กรุณาเลือกรายการ ท่านเคยสมัครหรือทำงานที่ * ");
+                    $("#ever_applied").removeClass("is-valid");
+                    $("#ever_applied").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validever_applied").text("ข้อมูลครบถ้วน");
+                    $("#ever_applied").removeClass("is-invalid");
+                    $("#ever_applied").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#studying").val() == -1) {
+                    $("#invalidstudying").text("กรุณาเลือกรายการ อยู่ในระหว่างกำลังศึกษาอยู่ หรือมีแผนที่จะเรียนต่อ * ");
+                    $("#studying").removeClass("is-valid");
+                    $("#studying").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validstudying").text("ข้อมูลครบถ้วน");
+                    $("#studying").removeClass("is-invalid");
+                    $("#studying").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#defect").val() == -1) {
+                    $("#invaliddefect").text("กรุณาเลือกรายการ มีความบกพร่อง หรือพิการทางด้านร่างกาย * ");
+                    $("#defect").removeClass("is-valid");
+                    $("#defect").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validdefect").text("ข้อมูลครบถ้วน");
+                    $("#defect").removeClass("is-invalid");
+                    $("#defect").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#current_degree").val() == -1) {
+                    $("#invalidcurrent_degree").text("กรุณาเลือกรายการ วุฒิปัจจุบันของท่านน้อยกว่า ม.6 * ");
+                    $("#current_degree").removeClass("is-valid");
+                    $("#current_degree").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validcurrent_degree").text("ข้อมูลครบถ้วน");
+                    $("#current_degree").removeClass("is-invalid");
+                    $("#current_degree").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#under_pressure").val() == -1) {
+                    $("#invalidunder_pressure").text("กรุณาเลือกรายการ ผู้สมัครสามารถรับเเรงกดดันได้ดีในการทำงานที่มียอด * ");
+                    $("#under_pressure").removeClass("is-valid");
+                    $("#under_pressure").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validunder_pressure").text("ข้อมูลครบถ้วน");
+                    $("#under_pressure").removeClass("is-invalid");
+                    $("#under_pressure").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#militarstatus").val() == -1) {
+                    $("#invalidmilitarstatus").text("กรุณาเลือกรายการ ผู้สมัครเพศชายผ่านการเกณฑ์ทหารเรียบร้อยแล้ว * ");
+                    $("#militarstatus").removeClass("is-valid");
+                    $("#militarstatus").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validmilitarstatus").text("ข้อมูลครบถ้วน");
+                    $("#militarstatus").removeClass("is-invalid");
+                    $("#militarstatus").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#government_work").val() == -1) {
+                    $("#invalidgovernment_work").text("กรุณาเลือกรายการ ผู้สมัครมีญาติพี่น้องที่รับราชการใช่ * ");
+                    $("#government_work").removeClass("is-valid");
+                    $("#government_work").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validgovernment_work").text("ข้อมูลครบถ้วน");
+                    $("#government_work").removeClass("is-invalid");
+                    $("#government_work").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#specific_qualifications").val() == -1) {
+                    $("#invalidspecific_qualifications").text("กรุณาเลือกรายการ ผู้สมัครมีวุฒิ ป.ตรี  คณะรัฐศาสตร์ คณะนิติศาสตร์  คณะศึกษาศาสตร์ * ");
+                    $("#specific_qualifications").removeClass("is-valid");
+                    $("#specific_qualifications").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validspecific_qualifications").text("ข้อมูลครบถ้วน");
+                    $("#specific_qualifications").removeClass("is-invalid");
+                    $("#specific_qualifications").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#wage").val() == -1) {
+                    $("#invalidwage").text("กรุณาเลือกรายการ ค่าแรงวันละ 363/วัน * ");
+                    $("#wage").removeClass("is-valid");
+                    $("#wage").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validwage").text("ข้อมูลครบถ้วน");
+                    $("#wage").removeClass("is-invalid");
+                    $("#wage").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#social_security").val() == -1) {
+                    $("#invalidsocial_security").text("กรุณาเลือกรายการ ทางบริษัทมีสวัสดิการเป็น ประกันสังคมให้ นับจากวันที่เซ็นสัญญาเป็นพนักงานประจำ * ");
+                    $("#social_security").removeClass("is-valid");
+                    $("#social_security").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validsocial_security").text("ข้อมูลครบถ้วน");
+                    $("#social_security").removeClass("is-invalid");
+                    $("#social_security").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#work6stop1").val() == -1) {
+                    $("#invalidwork6stop1").text("กรุณาเลือกรายการ ทำงาน 6 วันต่อสัปดาห์ วันหยุด 1 วัน จะหยุดพร้อมกันทั้งทีม ทางหัวหน้าทีมจะทำตารางแจ้งให้ทราบในกลุ่มทีม(วันหยุดอาจไม่ตรงกับเสาร์/อาทิตย์) * ");
+                    $("#work6stop1").removeClass("is-valid");
+                    $("#work6stop1").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validwork6stop1").text("ข้อมูลครบถ้วน");
+                    $("#work6stop1").removeClass("is-invalid");
+                    $("#work6stop1").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#deduction_wages").val() == -1) {
+                    $("#invaliddeduction_wages").text("กรุณาเลือกรายการ ทำงาน 8.30 น. เลิกงาน 18.00 น. และถ้าหากทำยอดไม่ถึง 50% - 70 % ของยอดที่ได้รับมา ต้องทำงานต่อถึง 20.00 โดยเป็นความรับผิดชอบในการทำยอดจะไม่มีการจ่ายค่าโอทีเพิ่มให้ * ");
+                    $("#deduction_wages").removeClass("is-valid");
+                    $("#deduction_wages").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validdeduction_wages").text("ข้อมูลครบถ้วน");
+                    $("#deduction_wages").removeClass("is-invalid");
+                    $("#deduction_wages").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#deduction_wages50").val() == -1) {
+                    $("#invaliddeduction_wages50").text("กรุณาเลือกรายการ ทำงาน 8.30 น. เลิกงาน 18.00 น. และถ้าหากทำยอดไม่ถึง 50% - 70 % ของยอดที่ได้รับมา ต้องทำงานต่อถึง 20.00 * ");
+                    $("#deduction_wages50").removeClass("is-valid");
+                    $("#deduction_wages50").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validdeduction_wages50").text("ข้อมูลครบถ้วน");
+                    $("#deduction_wages50").removeClass("is-invalid");
+                    $("#deduction_wages50").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#numbercalls").val() == -1) {
+                    $("#invalidnumbercalls").text("กรุณาเลือกรายการ จำนวนการโทรต้องมากกว่าวันละ 280 รายชื่อ และมีระยะเวลาการคุยกับลูกค้ามากกว่า 2 ชม. ต่อวัน * ");
+                    $("#numbercalls").removeClass("is-valid");
+                    $("#numbercalls").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validnumbercalls").text("ข้อมูลครบถ้วน");
+                    $("#numbercalls").removeClass("is-invalid");
+                    $("#numbercalls").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#numbercalls15").val() == -1) {
+                    $("#invalidnumbercalls15").text("กรุณาเลือกรายการ การโทรในเวลางานหากหยุดโทรติดต่อกันเกิน 15 นาทีหากมีการตรวจพบจะถูกเช็คขาดวันนั้นทันที * ");
+                    $("#numbercalls15").removeClass("is-valid");
+                    $("#numbercalls15").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validnumbercalls15").text("ข้อมูลครบถ้วน");
+                    $("#numbercalls15").removeClass("is-invalid");
+                    $("#numbercalls15").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#missing_work").val() == -1) {
+                    $("#invalidmissing_work").text("กรุณาเลือกรายการ หากมีการขาดงานบ่อย หรือ ลางานบ่อย หรือ ทำยอดไม่ได้ติดต่อกันเป็นเวลาหลายวัน บริษัทอาจมีการพิจารณาให้ออก ทันที * ");
+                    $("#missing_work").removeClass("is-valid");
+                    $("#missing_work").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validmissing_work").text("ข้อมูลครบถ้วน");
+                    $("#missing_work").removeClass("is-invalid");
+                    $("#missing_work").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#cost_work2").val() == -1) {
+                    $("#invalidcost_work2").text("กรุณาเลือกรายการ วันหยุดนักขัตฤกษ์ทางบริษัทจะมีการจ่ายค่าแรงเป็น 2 เท่าให้หากมีการตกลงให้เข้ามาทำงาน * ");
+                    $("#cost_work2").removeClass("is-valid");
+                    $("#cost_work2").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validcost_work2").text("ข้อมูลครบถ้วน");
+                    $("#cost_work2").removeClass("is-invalid");
+                    $("#cost_work2").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#trend12").val() == -1) {
+                    $("#invalidtrend12").text("กรุณาเลือกรายการ ลงชื่อแล้วไม่สามารถเข้าเทรนตามรอบ * ");
+                    $("#trend12").removeClass("is-valid");
+                    $("#trend12").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validtrend12").text("ข้อมูลครบถ้วน");
+                    $("#trend12").removeClass("is-invalid");
+                    $("#trend12").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#trend23").val() == -1) {
+                    $("#invalidtrend23").text("กรุณาเลือกรายการ การเทรนงานอบรม แต่ละรอบจะทำการอบรม 2-3 วัน * ");
+                    $("#trend23").removeClass("is-valid");
+                    $("#trend23").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validtrend23").text("ข้อมูลครบถ้วน");
+                    $("#trend23").removeClass("is-invalid");
+                    $("#trend23").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#Nationality2").val() == -1) {
+                    $("#invalidNationality2").text("กรุณาเลือกรายการ ขอยืนยันว่าเป็นคนถือสัญชาติไทย และมีบัตรประจำตัวประชาชนที่ออกโดยประเทศไทย * ");
+                    $("#Nationality2").removeClass("is-valid");
+                    $("#Nationality2").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validNationality2").text("ข้อมูลครบถ้วน");
+                    $("#Nationality2").removeClass("is-invalid");
+                    $("#Nationality2").addClass("is-valid");
+                    Check = true;
+                }
+
+                if ($("#confirm_info").checked == false) {
+                    $("#invalidconfirm_info").text("กรุณาเลือกรายการ ขอยืนยันว่าขอมูลทั้งหมดที่ให้ในใบสมัครงานนี้เป็นความจริงทุกประการ * ");
+                    $("#confirm_info").removeClass("is-valid");
+                    $("#confirm_info").addClass("is-invalid");
+                    Check = false;
+                }
+                else {
+                    $("#validconfirm_info").text("ข้อมูลครบถ้วน");
+                    $("#confirm_info").removeClass("is-invalid");
+                    $("#confirm_info").addClass("is-valid");
+                    Check = true;
+                }
+                    }catch (validationError) {
+                        console.error("Validation Error:", validationError.message);
+                        alert("❌ " + validationError.message);
+                        return;
+                    }
+
+                if (Check) {
+                    var check1 = document.getElementById("check1").checked;
+                    var check2 = document.getElementById("check2").checked;
+                    var check3 = document.getElementById("check3").checked;
+                    var check4 = document.getElementById("check4").checked;
+                    var check5 = document.getElementById("check5").checked;
+                    if (check1 == true && check2 == true && check3 == true && check4 == true && check5 == true) {
+                        var forms = $('#SendFrom')[0];
+                        var data = new FormData(forms);
+
+                        var RequestVerificationToken =  $('input:hidden[name="__RequestVerificationToken"]').val() || '';
+                        if (!RequestVerificationToken) {
+                            console.warn("CSRF Token is missing!");
+                        }
+                            try {
+                        $.ajax({
+                            type: 'post',
+                            url: '/Frontend/CDD_B?handler=FormB',
+                            headers:
+                            {
+                                "RequestVerificationToken": RequestVerificationToken
+                            },
+                            contentType: false,  // ต้องเป็น false เพื่อให้ส่งเป็น multipart/form-data
+                            processData: false,   // ต้องเป็น false เพื่อไม่ให้ jQuery แปลงข้อมูล
+                            data: data,
+                            beforeSend: function () {
+                                // Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                                // Swal.showLoading()
+
+                                Swal.fire({
+                                    title: 'กรุณารอสักครู่ กำลังทำรายการ',
+                                    allowOutsideClick: false,
+                                    didOpen: () => {
+                                        Swal.showLoading();
+                                    }
+                                });
+                            },
+                            success: function (data) {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                                    showConfirmButton: false,
+                                    timer: 3500
+                                });
+                                setTimeout(function(){
+                                window.location.reload();
+                                },2000)
+                            },
+                            error: function (xhr, status, error) {
+                                //displayError(e);
+                                //console.error("AJAX Error:", status, error);
+                                //console.log(xhr.responseText); // ดูข้อความ Error จาก Server
+                                alert(error.message)
+                            }
+                        });
+                                } catch (ajaxError) {
+            console.error("AJAX Error:", ajaxError.message);
+            alert("⚠️ เกิดปัญหาการเชื่อมต่อเซิร์ฟเวอร์");
+        }
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'กรุณากดยอมรับเงื่อนไข ทั้งหมด กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                }
+                else {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'เกิดข้อผิดพลาด',
+                        text: 'กรุณากรอกข้อมูลให้ครบถ้วน ตามข้อความสีแดง',
+                    })
+                }
+            }
+            catch(unknownError)
+            {
+                // 3. Other unexpected errors
+                console.error("Unknown Error:", unknownError);
+                alert("❗ เกิดข้อผิดพลาดที่ไม่คาดคิดกับระบบ");
+            }
+        }
+
+        function Reset() {
+            document.getElementById("SendFrom").reset();
+        }
+
+        function CheckCongenital_disease()
+        {
+            document.getElementById('Showcongenital_disease').style.display = 'block';
+            document.getElementById('ShowInputcongenital_disease').style.display = 'block';
+        }
+
+        function CheckCongenital_disease2()
+        {
+            document.getElementById('Showcongenital_disease').style.display = 'none';
+            document.getElementById('ShowInputcongenital_disease').style.display = 'none';
+        }
+    </script>
+}

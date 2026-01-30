@@ -1,0 +1,117 @@
+﻿@page
+@model Recruitment.Pages.Backend.EmailModel
+@{
+    ViewData["Title"] = "Email";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper cardhead">
+    <div class="content container-fluid">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">AppSetting</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">AppSetting</a></li>
+                        <li class="breadcrumb-item active">Email</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Setting Email</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="AddForm" enctype="multipart/form-data">
+                            <div class="form-group row">
+                                <label class="col-form-label col-md-2">Email</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="Email" id="Email">
+                                </div>
+                            </div>
+                            <input type="hidden" id="Id" name="Id" />
+                        </form>
+                        <div class="text-end" style="margin-right:20px;margin-top:20px">
+                            <a class="btn btn-sm btn-success" onclick="submit_add()">Submit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        $(() => {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Email?handler=Mail',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    $("#Email").val(data[0].email);
+                    $("#Id").val(data[0].id);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        })
+
+        function submit_add() {
+            var forms = $('#AddForm')[0];
+            var data = new FormData(forms);
+            $.ajax({
+                type: 'post',
+                url: '/Backend/Email?handler=MailSetting',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                beforeSend: function () {
+                    Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                    Swal.showLoading()
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+
+                        setTimeout(function(){
+                              window.location.reload();
+                            },2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'เกิดข้อผิดพลาด',
+                            text: 'ไม่มีข้อมูล กรุณาลองใหม่อีกครั้ง',
+                        })
+                    }
+                },
+                error: (e) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'เกิดข้อผิดพลาดกับระบบ',
+                        text: 'กรุณาติดต่อแอดมิน',
+                    })
+                }
+            });
+        }
+    </script>
+}

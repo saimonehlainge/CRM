@@ -1,0 +1,1023 @@
+﻿@page
+@model Recruitment.Pages.Frontend.CDD_DModel
+@{
+    ViewData["Title"] = "CDD_D";
+    Layout = "Layout_Frontend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="container-fluid">
+    <div class="row wow fadeInDown">
+        <div class="col-12 wrap-bannercareer wrap_banner-inside">
+            <div class="caption-career">
+                <h1>สมัครงานกับเรา </h1>
+            </div>
+            <div class="owl-visitor owl-carousel owl-theme">
+                <div class="items">
+                    <div class="banner_visitor">
+                        <figure><img src="~/images/360_F_226341850_7XM3ivXOQeMozdnbEbuWR7wCkIP4ca4a.jpg" alt=""></figure>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-curve"><img src="~/images/curve.svg" alt=""></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="page-wrapper cardhead">
+            <div class="content container-fluid">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h3 class="page-title">Form CDD D</h3>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a asp-page="/Frontend/Index">Home</a></li>
+                                <li class="breadcrumb-item active">Form CDD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="SendFrom" enctype="multipart/form-data">
+                                    <div class="form-row row">
+                                        <div class="col-md-6 mb-6">
+                                            <label>บริษัทที่ต้องการสมัคร</label>
+                                            <select class="form-control js-example-basic-single" name="Company" id="Comapny"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ท่านเห็นประกาศมาจากช่องทางใด</label>
+                                            <select class="form-control js-example-basic-single" name="Announcement" id="Announcement"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>Position / ตำแหน่งที่สมัคร</label>
+                                            <select class="form-control js-example-basic-single" name="Position" id="Position"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สาขา/ออฟฟิศที่ทำงาน</label>
+                                            <input type="text" class="form-control" name="Branch">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เงินเดือนที่คาดหวัง</label>
+                                            <input type="number" class="form-control" name="Salary">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ต้องการงานในแถบพื้นที่</label>
+                                            <select class="form-control js-example-basic-single" name="WorkArea" id="WorkArea"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>คำนำหน้า</label>
+                                            <select class="form-control js-example-basic-single" name="Prefix" id="Prefix"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="NameTH" id="NameTH">
+                                            <div class="valid-feedback" id="validNameTH"></div>
+                                            <div class="invalid-feedback" id="invalidNameTH"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อ-นามสกุล (ภาษาอังกฤษ)</label>
+                                            <input type="text" class="form-control" name="NameENG">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อเล่น</label>
+                                            <input type="text" class="form-control" name="Nikname">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เบอร์โทรศัพท์ <span style="color:red">*</span></label>
+                                            <input type="number" class="form-control" id="validationtel" name="Tel" pattern="\d*" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                            <div class="valid-feedback" id="validTel"></div>
+                                            <div class="invalid-feedback" id="invalidTel"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>Line ID</label>
+                                            <input type="text" class="form-control" name="LineId">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>E-Mail</label>
+                                            <input type="text" class="form-control" name="Email">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>วันเดือนปีเกิด <span style="color:red">*</span></label>
+                                            <input type="date" class="form-control" name="Birthday" id="Birthday">
+                                            <div class="valid-feedback" id="validBirthday"></div>
+                                            <div class="invalid-feedback" id="invalidBirthday"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ศาสนา</label>
+                                            <select class="form-control js-example-basic-single" name="Religion" id="Religion"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สัญชาติ <span style="color:red">*</span></label>
+                                            <select class="form-control js-example-basic-single" name="Nationality" id="Nationality"></select>
+                                            <div class="valid-feedback" id="validNationality"></div>
+                                            <div class="invalid-feedback" id="invalidNationality"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เลขบัตรประชาชน ID Card <span style="color:red">*</span></label>
+                                            <input type="number" id="validationIdCard" name="IDCard" class="form-control" pattern="\d*" onkeydown="javascript: return event.keyCode == 69 ? false : true">
+                                            <div class="valid-feedback" id="validIdCard"></div>
+                                            <div class="invalid-feedback" id="invalidIdCard"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>บัตรหมดอายุ</label>
+                                            <input type="date" class="form-control" name="EndDateIDCard">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สถานะทางทหาร <span style="color:red">*</span></label>
+                                            <select class="form-control js-example-basic-single" name="MilitaryStatus" id="MilitaryStatus"></select>
+                                            <div class="valid-feedback" id="validMilitaryStatus"></div>
+                                            <div class="invalid-feedback" id="invalidMilitaryStatus"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สถานภาพ</label>
+                                            <select class="form-control js-example-basic-single" name="MarriedStatus" id="MarriedStatus"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ที่อยู่ตามบัตรประชาชน <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="IdCardAddress" id="IdCardAddress">
+                                            <div class="valid-feedback" id="validIdCardAddress"></div>
+                                            <div class="invalid-feedback" id="invalidIdCardAddress"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ที่อยู่ปัจจุบัน รหัส ปณ. ที่อยู่ปัจจุบัน <span style="color:red">*</span></label>
+                                            <input type="text" class="form-control" name="CurrentAddress" id="CurrentAddress">
+                                            <div class="valid-feedback" id="validCurrentAddress"></div>
+                                            <div class="invalid-feedback" id="invalidCurrentAddress"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>วุฒิ</label>
+                                            <select class="form-control js-example-basic-single" name="Qualification" id="Qualification"></select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ชื่อสถานที่ศึกษาที่จบ, ปีที่จบ(พ.ศ.)</label>
+                                            <input type="text" class="form-control" name="StudyLocation">
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ความสามารถด้านภาษา <span style="color:red">ระดับในการอ่าน เขียน ฟัง พูด</span></label>
+                                            <select class="form-control js-example-basic-single" name="LanguageAbility" id="LanguageAbility"> </select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ความสามารถพิเศษอื่นๆ <span>(พิมพ์,คอมพิวเตอร์,ขับรถยนต์)</span></label>
+                                            <input type="text" class="form-control" name="OtherSpecialAbility">
+                                        </div>
+                                        <div class="col-md-6 md-6">
+                                            <label>ความสามารถด้านภาษา อื่นๆ</label>
+                                            <input type="text" class="form-control" placeholder="กรณีเลือกอื่นๆ จะแสดงช่องกรอกนี้">
+                                        </div>
+
+                                        <div class="col-lg-12 row">
+                                            <label>ประวัติการทำงาน</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อบริษัท</label>
+                                                <input type="text" class="form-control" name="ComapnyName">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เดือนและปีที่เริ่ม-สิ้นสุด</label>
+                                                <input type="text" class="form-control" name="StartEndWork">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ตำแหน่งงาน</label>
+                                                <input type="text" class="form-control" name="WorkPosition">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เงินเดือน</label>
+                                                <input type="text" class="form-control" name="WorkSalary">
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เหตุผลที่ออก</label>
+                                                <input type="text" class="form-control" name="NoteWork">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>สามารถไปปฎิบัติงานต่างจังหวัดได้หรือไม่</label>
+                                            <select class="form-control js-example-basic-single" name="WorkOtheProvinces">
+                                                <option value="1">ไม่ได้</option>
+                                                <option value="2">ได้</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>ประวัติวัคซีน Covid</label>
+                                            <select class="form-control js-example-basic-single" name="HistoryCovidVaccine" id="HistoryCovidVaccine"></select>
+                                        </div>
+                                        <div class="col-lg-12 row">
+                                            <label>บุคคลอ้างอิงที่สามารถติดต่อได้</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckName" id="WhoCanCheckName">
+                                                <div class="valid-feedback" id="validWhoCanCheckName"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckName"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckTel" id="WhoCanCheckTel">
+                                                <div class="valid-feedback" id="validWhoCanCheckTel"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckTel"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckAdress" id="WhoCanCheckAdress">
+                                                <div class="valid-feedback" id="validWhoCanCheckAdress"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckAdress"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="WhoCanCheckRelated" id="WhoCanCheckRelated">
+                                                <div class="valid-feedback" id="validWhoCanCheckRelated"></div>
+                                                <div class="invalid-feedback" id="invalidWhoCanCheckRelated"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 row">
+                                            <label>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ชื่อ-นามสกุล <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyName" id="EmergencyName">
+                                                <div class="valid-feedback" id="validEmergencyName"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyName"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เบอร์โทรติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyTel" id="EmergencyTel">
+                                                <div class="valid-feedback" id="validEmergencyTel"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyTel"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>ที่อยู่ติดต่อ <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyAdress" id="EmergencyAdress">
+                                                <div class="valid-feedback" id="validEmergencyAdress"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyAdress"></div>
+                                            </div>
+                                            <div class="col-md-6 mb-6">
+                                                <label>เกี่ยวข้องเป็น <span style="color:red">*</span></label>
+                                                <input type="text" class="form-control" name="EmergencyRelated" id="EmergencyRelated">
+                                                <div class="valid-feedback" id="validEmergencyRelated"></div>
+                                                <div class="invalid-feedback" id="invalidEmergencyRelated"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>เอกสารประกอบการสมัครงาน <span style="color:red">*</span></label>
+                                            <input type="file" class="form-control" name="DocumentCDD" id="DocumentCDD">
+                                            <div class="valid-feedback" id="validDocumentCDD"></div>
+                                            <div class="invalid-feedback" id="invalidDocumentCDD"></div>
+                                        </div>
+                                        <div class="col-md-6 mb-6">
+                                            <label>หน้าบัญชีธนาคารกสิกรไทย (ชื่อบัญชีตนเอง) </label>
+                                            <input type="file" class="form-control" name="DocumentBank" id="DocumentBank">
+                                            <div class="valid-feedback" id="validDocumentBank"></div>
+                                            <div class="invalid-feedback" id="invalidDocumentBank"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:100px">
+                                        <div class="form-check">
+                                            <h6>จัดเก็บข้อมูลส่วนบุคคล</h6>
+                                            <label>
+                                                ข้าพเจ้า ซึ่งเป็นผู้ใช้บริการ ("ลูกค้า" หรือ "ผู้สมัครงาน") ของบริษัทจัดหางาน 89 (ประเทศไทย) จำกัด ยินยอมให้บริษัทเก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลของข้าพเจ้าที่มีอยู่กับบริษัทภายใต้ข้อกำหนดและเงื่อนไขตามที่ประกาศไว้ในเว็บไซต์บริษัท
+                                                <br />
+                                                ท่านสามารถอ่านประกาศความเป็นส่วนตัวได้ <a href="https://sites.google.com/recruitment89.com/recruitment89/privacy">ที่นี่</a>
+                                            </label>
+                                            <input class="form-check-input" type="checkbox" id="check1">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:20px">
+                                        <div class="form-check">
+                                            <h6>ยินยอมให้ตรวจประวัติบุคคล ดูรายละเอียด <a href="~/file/หนังสือยินยอม_ตรวจสอบประวัติ_update23112023.pdf">ที่นี่</a></h6>
+                                            <div class="mb-3 mt-3 col-4">
+                                                <label class="form-label">แนบไฟล์ประวัติบุคคล</label>
+                                                <input type="file" class="form-control col-lg-12" name="DocumentHistroy" id="DocumentHistroy" />
+                                                <div class="form-group">
+                                                    <div class="form-check" style="margin-top:20px">
+                                                        <label>ยินยอมให้ตรวจประวัติบุคคล</label>
+                                                        <input class="form-check-input" type="checkbox" id="check2">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:20px">
+                                        <div class="form-check">
+                                            <h6>แบบฟอร์ม จง. ดูรายละเอียด <a href="~/file/จง32_update_161023.pdf">ที่นี่</a> </h6>
+                                            <div class="mb-3 mt-3 col-4">
+                                                <label class="form-label">แนบไฟล์ แบบฟอร์ม จง</label>
+                                                <input type="file" class="form-control col-lg-12" name="DocumentJng" id="DocumentJng" />
+                                                <div class="form-group">
+                                                    <div class="form-check" style="margin-top:20px">
+                                                        <label>ยินยอมให้ตรวจ จง.</label>
+                                                        <input class="form-check-input" type="checkbox" id="check3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:20px">
+                                        <div class="form-check">
+                                            <h6>ยืนยันตัวตน</h6>
+                                            <label> ข้าพเจ้าในนามของ "ผู้สมัครงาน" ขอยืนยันว่าเป็นคนถือสัญชาติไทย และมีบัตรประจำตัวประชาชนที่ออกโดยประเทศไทย </label>
+                                            <input class="form-check-input" type="checkbox" id="check4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:20px">
+                                        <div class="form-check">
+                                            <h6>ยินยอมข้อมูลการสมัครงาน</h6>
+                                            <label> ข้าพเจ้าในนามของ ผู้สมัครงาน ขอยืนยันว่าข้อมูลทั้งหมดที่ให้ในใบสมัครงานนี้เป็นความจริงทุกประการ ถ้ามีการให้ข้อมูลเท็จหรือไม่จริงกับที่แจ้ง ข้าพเจ้ายืนยันให้ตัดสิทธิ </label>
+                                            <input class="form-check-input" type="checkbox" id="check5">
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="userId" id="userId" />
+                                </form>
+                                <div class="text-center">
+                                    <button class="btn btn-primary" onclick="Submit()">Submit</button>
+                                    <button class="btn btn-danger" onclick="Reset()">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+        var userId = getUrlParameter('Id');
+
+        $(() => {
+            GetAnnouncement();
+            GetPosition();
+            GetProvince();
+            GetPrefix();
+            GetReligion();
+            GetNationality();
+            GetMilitaryStatus();
+            GetMarriedStatus();
+            GetQualification();
+            GetLanguageAbility();
+            GetComapny();
+            GetHistoryCovid();
+            $("#userId").val(userId);
+        });
+
+        $(".js-example-basic-single").select2();
+
+        function GetAnnouncement() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Announcement',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Announcement").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetPosition() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Position',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Position").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetProvince() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Province',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.nameInThai + '</option>';
+                    });
+                    $("#WorkArea").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetPrefix() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Prefix',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Prefix").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetReligion() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Religion',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Religion").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetNationality() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Nationality',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Nationality").html(s);
+
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetMilitaryStatus() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=MilitaryStatus',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#MilitaryStatus").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetMarriedStatus() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=MarriedStatus',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#MarriedStatus").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetQualification() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=Qualification',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Qualification").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetLanguageAbility() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_D?handler=LanguageAbility',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#LanguageAbility").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetComapny() {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_C?handler=Comapny',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#Comapny").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetHistoryCovid()
+        {
+            $.ajax({
+                type: 'get',
+                url: '/Frontend/CDD_C?handler=HistoryCovid',
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#HistoryCovidVaccine").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function validatePhoneNumber(phoneNumber) {
+            // เช็คว่าเบอร์โทรตรงตามรูปแบบ 10 หลัก
+            const pattern = /^[0-9]{10}$/;
+            if (pattern.test(phoneNumber)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validateIDCard(phoneNumber) {
+            // เช็คว่าเบอร์โทรตรงตามรูปแบบ 10 หลัก
+            const pattern = /^[0-9]{13}$/;
+            if (pattern.test(phoneNumber)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function Submit() {
+              let Check = true;
+              try
+        {
+             try
+                {
+          
+            if ($("#EmergencyRelated").val() == null || $("#EmergencyRelated").val() == "") {
+                $("#invalidEmergencyRelated").text("กรุณากรอกผู้เกี่ยวข้องกับ ผู้ติดต่อฉุกเฉิน* ");
+                $("#EmergencyRelated").removeClass("is-valid");
+                $("#EmergencyRelated").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validEmergencyRelated").text("ข้อมูลครบถ้วน");
+                $("#EmergencyRelated").removeClass("is-invalid");
+                $("#EmergencyRelated").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#EmergencyAdress").val() == null || $("#EmergencyAdress").val() == "") {
+                $("#invalidEmergencyAdress").text("กรุณากรอกที่อยู่ ผู้ติดต่อฉุกเฉิน* ");
+                $("#EmergencyAdress").removeClass("is-valid");
+                $("#EmergencyAdress").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validEmergencyAdress").text("ข้อมูลครบถ้วน");
+                $("#EmergencyAdress").removeClass("is-invalid");
+                $("#EmergencyAdress").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#EmergencyTel").val() == null || $("#EmergencyTel").val() == "") {
+                $("#invalidEmergencyTel").text("กรุณากรอกเบอร์โทร ผู้ติดต่อฉุกเฉิน* ");
+                $("#EmergencyTel").removeClass("is-valid");
+                $("#EmergencyTel").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validEmergencyTel").text("ข้อมูลครบถ้วน");
+                $("#EmergencyTel").removeClass("is-invalid");
+                $("#EmergencyTel").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#EmergencyName").val() == null || $("#EmergencyName").val() == "") {
+                $("#invalidEmergencyName").text("กรุณากรอกข้อมูล ชื่อ-นามสกุล ผู้ติดต่อ* ");
+                $("#EmergencyName").removeClass("is-valid");
+                $("#EmergencyName").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validEmergencyName").text("ข้อมูลครบถ้วน");
+                $("#EmergencyName").removeClass("is-invalid");
+                $("#EmergencyName").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#WhoCanCheckRelated").val() == null || $("#WhoCanCheckRelated").val() == "") {
+                $("#invalidWhoCanCheckRelated").text("กรุณากรอกผู้เกี่ยวข้องกับ ผู้ติดต่อ* ");
+                $("#WhoCanCheckRelated").removeClass("is-valid");
+                $("#WhoCanCheckRelated").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validWhoCanCheckRelated").text("ข้อมูลครบถ้วน");
+                $("#WhoCanCheckRelated").removeClass("is-invalid");
+                $("#WhoCanCheckRelated").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#WhoCanCheckAdress").val() == null || $("#WhoCanCheckAdress").val() == "") {
+                $("#invalidWhoCanCheckAdress").text("กรุณากรอกที่อยู่ ผู้ติดต่อ* ");
+                $("#WhoCanCheckAdress").removeClass("is-valid");
+                $("#WhoCanCheckAdress").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validWhoCanCheckAdress").text("ข้อมูลครบถ้วน");
+                $("#WhoCanCheckAdress").removeClass("is-invalid");
+                $("#WhoCanCheckAdress").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#WhoCanCheckTel").val() == null || $("#WhoCanCheckTel").val() == "") {
+                $("#invalidWhoCanCheckTel").text("กรุณากรอกเบอร์โทร ผู้ติดต่อ* ");
+                $("#WhoCanCheckTel").removeClass("is-valid");
+                $("#WhoCanCheckTel").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validWhoCanCheckTel").text("ข้อมูลครบถ้วน");
+                $("#WhoCanCheckTel").removeClass("is-invalid");
+                $("#WhoCanCheckTel").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#WhoCanCheckName").val() == null || $("#WhoCanCheckName").val() == "") {
+                $("#invalidWhoCanCheckName").text("กรุณากรอกข้อมูล ชื่อ-นามสกุล ผู้ติดต่อ* ");
+                $("#WhoCanCheckName").removeClass("is-valid");
+                $("#WhoCanCheckName").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validWhoCanCheckName").text("ข้อมูลครบถ้วน");
+                $("#WhoCanCheckName").removeClass("is-invalid");
+                $("#WhoCanCheckName").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#NameTH").val() == null || $("#NameTH").val() == "") {
+                $("#invalidNameTH").text("กรุณากรอกชื่อ * ");
+                $("#NameTH").removeClass("is-valid");
+                $("#NameTH").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validNameTH").text("ข้อมูลครบถ้วน");
+                $("#NameTH").removeClass("is-invalid");
+                $("#NameTH").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#validationtel").val() != "" && $("#validationtel").val() != null) {
+                $("#validTel").text("ข้อมูลครบถ้วน");
+                $("#validationtel").removeClass("is-invalid");
+                $("#validationtel").addClass("is-valid");
+                Check = true;
+            } else {
+                $("#invalidTel").text("กรุณาใส่ข้อมูลโทรศํพท์ ให้ครบถ้วน 10 หลัก * ");
+                $("#validationtel").removeClass("is-valid");
+                $("#validationtel").addClass("is-invalid");
+                Check = false;
+            }
+
+            if ($("#Birthday").val() == null || $("#Birthday").val() == "") {
+                $("#invalidBirthday").text("กรุณากรอกข้อมูล วันเดือนปีเกิด *");
+                $("#Birthday").removeClass("is-valid");
+                $("#Birthday").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validBirthday").text("ข้อมูลครบถ้วน");
+                $("#Birthday").removeClass("is-invalid");
+                $("#Birthday").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#Nationality").val() == -1) {
+                $("#invalidNationality").text("กรุณาเลือกรายการ สัญชาติ * ");
+                $("#Nationality").removeClass("is-valid");
+                $("#Nationality").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validNationality").text("ข้อมูลครบถ้วน");
+                $("#Nationality").removeClass("is-invalid");
+                $("#Nationality").addClass("is-valid");
+                Check = true;
+            }
+
+            if (validateIDCard($("#validationIdCard").val()) && $("#validationIdCard").val() != "" && $("#validationIdCard").val() != null) {
+                $("#validIdCard").text("ข้อมูลครบถ้วน");
+                $("#validationIdCard").removeClass("is-invalid");
+                $("#validationIdCard").addClass("is-valid");
+                Check = true;
+            } else {
+                $("#invalidIdCard").text("กรุณาใส่ข้อมูล บัตรประชาชน ให้ครบถ้วน 13 หลัก * ");
+                $("#validationIdCard").removeClass("is-valid");
+                $("#validationIdCard").addClass("is-invalid");
+                Check = false;
+            }
+
+            if ($("#MilitaryStatus").val().length == -1) {
+                $("#invalidMilitaryStatus").text("กรุณาเลือกรายการ สถายะทางทหาร * ");
+                $("#MilitaryStatus").removeClass("is-valid");
+                $("#MilitaryStatus").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validMilitaryStatus").text("ข้อมูลครบถ้วน");
+                $("#MilitaryStatus").removeClass("is-invalid");
+                $("#MilitaryStatus").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#IdCardAddress").val() == null || $("#IdCardAddress").val() == "") {
+                $("#invalidIdCardAddress").text("กรุณากรอกข้อมูล ที่อยู่ตามบัตรประชาชน *");
+                $("#IdCardAddress").removeClass("is-valid");
+                $("#IdCardAddress").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validIdCardAddress").text("ข้อมูลครบถ้วน");
+                $("#IdCardAddress").removeClass("is-invalid");
+                $("#IdCardAddress").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#CurrentAddress").val() == null || $("#CurrentAddress").val() == "") {
+                $("#invalidCurrentAddress").text("กรุณากรอกข้อมูล ที่อยู่ตามบัตรประชาชน *");
+                $("#CurrentAddress").removeClass("is-valid");
+                $("#CurrentAddress").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validCurrentAddress").text("ข้อมูลครบถ้วน");
+                $("#CurrentAddress").removeClass("is-invalid");
+                $("#CurrentAddress").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#DocumentCDD").val() == 0) {
+                $("#invalidDocumentCDD").text("กรุณาแนบไฟล์ เอกสารประกอบการสมัครงาน *");
+                $("#DocumentCDD").removeClass("is-valid");
+                $("#DocumentCDD").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validDocumentCDD").text("ข้อมูลครบถ้วน");
+                $("#DocumentCDD").removeClass("is-invalid");
+                $("#DocumentCDD").addClass("is-valid");
+                Check = true;
+            }
+
+            if ($("#DocumentBank").val() == 0) {
+                $("#invalidDocumentBank").text("กรุณาแนบไฟล์ เอกสาร หน้าบัญชีธนาคารกสิกรไทย (ชื่อบัญชีตนเอง) *");
+                $("#DocumentBank").removeClass("is-valid");
+                $("#DocumentBank").addClass("is-invalid");
+                Check = false;
+            }
+            else {
+                $("#validDocumentBank").text("ข้อมูลครบถ้วน");
+                $("#DocumentBank").removeClass("is-invalid");
+                $("#DocumentBank").addClass("is-valid");
+                Check = true;
+            }
+
+            }catch (validationError) {
+                      console.error("Validation Error:", validationError.message);
+                      alert("❌ " + validationError.message);
+                      return;
+                    }
+
+            if (Check) {
+                var check1 = document.getElementById("check1").checked;
+                var check2 = document.getElementById("check2").checked;
+                var check3 = document.getElementById("check3").checked;
+                var check4 = document.getElementById("check4").checked;
+                var check5 = document.getElementById("check5").checked;
+                if (check1 == true && check2 == true && check3 == true && check4 == true && check5 == true) {
+
+                var forms = $('#SendFrom')[0];
+                var data = new FormData(forms);
+
+                var RequestVerificationToken =  $('input:hidden[name="__RequestVerificationToken"]').val() || '';
+                if (!RequestVerificationToken) {
+                    console.warn("CSRF Token is missing!");
+                }
+
+                  try {
+                $.ajax({
+                    type: 'post',
+                    url: '/Frontend/CDD_D?handler=FormD',
+                    headers:
+                    {
+                        "RequestVerificationToken": RequestVerificationToken
+                    },
+                    contentType: false,  // ต้องเป็น false เพื่อให้ส่งเป็น multipart/form-data
+                    processData: false,   // ต้องเป็น false เพื่อไม่ให้ jQuery แปลงข้อมูล
+                    data: data,
+                    beforeSend: function () {
+                        // Swal.fire('กรุณารอสักครู่ กำลังทำรายการ')
+                        // Swal.showLoading()
+
+                        Swal.fire({
+                            title: 'กรุณารอสักครู่ กำลังทำรายการ',
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            }
+                        });
+                    },
+                    success: function (data) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'บันทึกข้อมูลเรียบร้อยแล้ว',
+                            showConfirmButton: false,
+                            timer: 3500
+                        });
+                        setTimeout(function(){
+                            window.location.reload();
+                        },2000)
+                    },
+                     error: function (xhr, status, error) {
+                        displayError(xhr);
+                        //console.error("AJAX Error:", status, error);
+                        //console.log(xhr.responseText); // ดูข้อความ Error จาก Server
+                        //alert(error.message)
+                    }
+                });
+                } catch (ajaxError) {
+          console.error("AJAX Error:", ajaxError.message);
+          alert("⚠️ เกิดปัญหาการเชื่อมต่อเซิร์ฟเวอร์");
+        }
+                }
+                else {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'เกิดข้อผิดพลาด',
+                        text: 'กรุณากดยอมรับเงื่อนไข ทั้งหมด กรุณาลองใหม่อีกครั้ง',
+                    })
+                }
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: 'กรุณากรอกข้อมูลให้ครบถ้วน ตามข้อความสีแดง',
+                })
+            }
+             }
+            catch(unknownError)
+            {
+                // 3. Other unexpected errors
+                console.error("Unknown Error:", unknownError);
+                alert("❗ เกิดข้อผิดพลาดที่ไม่คาดคิดกับระบบ");
+            }
+        }
+
+        function Reset() {
+            document.getElementById("SendFrom").reset();
+        }
+    </script>
+}

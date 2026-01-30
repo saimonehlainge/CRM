@@ -1,0 +1,102 @@
+﻿@page
+@model Recruitment.Pages.Backend.SummaryDetailModel
+@{
+    ViewData["Title"] = "SummaryDetail";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Summary</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                        <li class="breadcrumb-item active">Data Tables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Detail</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        var Id = getUrlParameter('Id');
+
+        var oTable;
+        $(() => {
+            oTable = $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: true,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true,
+                retrieve: false,
+                ajax: {
+                    type: 'post',
+                    //url: '/Backend/SummaryDetail?handler=Table&&Id=' + Id,
+                    url: '/Backend/SummaryDetail?handler=Table',
+                    data: { Id: Id },
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    }
+                },
+                columns: [
+                    { 'data': 'id', name: 'id' },
+                    { 'data': 'detail', name: 'detail' }
+                ],
+            });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            // โหลดข้อมูลอีกรอบ
+            oTable.on('order.dt search.dt', function () {
+                let i = 1;
+                oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                    .every(function (cell) {
+                        this.data(i++);
+                    });
+            }).draw();
+        })
+    </script>
+}

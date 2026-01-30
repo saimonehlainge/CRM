@@ -1,0 +1,308 @@
+﻿@page
+@model Recruitment.Pages.Backend.SectionCDDDetailModel
+@{
+    ViewData["Title"] = "SectionCDDDetail";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content">
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">CDD</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">CDD</a></li>
+                        <li class="breadcrumb-item">Data Tables</li>
+                        <li class="breadcrumb-item active">Detail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เห็นประกาศมาจากช่องทาง</label>
+                            <label class="form-control" id="Announcement"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ตำแหน่งที่สมัคร</label>
+                            <label class="form-control" id="Position"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>สาขา/ออฟฟิศที่ทำงาน</label>
+                            <label class="form-control" id="Branch"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เงินเดือนที่คาดหวัง</label>
+                            <label class="form-control" id="Salary"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ต้องการงานในแถบพื้นที่</label>
+                            <label class="form-control" id="WorkArea"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ชื่อ-นามสกุล(ภาษาไทย)</label>
+                            <label class="form-control" id="NameThai"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ชื่อ-นามสกลุ(ภาษาอังกฤษ)</label>
+                            <label class="form-control" id="NameEng"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ชื่อเล่น</label>
+                            <label class="form-control" id="Nikname"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เบอร์โทรศํพท์</label>
+                            <label class="form-control" id="Tel"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>Line ID</label>
+                            <label class="form-control" id="LineId"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <label class="form-control" id="Email"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>วันเดือนปีเกิด</label>
+                            <label class="form-control" id="Birthday"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ศาสนา</label>
+                            <label class="form-control" id="Religion"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>สัญชาติ</label>
+                            <label class="form-control" id="Nationality"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เลขบัตรประชาชน</label>
+                            <label class="form-control" id="IDCard"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>บัตรหมดอายุ</label>
+                            <label class="form-control" id="EndDateIDCard"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>สถานะทางทหาร</label>
+                            <label class="form-control" id="MilitaryStatus"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>สถานภาพ</label>
+                            <label class="form-control" id="MarriedStatus"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ที่อยู่ตามบัตรประชาชน</label>
+                            <label class="form-control" id="IdCardAddress"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ที่อยู่ปัจจุบัน</label>
+                            <label class="form-control" id="CurrentAddress"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>วุฒิ</label>
+                            <label class="form-control" id="Qualification"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ชื่อสถานที่ศึกษา, ปีที่จบ </label>
+                            <label class="form-control" id="StudyLocation"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ประวัติการทำงาน</label>
+                            <label class="form-control" id="WorkHistory"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ความสามารถด้านภาษา</label>
+                            <label class="form-control" id="LanguageAbility"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ความพิเศษอื่นๆ</label>
+                            <label class="form-control" id="OtherSpecialAbility"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>สามารถไปปฎิบัติงานต่างจังหวัดได้หรือไม่</label>
+                            <label class="form-control" id="WorkOtheProvinces"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>ประวัติ Covid</label>
+                            <label class="form-control" id="HistoryCovidVaccine"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>บุคคลอ้างอิงที่สามารถติดต่อได้, เบอร์โทรติดต่อ,ที่อยู่ติดต่อ</label>
+                            <label class="form-control" id="PersonWhoCanCheck"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>บุคคลที่สามารถติดต่อได้ในกรณีฉุกเฉิน</label>
+                            <label class="form-control" id="PersonCaseEmergency"></label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เอกสารประกอบการสมัครงาน</label>
+                            <a class="btn btn-sm btn-success" onclick="DocWork()">ดาวห์โหลดเอกสาร</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6 col-6">
+                        <div class="form-group">
+                            <label>เอกสารรับรองการทำงาน</label>
+                            <a class="btn btn-sm btn-success" onclick="DocCert()">ดาวห์โหลดเอกสาร</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+        var Id = getUrlParameter('Id');
+
+        $(() => {
+            GetCDD();
+        })
+
+        let DocumentCDD = "";
+        let DocumentWorkCertification = "";
+
+        function GetCDD() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/SectionCDDDetail?handler=CDD',
+                data: { Id: Id },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    console.log(data)
+                    $("#Announcement").text(data.announcement);
+                    $("#Position").text(data.position);
+                    $("#Branch").text(data.branch);
+                    $("#Salary").text(data.salary);
+                    $("#WorkArea").text(data.workArea);
+                    $("#NameThai").text(data.nameThai);
+                    $("#NameEng").text(data.nameEng);
+                    $("#Nikname").text(data.nikname);
+                    $("#Tel").text(data.tel);
+                    $("#LineId").text(data.lineId);
+                    $("#Email").text(data.email);
+                    $("#Birthday").text(data.birthday);
+                    $("#Religion").text(data.religion);
+                    $("#Nationality").text(data.nationality);
+                    $("#IDCard").text(data.idCard);
+                    $("#EndDateIDCard").text(data.endDateIDCard);
+                    $("#MilitaryStatus").text(data.militaryStatus);
+                    $("#MarriedStatus").text(data.marriedStatus);
+                    $("#IdCardAddress").text(data.idCardAddress);
+                    $("#CurrentAddress").text(data.currentAddress);
+                    $("#Qualification").text(data.qualification);
+                    $("#StudyLocation").text(data.studyLocation);
+                    $("#LanguageAbility").text(data.languageAbility);
+                    $("#OtherSpecialAbility").text(data.otherSpecialAbility);
+                    $("#WorkOtheProvinces").text(data.workOtheProvinces);
+                    var historyCovidVaccine = "ไม่ได้";
+                    if (data.historyCovidVaccine == 1) {
+                        historyCovidVaccine = "ได้";
+                    }
+                    $("#HistoryCovidVaccine").text(historyCovidVaccine);
+                    $("#PersonWhoCanCheck").text(data.personWhoCanCheck);
+                    $("#PersonCaseEmergency").text(data.personCaseEmergency);
+                    $("#WorkHistory").text(data.workHistory);
+
+                    DocumentCDD = data.documentCDD;
+                    DocumentWorkCertification = data.documentWorkCertification;
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function DocWork() {
+            window.location.href = '/Upload/File/' + DocumentCDD;
+        }
+
+        function DocCert() {
+            window.location.href = '/Upload/File/' + DocumentWorkCertification;
+        }
+    </script>
+}

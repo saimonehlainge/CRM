@@ -1,0 +1,368 @@
+﻿@page
+@model Recruitment.Pages.Backend.FlowSummaryModel
+@{
+    ViewData["Title"] = "FlowSummary";
+    Layout = "_Layout_Backend";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Summary</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Summary</a></li>
+                        <li class="breadcrumb-item active">Data Tables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <form id="SendFrom">
+                        <div class="card-header col-lg-12 row">
+                            <div class="col-md-6">
+                                <h4 class="card-title">ชื่อ</h4>
+                                <input class="form-control" placeholder="ค้นหารายละเอียกพนักงาน" id="firstname" />
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="card-title">นามสกุล</h4>
+                                <input class="form-control" placeholder="ค้นหารายละเอียกพนักงาน" id="lastname" />
+                            </div>
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">โปรเจค</h4>
+                                <select class="form-control js-example-basic-single" id="project"></select>
+                            </div>
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">สถานะ</h4>
+                                <select class="form-control js-example-basic-single" id="status"></select>
+                            </div>
+                            <div class="col-md-6 row" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">เริ่มวันที่</h4>
+                                    <input type="date" class="form-control" placeholder="ค้นหาวันที่" id="startdate" />
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="card-title">ถึงวันที่</h4>
+                                    <input type="date" class="form-control" placeholder="ค้นหาวันที่" id="enddate" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 row" style="margin-top:10px">
+                                <div class="col-md-6">
+                                    <h4 class="card-title">เดือน</h4>
+                                    <select class="form-control" id="month">
+                                        <option value="-1">กรุณาเลือกรายการ</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4 class="card-title">ปี</h4>
+                                    <input class="form-control" placeholder="กรุณาระบุปี" id="year" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-end" style="margin-right:20px">
+                        <a class="btn btn-sm btn-success" onclick="Search()">Search</a>
+                        <a class="btn btn-sm btn-success" onclick="Reset()">Reset</a>
+                        <a></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-end">
+                            <a class="btn btn-sm btn-success" onclick="Export()"> Export</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" style="width:100%" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>CDD Name</th>
+                                        <th>Nickname</th>
+                                        <th>Tel</th>
+                                        <th>Project</th>
+                                        <th>KPI</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal ChangeStatus-->
+<div id="ChangeStatus" class="modal custom-modal fade" role="dialog">
+    <div class="modal-xl modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">แจ้งปัญหา</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <form id="ChangeCDD" enctype="multipart/form-data">
+                    <div class="col-lg-12 row">
+                        <div class="col-md-6 form-group">
+                            <label>ปัญหาที่ต้องการแจ้ง </label>
+                            <select class="form-control js-example-basic-single">
+                                <option>แจ้งหาผู้สมัคร เนื่องจากข้อมูลไม่ครบ</option>
+                                <option>แจ้งหาผู้ดูแล เนื่องจาก ส่งข้อมูลผิดพลาด</option>
+                                <option>แจ้งหาSuperAdmin/MD เนื่องจากไม่สามารถดึงข้อมูลได้</option>
+                                <option>แจ้งหาSuperAdmin/MD เนื่องจากไม่แสดงสถานะ</option>
+                                <option>แจ้งหาSuperAdmin/MD เนื่องจากไม่สามารถ Export ได้</option>
+                            </select>
+                        </div>
+                        <input type="hidden" id="EditCDDId" name="Id" />
+                    </div>
+                </form>
+                <div class="submit-section">
+                    <button class="btn btn-primary submit-btn" onclick="SubmitChangeStatus()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts
+{
+    <script>
+         var oTable;
+        $(() => {
+            oTable = $('#example').DataTable({
+                processing: true,
+                serverSide: true,
+                searching: false,
+                lengthChange: true,
+                fixedHeader: true,
+                responsive: true,
+                retrieve: false,
+                ajax: {
+                    type: 'post',
+                    url: '/Backend/FlowSummary?handler=Table',
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                },
+                columns: [
+                    { 'data': 'id', name: 'id' },
+                    { 'data': 'name', name: 'name' },
+                    { 'data': 'nickname', name: 'nickname' },
+                    { 'data': 'tel', name: 'tel' },
+                    { 'data': 'project', name: 'project' },
+                    { 'data': 'kpi', name: 'kpi' },
+                    { 'data': 'status', name: 'status' },
+                    {
+                        'data': 'id',
+                        render: function (data, type, row) {
+                            return '<center>' +
+                                //'<a class="btn btn-sm btn-success" onclick="changestatus(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#ChangeStatus"><i class="fa fa-edit" style="color:white"></i></a>' +
+                                //'&emsp;<a class="btn btn-sm btn-info" onclick="CDDDetail(\'' + data + '\')"><i class="fa fa-list" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-info" onclick="noti(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#ChangeStatus"><i class="fa fa-list" style="color:white"></i></a>' +
+                                '&emsp;<a class="btn btn-sm btn-primary" onclick="info(\'' + data + '\')"><i class="fa fa-th-list" style="color:white"></i></a>' +
+                                //'&emsp;<a class="btn btn-sm btn-primary" onclick="comment(\'' + data + '\')" data-bs-toggle="modal" data-bs-target="#CommentCDD"><i class="fa fa-th-list" style="color:white"></i></a>' +
+                                '</center>';
+                        }
+                    }
+                ],
+            });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            // โหลดข้อมูลอีกรอบ
+            oTable.on('order.dt search.dt', function () {
+                let i = 1;
+                oTable.cells(null, 0, { search: 'applied', order: 'applied' })
+                    .every(function (cell) {
+                        this.data(i++);
+                    });
+            }).draw();
+
+            Project();
+            RecruitStatus();
+        })
+
+         function Project(id) {
+            if (id != undefined) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Report?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            var selected = '';
+                            if(c.id == id)
+                            {
+                                selected = 'selected';
+                            }
+                            s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                        });
+                        $("#Editproject").html(s);
+
+                          $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Report?handler=Project',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#project").html(s);
+                        $("#Editproject").html(s);
+
+                          $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+        function RecruitStatus(id) {
+            if (id != undefined) {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=Status',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data)
+                    {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            var selected = '';
+                            if(c.id == id)
+                            {
+                                selected = 'selected';
+                            }
+                            s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                        });
+                        $("#RecruitStatus").html(s);
+
+                          $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=Status',
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                        $.each(data, function (v, c) {
+                            s += '<option value="' + c.id + '">' + c.name + '</option>';
+                        });
+                        $("#status").html(s);
+
+                          $(".js-example-basic-single").select2();
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+          function Export() {
+             var firstname = $("#firstname").val();
+             var lastname = $("#lastname").val();
+             var project = $("#project").val();
+             var status = $("#status").val();
+             var startdate = $("#startdate").val();
+             var enddate = $("#enddate").val();
+             var month = $("#month").val();
+             var year = $("#year").val();
+
+                // $.ajax({
+                //     type: 'get',
+                //     url: '/Backend/FlowSummary?handler=Report_FlowSummary',
+                //     headers:
+                //     {
+                //         "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                //     },
+                //     data:{
+                //         firstname:firstname,
+                //         lastname:lastname,
+                //         project:project,
+                //         status:status,
+                //         start:startdate,
+                //         to:enddate,
+                //         month:month,
+                //         year:year
+                //     },
+                //     // success: function (data) {
+                //     //     var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                //     //     $.each(data, function (v, c) {
+                //     //         s += '<option value="' + c.id + '">' + c.name + '</option>';
+                //     //     });
+                //     //     $("#status").html(s);
+
+                //     //       $(".js-example-basic-single").select2();
+                //     // },
+                //     error: (e) => {
+                //         displayError(e);
+                //     }
+                // })
+
+
+
+             window.location.href = '/Backend/FlowSummary?handler=Report_FlowSummary';
+
+             ///?firstname='+firstname+'&lastname='+lastname+'&project='+project+'&status='+status+'&startdate='+startdate+'&enddate='+enddate+'&month='+month+'&year=' + year
+        }
+
+        function noti(id)
+        {
+         console.log(id)
+        }
+
+    </script>
+}

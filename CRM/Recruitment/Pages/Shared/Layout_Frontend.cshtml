@@ -1,0 +1,644 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Recruitment</title>
+
+    @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link type="text/css" rel="stylesheet" href="~/Recruitment.styles.css" asp-append-version="true" />
+    *@
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&family=Prompt:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300;1,400&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/Frontend/css/slick.css" />
+    <link rel="stylesheet" href="~/Frontend/css/bootstrap-datepicker3.standalone.min.css">
+    <link type="text/css" rel="stylesheet" href="~/Frontend/css/layout.css" />
+    <link rel="stylesheet" href="~/assets/plugins/select2/css/select2.min.css">
+</head>
+<body>
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+    <div class="searchbox">
+        <form class="form_search">
+            <div class="searchinput">
+                <input type="text" class="form-control" placeholder="Search..."><button class="btnsearch"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+        <button class="btn_close_search"><i class="bi bi-x"></i></button>
+    </div>
+    <div class="desktop-overlay"></div>
+
+    @RenderBody()
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Recruitment - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/Frontend/js/slick.min.js"></script>
+    <script src="~/Frontend/js/jquery.min.js"></script>
+    <script src="~/Frontend/js/jquery-ui.js"></script>
+    <script src="~/Frontend/js/bootstrap.min.js"></script>
+    <script src="~/Frontend/js/owl.carousel.js"></script>
+    <script src="~/Frontend/js/modernizr.js"></script>
+    <script src="~/Frontend/js/wow.min.js"></script>
+    <script src="~/Frontend/js/jquery.fancybox.min.js"></script>
+    <script src="~/Frontend/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Frontend/js/bootstrap-datepicker.th.min.js"></script>
+
+    <!-- sweet alert 2 -->
+    <script src="~/assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="~/assets/plugins/sweetalert/sweetalerts.min.js"></script>
+
+    <!-- select 2 -->
+    <script src="~/assets/plugins/select2/js/select2.min.js"></script>
+    @* <script src="~/assets/plugins/select2/js/custom-select.js"></script> *@
+
+    <script>
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 25) {
+                $('.wrap_menu').addClass("sticky");
+            }
+            else {
+                $('.wrap_menu').removeClass("sticky");
+            }
+        });
+
+        $(document).ready(function () {
+            var mmH = $('.wrap_menu').outerHeight(true)
+            // $('.container-fluid').eq(0).css('margin-top', mmH);
+
+            $('.wrap_btn_menu').click(function (event) {
+                if (!$(".mainmenu").hasClass("open")) {
+                    //$(this).addClass("active");
+                    $('.mainmenu').addClass('open');
+                    $("body").addClass("menuopened");
+                } else {
+                    $('.mainmenu').removeClass('open');
+                    //$(this).removeClass("active");
+                    $("body").removeClass("menuopened");
+                }
+                event.stopPropagation();
+            });
+
+            $('.close_menu').click(function (event) {
+                $('.mainmenu').removeClass('open');
+                $(this).removeClass("active");
+                $("body").removeClass("menuopened");
+            });
+
+            var previousScroll = 0;
+            $(window).scroll(function (event) {
+                var scroll = $(this).scrollTop();
+                if (scroll > previousScroll) {
+                    $('.wrap_menu').addClass('hide');
+                } else {
+                    $('.wrap_menu').removeClass('hide');
+                }
+                previousScroll = scroll;
+            });
+            $('.wrap_menu').removeClass('hide');
+
+            $('.hassub').click(function (event) {
+                if ($(this).children(".submenu").is(":hidden")) {
+                    $('.submenu').hide();
+                    $(this).children('.submenu').slideDown();
+                } else {
+                    $('.submenu').slideUp();
+                }
+                //event.stopPropagation();
+            });
+
+            $('.submenu_white.submenu > ul > li').click(function (event) {
+                $('.submenu_white.submenu').removeClass('loading');
+                if ($(this).children("ul").is(":hidden")) {
+                    $(this).siblings('li').find('ul').hide();
+
+                    $('.submenu_white.submenu > ul > li').removeClass('active');
+                    $(this).addClass('active');
+                    $(this).children('ul').fadeIn();
+                } else {
+                    if (Modernizr.mq('(max-width: 991px)')) {
+                        $(this).children('ul').hide();
+                    }
+                }
+                event.stopPropagation();
+            });
+
+            $('.btn_maccount').click(function (event) {
+                if ($(this).next(".submenu_maccount").is(":hidden")) {
+                    $('.submenu_maccount').slideUp();
+                    $(this).next('.submenu_maccount').slideDown();
+                } else {
+                    $('.submenu_maccount').slideUp();
+                }
+                //event.stopPropagation();
+            });
+
+
+            if (Modernizr.mq('(max-width: 991px)')) {
+                $('.mainmenu ul li > .submenu_white.submenu > ul > li').removeClass('active');
+            }
+
+            $(".submenu")
+                .mouseenter(function () {
+                    $('.submenu').clearQueue();
+                    event.stopPropagation();
+                })
+                .mouseleave(function () {
+                    $('.submenu').delay(2000).hide('fade', 1000);
+                });
+
+            $('.submenu_white.submenu').removeClass('loading');
+        });
+
+        $(document).ready(function () {
+
+            $('.owl-news').owlCarousel({
+                loop: true,
+                margin: 30,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 1000,
+                nav: false,
+                dots: true,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3,
+                        margin: 30
+                    },
+                    1000: {
+                        items: 3
+                    }
+                }
+            });
+            $('.owl-recentnews').owlCarousel({
+                loop: true,
+                margin: 30,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 1000,
+                nav: true,
+                dots: false,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3,
+                        margin: 30
+                    },
+                    1000: {
+                        items: 4
+                    }
+                }
+            });
+
+            $('.owl-news3').owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                smartSpeed: 1500,
+                nav: false,
+                dots: true,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+
+            $('.owl-bannerslide').owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                smartSpeed: 2000,
+                nav: false,
+                dots: true,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+            $('.owl-visitor').owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                smartSpeed: 2000,
+                nav: false,
+                dots: false,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+            $('.owl-photoawards').owlCarousel({
+                loop: false,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                smartSpeed: 2000,
+                stagePadding: 300,
+                nav: true,
+                dots: false,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1,
+                        stagePadding: 0
+                    },
+                    768: {
+                        items: 1,
+                        stagePadding: 100
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+            $('.owl-slide-menuservice').owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: false,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                smartSpeed: 2000,
+                nav: true,
+                dots: false,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2,
+                        margin: 10,
+                        autoplay: true
+                    },
+                    1200: {
+                        items: 3
+                    }
+                }
+            });
+            $('.owl-aboutlng').owlCarousel({
+                loop: true,
+                margin: 0,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                smartSpeed: 2000,
+                nav: false,
+                dots: false,
+                navText: ['&nbsp;', '&nbsp;'],
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 1
+                    },
+                    1000: {
+                        items: 1
+                    }
+                }
+            });
+
+        });
+
+        $(document).ready(function () {
+
+            wow = new WOW(
+                {
+                    animateClass: 'animated',
+                    offset: 100
+                }
+            );
+            wow.init();
+
+        });
+
+        $(document).ready(function () {
+            $('html').click(function () {
+                $(".searchbox").slideUp();
+            });
+            $('.btn_search').click(function (event) {
+                if ($(".searchbox").is(":hidden")) {
+                    $(this).addClass("active");
+                    $(".searchbox").slideDown();
+                    $(".desktop-overlay").fadeIn();
+                } else {
+                    $(this).removeClass("active");
+                    $(".searchbox").slideUp();
+                    $(".desktop-overlay").fadeOut();
+                }
+                event.stopPropagation();
+            });
+
+            $('.btn_close_search').click(function (event) {
+                $(".desktop-overlay").fadeOut();
+                $(".searchbox").slideUp();
+                event.stopPropagation();
+            });
+
+            $('.searchbox').click(function (event) {
+                event.stopPropagation();
+            });
+
+        });
+
+        $(document).ready(function () {
+            $('.item_faqs > .topicfaqs').click(function (event) {
+                if ($('.menu_sitemap').is(":hidden")) {
+                    $('.item_faqs').removeClass("active");
+                    $(this).parent('.item_faqs').addClass("active");
+                    $('.menu_sitemap').slideDown();
+                } else {
+                    $('.item_faqs').removeClass("active");
+                    $('.menu_sitemap').slideUp();
+                }
+                event.stopPropagation();
+            });
+        });
+
+        $(document).ready(function () {
+            $('.toggle-theme').click(function () {
+                $("body").toggleClass('dark-theme');
+            });
+        });
+
+        $(document).ready(function () {
+            $('.fontsize_s').click(function (event) {
+                $('html').removeClass('fz_l');
+                $('html').addClass('fz_s');
+            });
+            $('.fontsize_m').click(function (event) {
+                $('html').removeClass('fz_l fz_s');
+            });
+            $('.fontsize_l').click(function (event) {
+                $('html').removeClass('fz_s');
+                $('html').addClass('fz_l');
+            });
+        });
+
+        $('.input-group.date').datepicker({
+            language: "th"
+        });
+
+        $(document).ready(function () {
+            $(function () {
+                jQuery('img.svg').each(function () {
+                    var $img = jQuery(this);
+                    var imgID = $img.attr('id');
+                    var imgClass = $img.attr('class');
+                    var imgURL = $img.attr('src');
+
+                    jQuery.get(imgURL, function (data) {
+                        // Get the SVG tag, ignore the rest
+                        var $svg = jQuery(data).find('svg');
+
+                        // Add replaced image's ID to the new SVG
+                        if (typeof imgID !== 'undefined') {
+                            $svg = $svg.attr('id', imgID);
+                        }
+                        // Add replaced image's classes to the new SVG
+                        if (typeof imgClass !== 'undefined') {
+                            $svg = $svg.attr('class', imgClass + ' replaced-svg');
+                        }
+
+                        // Remove any invalid XML tags as per http://validator.w3.org
+                        $svg = $svg.removeAttr('xmlns:a');
+
+                        // Check if the viewport is set, else we gonna set it if we can.
+                        if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+                            $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+                        }
+
+                        // Replace image with new SVG
+                        $img.replaceWith($svg);
+
+                        $('.mapoceania .svg path').click(function (event) {
+                            var pathnation = $(this).attr('id');
+
+                        });
+
+                    }, 'xml');
+
+                });
+            });
+
+        });
+
+        $(document).ready(function () {
+            var ctnoffset = $('.container').eq(0).offset().left;
+            $('.wrap_aboutLNG, .topcontent-company').css('padding-right', ctnoffset);
+            $('.wrap-sustain1, .box-uselose').css('padding-left', ctnoffset);
+        });
+
+        $('[data-fancybox="images"]').fancybox({
+            baseTpl:
+                '<div class="fancybox-container" role="dialog" tabindex="-1">' +
+                '<div class="fancybox-caption"></div>' +
+                '<div class="fancybox-bg"></div>' +
+                '<div class="fancybox-inner">' +
+                '<div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div>' +
+                '<div class="fancybox-toolbar">{{buttons}}</div>' +
+                '<div class="fancybox-navigation">{{arrows}}</div>' +
+                '<div class="fancybox-stage"></div>' +
+                "</div>" +
+                "</div>",
+        });
+
+        $('[data-fancybox="images"]').fancybox({
+            thumbs: {
+                autoStart: true,
+                axis: 'x'
+            }
+        })
+
+        $(document).ready(function () {
+
+            $('.btn_filter_category').click(function (event) {
+                if ($(".wrap_open_category").is(":hidden")) {
+                    $('.wrap_open_category').effect('slide', { direction: 'right', mode: 'show' }, 1000);
+                    $('body').addClass('mm_opened');
+                    $('.mm_overlay').fadeIn();
+                    $(".content").mCustomScrollbar({
+                        theme: "minimal"
+                    });
+                } else {
+                    $('.wrap_open_category').effect('slide', { direction: 'right', mode: 'hide' }, 1000);
+                    $('body').removeClass('mm_opened');
+                    $('.mm_overlay').fadeOut();
+                }
+                event.stopPropagation();
+            });
+
+            $('.btn_close_category').click(function (event) {
+                $('.wrap_open_category').effect('slide', { direction: 'right', mode: 'hide' }, 1000);
+                $('body').removeClass('mm_opened');
+                $('.mm_overlay').fadeOut();
+                event.stopPropagation();
+            });
+
+        });
+
+        $(document).ready(function () {
+
+            $('.box_shipping input').click(function () {
+                var box_shipping = $('.box_shipping').find('input:checked').attr('rel');
+                if ($('.' + box_shipping).is(":hidden")) {
+                    $('.box-show').hide();
+                    $('.' + box_shipping).fadeIn();
+                } else {
+                    $('.box-show').hide();
+                }
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            $('.tab_article_btn > div').click(function (event) {
+                $('.recommended-wrapper').removeClass('slideload');
+                var idarticle = $(this).index();
+                if ($('.tab_pdetail').eq(idarticle).is(':hidden')) {
+                    $('.tab_pdetail').hide();
+                    $('.tab_pdetail').eq(idarticle).fadeIn();
+                    $('.tab_article_btn > div').removeClass('active');
+                    $(this).addClass('active');
+                    $(".dotmaster").trigger("update.dot");
+                } else {
+                }
+                event.stopPropagation();
+            });
+        });
+
+        function displayError(e) {
+            let message = "มีข้อผิดพลาดบางอย่าง";
+
+            // ถ้ามี message จาก responseJSON
+            if (e?.responseJSON?.message) {
+                message = e.responseJSON.message;
+            }
+            // ถ้ามี responseText
+            else if (e?.responseText) {
+                try {
+                    const json = JSON.parse(e.responseText);
+                    message = json.message || e.responseText;
+                } catch {
+                    message = e.responseText;
+                }
+            }
+            // ถ้ามี statusText
+            else if (e?.statusText) {
+                message = e.statusText;
+            }
+            // fallback เผื่อเป็น string ธรรมดา
+            else if (typeof e === 'string') {
+                message = e;
+            }
+
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด',
+                text: message,
+                footer: e?.status ? `HTTP ${e.status} - ${e.statusText}` : ''
+            });
+        }
+
+         // ปิด Insp
+        document.addEventListener('contextmenu', function (event) {
+           event.preventDefault();
+        });
+
+        document.onkeydown = function (e) {
+           // Disable F12
+           if (e.keyCode == 123) {
+               return false;
+           }
+           // Disable Ctrl + Shift + I
+           if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+               return false;
+           }
+           // Disable Ctrl + Shift + C
+           if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+               return false;
+           }
+        };
+
+        let devtoolsOpen = false;
+
+        const checkDevTools = () => {
+           const widthThreshold = 100;  // threshold for detecting DevTools
+           const heightThreshold = 200;
+           if (window.outerWidth - window.innerWidth > widthThreshold || window.outerHeight - window.innerHeight > heightThreshold) {
+               devtoolsOpen = true;
+           } else {
+               devtoolsOpen = false;
+           }
+
+           if (devtoolsOpen) {
+               alert("Developer Tools Detected!");
+               // You can take other actions here, such as redirecting or blocking certain functionality
+           }
+        };
+
+        setInterval(checkDevTools, 1000); // Check every second
+
+        Object.defineProperty(console, 'log', {
+           value: function () { },
+           writable: false
+        });
+
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

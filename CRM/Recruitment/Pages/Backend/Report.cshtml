@@ -1,0 +1,1742 @@
+﻿@page
+@model Recruitment.Pages.Backend.ReportModel
+@using Recruitment.Helpers
+@inject Recruitment.Repositories.IUnitOfWork _unitofwork;
+@{
+    ViewData["Title"] = "Report";
+    Layout = "_Layout_Backend";
+    var (userid, roles, _, department) = User.GetUser();
+    var permission = await _unitofwork.PermissionSettingRepository.GetPermission(userid);
+}
+
+@Html.AntiForgeryToken()
+
+<style>
+    #sorting_disabled {
+    }
+
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleR3 tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleR3 {
+        border-collapse: collapse;
+        width: 100%;
+        table-layout: auto; /* 👈 บังคับให้คอลัมน์มีขนาดแน่นอน */
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleR3 th,
+        #DataTAbleR3 td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleRC2 tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleRC2 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleRC2 th,
+        #DataTAbleRC2 td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleRC21 tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleRC21 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleRC21 th,
+        #DataTAbleRC21 td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleR41 tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleR41 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleR41 th,
+        #DataTAbleR41 td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleR4 tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleR4 {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleR4 th,
+        #DataTAbleR4 td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    /* ลบแถวลายทาง + จัดกึ่งกลางทั้งแนวตั้งแนวนอน */
+    #DataTAbleRC tbody tr {
+        background-color: white !important;
+    }
+
+    /* จัดตารางให้แน่น มีเส้นขอบชัดเจน */
+    #DataTAbleRC {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        /* จัดกลางทุกเซลล์ทั้ง head และ body */
+        #DataTAbleRC th,
+        #DataTAbleRC td {
+            white-space: nowrap; /* ป้องกันขึ้นบรรทัดใหม่ */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border: 1px solid #333 !important;
+            padding: 8px;
+            text-align: center !important;
+            vertical-align: middle !important;
+            box-sizing: border-box;
+        }
+
+    .table thead th {
+        /* สไตล์เฉพาะหัวตาราง */
+        background-color: #f8f8f8;
+        font-weight: bold;
+        /* ตรงกลาง */
+        font-weight: 600;
+        color: #212B36;
+        padding: 10px;
+        white-space: nowrap;
+        text-align: center !important;
+    }
+
+    div.dataTables_info {
+        display: none;
+    }
+
+</style>
+
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Summary</h3>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Report</a></li>
+                        <li class="breadcrumb-item active">Data Tables</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <form id="SendFrom">
+                        <div class="card-header col-lg-12 row">
+                            <div class="col-md-6">
+                                <h4 class="card-title">ประเภท รายงาน</h4>
+                                <select class="form-control js-example-basic-single" id="TypeReport">
+                                    <option value="-1">กรุณาเลือกรายการ</option>
+                                    @if (permission.FirstOrDefault()?.reportteam == true)
+                                    {
+                                        <option value="1">Performance Report-RC</option>
+                                    }
+                                    @if (permission.FirstOrDefault()?.reportinfo == true)
+                                    {
+                                        <option value="2">Performance Report-Port</option>
+                                    }
+                                    @if (permission.FirstOrDefault()?.reportproject == true || roles == "recruiter")
+                                    {
+                                        <option value="3">Replacement Report</option>
+                                    }
+                                    @if (permission.FirstOrDefault()?.reporttargetvsachieved == true)
+                                    {
+                                        <option value="4">Target Vs Achieved</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-6" style="display:none">
+                                <h4 class="card-title">โปรเจค</h4>
+                                <select class="form-control js-example-basic-single" id="project"></select>
+                            </div>
+                            @* <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">เริ่มวันที่ </h4>
+                                <input class="form-control" type="date" id="startdate" placeholder="วัยที่เริ่ม" />
+                            </div>
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">ถึงวันที่</h4>
+                                <input class="form-control" type="date" id="enddate" placeholder="ถึงวันที่" />
+                            </div> *@
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">เริ่มวันที่</h4>
+                                <div class="input-group" id="startdate_wrapper">
+                                    <input class="form-control" type="text" id="startdate" placeholder="dd/mm/yyyy" />
+                                    <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <input type="hidden" id="startdate_hidden" name="startdate" />
+                            </div>
+
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">ถึงวันที่</h4>
+                                <div class="input-group" id="enddate_wrapper">
+                                    <input class="form-control" type="text" id="enddate" placeholder="dd/mm/yyyy" />
+                                    <span class="input-group-text" style="cursor:pointer"><i class="fa fa-calendar"></i></span>
+                                </div>
+                                <input type="hidden" id="enddate_hidden" name="enddate" />
+                            </div>
+
+                            <div class="col-md-6" style="margin-top:10px">
+                                <h4 class="card-title">สถานะ</h4>
+                                <select class="form-control js-example-basic-single" id="Status"></select>
+                            </div>
+                            @if (roles != "recruiter" && roles != "project owner")
+                            {
+                                <div class="col-md-6">
+                                    <h4 class="card-title">รีครูท</h4>
+                                    <select class="form-control js-example-basic-single" id="getuser" multiple></select>
+                                </div>
+                            }
+                            @if (roles != "recruiter" && roles != "project owner")
+                            {
+                                <div class="col-md-6">
+                                    <h4 class="card-title">Project</h4>
+                                    <select class="form-control js-example-basic-single" id="getprojectowner"></select>
+                                </div>
+                            }
+                            else if (roles == "project owner")
+                            {
+                                <div class="col-md-6">
+                                    <h4 class="card-title">Project</h4>
+                                    <label class="form-control" id="project_owner"></label>
+                                </div>
+                            }
+                        </div>
+                    </form>
+                    <div class="text-end" style="margin-right:20px;margin-bottom:20px">
+                        <a class="btn btn-sm btn-success" onclick="Export()">Export</a>
+                        <a class="btn btn-sm btn-success" onclick="Search()">Search</a>
+                        <a class="btn btn-sm btn-success" onclick="Reset()">Reset</a>
+                    </div>
+                </div>
+                <div class="card" id="divRC" style="display:none">
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <table class="table table-hover dt-responsive" id="DataTAbleRC" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Recruit</th>
+                                    <th>Status</th>
+                                    <th>Total Lead</th>
+                                    <th>Not interested <br /> (ไม่สนใจ)</th>
+                                    <th>Screen - No Show <br /> (ไม่มาสกรีน)</th>
+                                    <th>Screen - Not Pass <br /> (ไม่ผ่านสกรีน)</th>
+                                    <th>Client - No Show <br /> (ไม่มาสัม)</th>
+                                    <th>Client - Not Pass <br /> (ไม่ผ่านสัม)</th>
+                                    <th>Not join <br /> (ไม่ไปเริ่มงาน)</th>
+                                    <th>Drop out <br /> (ไปเริ่มงานแล้ว แต่ออกก่อนเก็บเงิน)</th>
+                                    <th>Success KPI <br /> (เก็บเงินได้)</th>
+                                    <th>Not pass guarantee<br /> - Replacement</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            @* <div id="ReportRC"></div> *@
+                            <div id="chart1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" id="divRC2" style="display:none">
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <h6>ตารางสรุปแต่ละพอร์ท</h6>
+                        <table class="table nowrap table-hover dt-responsive" id="DataTAbleRC21" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Project</th>
+                                    <th>Status</th>
+                                    <th>Total Lead</th>
+                                    <th>Not interested <br /> (ไม่สนใจ)</th>
+                                    <th>Screen - No Show<br /> (ไม่มาสกรีน)</th>
+                                    <th>Screen - Not Pass <br /> (ไม่ผ่านสกรีน)</th>
+                                    <th>Client - No Show <br /> (ไม่มาสัม)</th>
+                                    <th>Client - Not Pass<br /> (ไม่ผ่านสัม)</th>
+                                    <th>Not join <br /> (ไม่ไปเริ่มงาน)</th>
+                                    <th>Drop out <br /> (ไปเริ่มงานแล้ว แต่ออกก่อนเก็บเงิน)</th>
+                                    <th>Success KPI <br /> (เก็บเงินได้)</th>
+                                    <th>Not pass guarantee <br /> - Replacement</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="ReportPort21"></div>
+                        </div>
+                    </div>
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <h6>ตารางสรุป Allocation</h6>
+                        <table class="table nowrap table-hover dt-responsive" id="DataTAbleRC2" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="ReportPort"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" id="divRC3" style="display:none">
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <table class="table nowrap table-hover dt-responsive" id="DataTAbleR3" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="ReplacementReport"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card" id="divRC4" style="display:none">
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <h6>ตาราง TARGET Vs ACTUAL</h6>
+                        <table class="table table-hover dt-responsive" id="DataTAbleR41" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อ RC หรือ Port</th>
+                                    <th>Target</th>
+                                    <th>ผลงาน ณ วันนี้</th>
+                                    <th>%</th>
+                                    <th>รอเก็บเงิน</th>
+                                    <th>รอเริ่มงาน</th>
+
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="card-body" style="overflow-x: auto; min-width: 600px;">
+                        <h6>ตาราง RUN RATE</h6>
+                        <table class="table table-hover dt-responsive" id="DataTAbleR4" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>ชื่อ RC หรือ Port</th>
+                                    <th>Target</th>
+                                    <th>ผลงาน ณ วันนี้</th>
+                                    <th>%</th>
+                                    <th>จำนวนวันที่ผ่านไปแล้ว</th>
+                                    <th>จำนวนวันคงเหลือ</th>
+                                    <th>RUN RATE</th>
+                                    <th>% RUN RATE</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="Target"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* 
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"> *@
+@* 
+<script src="~/js/flatpickr.js"></script>
+<link href="~/js/flatpickr.min.css" rel="stylesheet" /> *@
+@section Scripts
+{
+    <script>
+        
+        const startPicker = flatpickr("#startdate", {
+            altInput: true,
+            altFormat: "d/m/Y",   // UI format
+            dateFormat: "Y-m-d",  // Backend format
+        });
+
+        // End Date
+        const endPicker = flatpickr("#enddate", {
+            altInput: true,
+            altFormat: "d/m/Y",
+            dateFormat: "Y-m-d",
+        });
+
+        // Make icon open calendar
+        document.querySelector("#startdate_wrapper .input-group-text").addEventListener("click", () => {
+            startPicker.open();
+        });
+
+        document.querySelector("#enddate_wrapper .input-group-text").addEventListener("click", () => {
+            endPicker.open();
+        });
+
+        // flatpickr("#startdate", {
+        //     altInput: true,
+        //     altFormat: "d/m/Y",
+        //     dateFormat: "Y-m-d",
+        //     onChange: function(selectedDates, dateStr, instance) {
+        //         document.getElementById("startdate_hidden").value = dateStr;
+        //     }
+        // });
+
+        // flatpickr("#enddate", {
+        //     altInput: true,
+        //     altFormat: "d/m/Y",
+        //     dateFormat: "Y-m-d",
+        //     onChange: function(selectedDates, dateStr, instance) {
+        //         document.getElementById("enddate_hidden").value = dateStr;
+        //     }
+        // });
+
+        //
+        $(() => {
+            //Project();
+            GetUser();
+            Getprojectowner('@userid');
+            GetStatus();
+        })
+
+        $(".js-example-basic-single").select2();
+
+        function Search() {
+            var type = $("#TypeReport").val();
+            console.log(type);
+            if(type == 1)
+            {
+                Report_RC();
+            }
+            else if(type == 2)
+            {
+                ReportPort();
+            }
+            else if(type == 3)
+            {
+                ReplacementReport();
+            }
+            else if(type == 4)
+            {
+                Target();
+            }
+        }
+
+
+        let oTable = null;
+        // // รายงาน Report-RC
+        function ReportRC(start,to)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleRC')) {
+                $('#DataTAbleRC').DataTable().clear().destroy();
+            }
+
+            var recruitss = $("#getuser").val();
+
+            if ($('#DataTAbleRC').length && $.fn.DataTable.isDataTable('#DataTAbleRC')) {
+              const oTable = $('#DataTAbleRC').DataTable();
+              oTable.clear().draw(); // ✅ ปลอดภัย
+            }
+
+            oTable = $('#DataTAbleRC').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    lengthChange: true,
+                    retrieve: false,
+                    paging: false,
+                    searching: false,
+                    ordering:false,
+                    autoWidth: false,
+                    responsive: true,
+                    ajax: {
+                        type: 'post',
+                        url: '/Backend/Report?handler=Table',
+                        dataType: "json",
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        data: {
+                            Project: $("#getprojectowner").val(),
+                            StartDate : start,
+                            EndDate: to,
+                            Type : 1,
+                            userid: (recruitss == null || recruitss == "" || recruitss == undefined) ? null : recruitss.toString(),
+                            Status : $("#Status").val(),
+                        }
+                    },
+                    columns: [
+                    { 'data': 'name', name: 'name' },
+                    { 'data': 'status', name: 'status' },
+                    { 'data': 'total_lead', name: 'total_lead' },
+                    { 'data': 'not_interested', name: 'not_interested' },
+                    { 'data': 'screen_noshow', name: 'screen_noshow' },
+                    { 'data': 'screen_notpass', name: 'screen_notpass' },
+                    { 'data': 'client_noshow', name: 'client_noshow' },
+                    { 'data': 'client_notpass', name: 'client_notpass' },
+                    { 'data': 'notjoin', name: 'notjoin' },
+                    { 'data': 'dropout', name: 'dropout' },
+                    { 'data': 'success_kpi', name: 'success_kpi' },
+                    { 'data': 'notpass_guarantee', name: 'notpass_guarantee' },
+                    ],
+                });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            MergeGridCells();
+
+            $('#DataTAbleRC').on('draw.dt', function () {
+                mergeRows('DataTAbleRC', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+            });
+        }
+
+        function MergeGridCells() {
+
+            var dimension_cells = new Array();
+            var dimension_col = null;
+            var columnCount = $("#DataTAbleRC tr:first th").length;
+            for (dimension_col = 0; dimension_col <= columnCount; dimension_col++) {
+                // first_instance holds the first instance of identical td
+                var first_instance = null;
+                var rowspan = 1;
+                // iterate through rows
+                $("#DataTAbleRC").find('tr').each(function () {
+                    // find the td of the correct column (determined by the dimension_col set above)
+                    var dimension_td = $(this).find('td:nth-child(' + dimension_col + ')');
+                    if (first_instance === null) {
+                        // must be the first row
+                        first_instance = dimension_td;
+                    } else if (dimension_td.text() === first_instance.text()) {
+                        // the current td is identical to the previous
+                        // remove the current td
+                        // dimension_td.remove();
+                        dimension_td.attr('hidden', true);
+                        ++rowspan;
+                        // increment the rowspan attribute of the first instance
+                        first_instance.attr('rowspan', rowspan);
+                    } else {
+                        // this cell is different from the last
+                        first_instance = dimension_td;
+                        rowspan = 1;
+                    }
+                });
+            }
+        }
+
+        var chart = null; // เก็บ chart ไว้ใน global scope
+        function Report_RC() {
+            if (chart) {
+              chart.destroy(); // ล้างกราฟเก่า
+            }
+
+            document.getElementById('divRC').style.display = 'block';
+            document.getElementById('divRC2').style.display = 'none';
+            document.getElementById('divRC3').style.display = 'none';
+            document.getElementById('divRC4').style.display = 'none';
+
+            //var project = $("#project").val();
+            var start = $("#startdate").val();
+            var to = $("#enddate").val();
+            var recruit = $("#getuser").val();
+
+            ReportRC(start,to);
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=ChartData',
+                data: {
+                    Project : $("#getprojectowner").val(),
+                    start: start,
+                    to:to,
+                    type:1,
+                    userid:(recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                        Status : $("#Status").val(),
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    console.log(response)
+
+                    var chart1 = "";
+                    for(var i = 0;i < response.length;i++)
+                    {
+                        chart1 += "<div>";
+                        chart1 += "<h6>"+ response[i].username +"</h6>";
+                        chart1 += "<div id=\"ReportRC" + i + "\"></div>";
+                        chart1 += "</div>";
+                    }
+                    $("#chart1").html(chart1);
+
+                    for(var a=0; a < response.length;a++)
+                    {
+                          const series = response[a].name.map((_, colIndex) => {
+                          const columnData = response[a].list.map(row => Number(row.data[colIndex]) || 0);
+                          return {
+                              name: response[a].name[colIndex],
+                              data: columnData
+                          };
+                        });
+
+                        var options = {
+                            series: series,
+                            chart: {
+                                type: 'bar',
+                                height: 350
+                            },
+                            plotOptions: {
+                                bar: {
+                                    horizontal: false,
+                                    columnWidth: '55%',
+                                    endingShape: 'rounded'
+                                },
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            stroke: {
+                                show: true,
+                                width: 2,
+                                colors: ['transparent']
+                            },
+                            xaxis: {
+                                categories: response[0].detail || [],
+                            },
+                            yaxis: {
+                                title: {
+                                    text: 'ประมาณข้อมูล'
+                                }
+                            },
+                            fill: {
+                                opacity: 1
+                            },
+                            tooltip: {
+                                y: {
+                                    formatter: function (val) {
+                                        return val + " จำนวน";
+                                    }
+                                }
+                            }
+                        };
+
+                        var chart = new ApexCharts(document.querySelector("#ReportRC" + a), options);
+                        chart.render();
+                    }
+                }
+            })
+        }
+
+        // รายงาน Report-Port 2.2
+        function table2(start,to)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleRC2')) {
+                $('#DataTAbleRC2').DataTable().clear().destroy();
+            }
+
+            var recruit = $("#getuser").val();
+
+             $.ajax({
+                method: 'POST',
+                url: '/Backend/Report?handler=Table',
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: {
+                    //Project: null,
+                    StartDate : start,
+                    EndDate: to,
+                    Type : 2,
+                    userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString()
+                },
+                success: function(response) {
+                    // Assuming the response has the following structure:
+                    const columns = response.data[0].project;  // List of column names
+                    const data = response.data[0].countData;   // List of rows
+
+                    // ล้างก่อนเสมอ (ถ้า table เคย init แล้ว)
+                    if ($.fn.DataTable.isDataTable('#DataTAbleRC2')) {
+                        $('#DataTAbleRC2').DataTable().clear().destroy();
+                    }
+
+                    // Clear the existing table headers and rows
+                    $('#DataTAbleRC2 thead tr').empty();
+                    $('#DataTAbleRC2 tbody').empty();
+
+                    // ✅ เพิ่ม header
+                    columns.forEach(function (col) {
+                        $('#DataTAbleRC2 thead tr').append('<th>' + col + '</th>');
+                    });
+
+                    // ✅ เพิ่มทุกแถวของข้อมูล
+                    data.forEach(rowArray => {
+                        let row = '<tr>';
+                        rowArray.forEach(cell => {
+                            row += '<td>' + cell + '</td>';
+                        });
+                        row += '</tr>';
+                        $('#DataTAbleRC2 tbody').append(row);
+                    });
+
+                    // ✅ เรียก DataTable
+                    $('#DataTAbleRC2').DataTable({
+                        paging: false,
+                        searching: false,
+                        ordering: false,
+                        responsive: true
+                    });
+
+                    //MergeGridCells2();
+
+                    // $('#DataTAbleRC2').on('draw.dt', function () {
+                    //     mergeRows('DataTAbleRC2', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+                    // });
+
+                },
+                error: function(xhr, status, error) {
+                    console.log('AJAX Error:', error);
+                }
+            });
+        }
+
+        function MergeGridCells2() {
+
+            var dimension_cells = new Array();
+            var dimension_col = null;
+            var columnCount = $("#DataTAbleRC2 tr:first th").length;
+            for (dimension_col = 0; dimension_col <= columnCount; dimension_col++) {
+                // first_instance holds the first instance of identical td
+                var first_instance = null;
+                var rowspan = 1;
+                // iterate through rows
+                $("#DataTAbleRC2").find('tr').each(function () {
+                    // find the td of the correct column (determined by the dimension_col set above)
+                    var dimension_td = $(this).find('td:nth-child(' + dimension_col + ')');
+                    if (first_instance === null) {
+                        // must be the first row
+                        first_instance = dimension_td;
+                    } else if (dimension_td.text() === first_instance.text()) {
+                        // the current td is identical to the previous
+                        // remove the current td
+                        // dimension_td.remove();
+                        dimension_td.attr('hidden', true);
+                        ++rowspan;
+                        // increment the rowspan attribute of the first instance
+                        first_instance.attr('rowspan', rowspan);
+                    } else {
+                        // this cell is different from the last
+                        first_instance = dimension_td;
+                        rowspan = 1;
+                    }
+                });
+            }
+        }
+
+        function ReportPort() {
+            if (chart) {
+              chart.destroy(); // ล้างกราฟเก่า
+            }
+
+            document.getElementById('divRC').style.display = 'none';
+            document.getElementById('divRC2').style.display = 'block';
+            document.getElementById('divRC3').style.display = 'none';
+            document.getElementById('divRC4').style.display = 'none';
+
+            var start = $("#startdate").val();
+            var to = $("#enddate").val();
+            var recruit = $("#getuser").val();
+            var getprojectowner = $("#getprojectowner").val();
+            table2(start,to);
+            table21(start,to);
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=ChartData',
+                data: {
+                    Project: $("#getprojectowner").val(),
+                    start: start,
+                    to:to,
+                    type :2,
+                    userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                    Status : $("#Status").val(),
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                      var options = {
+                        series: [{
+                            name: data.name[0],
+                            data: data.data
+                        }, {
+                            name: data.name[1],
+                            data: data.data2
+                        }, {
+                            name: data.name[2],
+                            data: data.data3
+                        }, {
+                            name: data.name[3],
+                            data: data.data4
+                        }, {
+                            name: data.name[4],
+                            data: data.data5
+                        }, {
+                            name: data.name[5],
+                            data: data.data6
+                        }, {
+                            name: data.name[6],
+                            data: data.data7
+                        }, {
+                            name: data.name[7],
+                            data: data.data8
+                        }, {
+                            name: data.name[8],
+                            data: data.data9
+                        }, {
+                            name: data.name[9],
+                            data: data.data10
+                        }],
+                        chart: {
+                            type: 'bar',
+                            height: 350,
+                            stacked: true,
+                            stackType: '100%'
+                        },
+                        responsive: [{
+                            breakpoint: 480,
+                            options: {
+                                legend: {
+                                    position: 'bottom',
+                                    offsetX: -10,
+                                    offsetY: 0
+                                }
+                            }
+                        }],
+                        xaxis: {
+                            categories: data.detail,
+                        },
+                        fill: {
+                            opacity: 1
+                        },
+                        legend: {
+                            position: 'right',
+                            offsetX: 0,
+                            offsetY: 50
+                        },
+                    };
+
+                    chart = new ApexCharts(document.querySelector("#ReportPort"), options);
+                    chart.render();
+                }
+            })
+
+            chart21(start,to);
+        }
+
+        let oTable2 = null;
+        let chart2 = null;
+        function table21(start,to)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleRC21')) {
+                $('#DataTAbleRC21').DataTable().clear().destroy();
+            }
+
+            var recruitss = $("#getuser").val();
+
+            if ($('#DataTAbleRC21').length && $.fn.DataTable.isDataTable('#DataTAbleRC21')) {
+              const oTable2 = $('#DataTAbleRC21').DataTable();
+              oTable2.clear().draw(); // ✅ ปลอดภัย
+           }
+
+            oTable2 = $('#DataTAbleRC21').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    lengthChange: true,
+                    retrieve: false,
+                    paging: false,
+                    searching: false,
+                    ordering:false,
+                    autoWidth: false,
+                    responsive: true,
+                    ajax: {
+                        type: 'post',
+                        url: '/Backend/Report?handler=Table',
+                        dataType: "json",
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        data: {
+                            Project: $("#getprojectowner").val(),
+                            StartDate : start,
+                            EndDate: to,
+                            Type : 21,
+                            userid: (recruitss == null || recruitss == "" || recruitss == undefined) ? null : recruitss.toString(),
+                                Status : $("#Status").val(),
+                        }
+                    },
+                    columns: [
+                    { 'data': 'name', name: 'name' },
+                    { 'data': 'status', name: 'status' },
+                    { 'data': 'total_lead', name: 'total_lead' },
+                    { 'data': 'not_interested', name: 'not_interested' },
+                    { 'data': 'screen_noshow', name: 'screen_noshow' },
+                    { 'data': 'screen_notpass', name: 'screen_notpass' },
+                    { 'data': 'client_noshow', name: 'client_noshow' },
+                    { 'data': 'client_notpass', name: 'client_notpass' },
+                    { 'data': 'notjoin', name: 'notjoin' },
+                    { 'data': 'dropout', name: 'dropout' },
+                    { 'data': 'success_kpi', name: 'success_kpi' },
+                    { 'data': 'notpass_guarantee', name: 'notpass_guarantee' },
+                    ],
+                });
+            $.fn.dataTable.ext.errMode = 'throw';
+
+            //MergeGridCells();
+
+            $('#DataTAbleRC21').on('draw.dt', function () {
+                mergeRows('DataTAbleRC21', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+            });
+        }
+
+        function chart21(start,to)
+        {
+            if (chart2) {
+              chart2.destroy(); // ล้างกราฟเก่า
+            }
+
+            var recruit = $("#getuser").val();
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=ChartData',
+                data: {
+                    Project : $("#getprojectowner").val(),
+                    start: start,
+                    to:to,
+                    type:21,
+                    userid:(recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                        Status : $("#Status").val(),
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    //console.log(data)
+                    var options = {
+                        series: [{
+                            name: data.name[0],
+                            data: data.data
+                        }, {
+                            name: data.name[1],
+                            data: data.data2
+                        }, {
+                            name: data.name[2],
+                            data: data.data3
+                        }, {
+                            name: data.name[3],
+                            data: data.data4
+                        }, {
+                            name: data.name[4],
+                            data: data.data5
+                        }, {
+                            name: data.name[5],
+                            data: data.data6
+                        }, {
+                            name: data.name[6],
+                            data: data.data7
+                        }, {
+                            name: data.name[7],
+                            data: data.data8
+                        }, {
+                            name: data.name[8],
+                            data: data.data9
+                        }, {
+                            name: data.name[9],
+                            data: data.data10
+                        }],
+                        chart: {
+                            type: 'bar',
+                            height: 350
+                        },
+                        plotOptions: {
+                            bar: {
+                                horizontal: false,
+                                columnWidth: '55%',
+                                endingShape: 'rounded'
+                            },
+                        },
+                        dataLabels: {
+                            enabled: false
+                        },
+                        stroke: {
+                            show: true,
+                            width: 2,
+                            colors: ['transparent']
+                        },
+                        xaxis: {
+                            categories: data.detail,
+                        },
+                        yaxis: {
+                            title: {
+                                text: 'ประมาณข้อมูล'
+                            }
+                        },
+                        fill: {
+                            opacity: 1
+                        },
+                        tooltip: {
+                            y: {
+                                formatter: function (val) {
+                                    return "" + val + " จำนวน"
+                                }
+                            }
+                        },
+                        download: true
+                    };
+
+                    chart2 = new ApexCharts(document.querySelector("#ReportPort21"), options);
+                    chart2.render();
+                }
+            })
+        }
+
+        // รายงาน Replacement Report
+        function table3(start,to,recruit)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleR3')) {
+                $('#DataTAbleR3').DataTable().clear().destroy();
+            }
+
+            var recruit = $("#getuser").val();
+
+             $.ajax({
+                method: 'POST',
+                url: '/Backend/Report?handler=Table',
+                dataType: "json",
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                data: {
+                    //Project: null,
+                    StartDate : start,
+                    EndDate: to,
+                    Type : 3,
+                    userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString()
+                },
+                success: function(response) {
+                    console.log(response)
+                    //if(response.data.length != 0)
+                    //{
+                        // Assuming the response has the following structure:
+                        const columns = response.data[0].project;  // List of column names
+                        const data = response.data[0].countData;   // List of rows
+
+                        // ล้างก่อนเสมอ (ถ้า table เคย init แล้ว)
+                        if ($.fn.DataTable.isDataTable('#DataTAbleR3')) {
+                            $('#DataTAbleR3').DataTable().clear().destroy();
+                        }
+
+                        // Clear the existing table headers and rows
+                        $('#DataTAbleR3 thead tr').empty();
+                        $('#DataTAbleR3 tbody').empty();
+
+                        // ✅ เพิ่ม header
+                        columns.forEach(function (col) {
+                            $('#DataTAbleR3 thead tr').append('<th>' + col + '</th>');
+                        });
+
+                        // ✅ เพิ่มทุกแถวของข้อมูล
+                        data.forEach(rowArray => {
+                            let row = '<tr>';
+                            rowArray.forEach(cell => {
+                                row += '<td>' + cell + '</td>';
+                            });
+                            row += '</tr>';
+                            $('#DataTAbleR3 tbody').append(row);
+                        });
+
+                        // ✅ เรียก DataTable
+                        $('#DataTAbleR3').DataTable({
+                            paging: false,
+                            searching: false,
+                            ordering: false,
+                            responsive: true
+                        });
+
+                        $('#DataTAbleR3').on('draw.dt', function () {
+                            mergeRows('DataTAbleR3', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+                        });
+                    //}
+                },
+                error: function(xhr, status, error) {
+                    console.log('AJAX Error:', error);
+                }
+            });
+
+        }
+
+        function ReplacementReport() {
+            document.getElementById('divRC').style.display = 'none';
+            document.getElementById('divRC2').style.display = 'none';
+            document.getElementById('divRC3').style.display = 'block';
+            document.getElementById('divRC4').style.display = 'none';
+
+            var start = $("#startdate").val();
+            var to = $("#enddate").val();
+            var recruit = $("#getuser").val();
+            table3(start,to,recruit);
+
+            if (chart) {
+              chart.destroy(); // ล้างกราฟเก่า
+            }
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=ChartData',
+                data: {
+                    Project:$("#getprojectowner").val(),
+                    start: start,
+                    to:to,
+                    type:3,
+                    userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                    Status : $("#Status").val(),
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    console.log("data is here",data);
+                    //if(data.name.length != 0)
+                    //{
+                       var options = {
+                            series: [{
+                                name: data.detail[0],
+                                data: data.data
+                            }, {
+                                name: data.detail[1],
+                                data: data.data2
+                            }, {
+                                name: data.detail[2],
+                                data: data.data3
+                            }],
+                            chart: {
+                                type: 'bar',
+                                height: 350,
+                                stacked: true,
+                                stackType: '100%'
+                            },
+                            responsive: [{
+                                breakpoint: 480,
+                                options: {
+                                    legend: {
+                                        position: 'bottom',
+                                        offsetX: -10,
+                                        offsetY: 0
+                                    }
+                                }
+                            }],
+                            xaxis: {
+                                categories: data.name,
+                            },
+                            fill: {
+                                opacity: 1
+                            },
+                            legend: {
+                                position: 'right',
+                                offsetX: 0,
+                                offsetY: 50
+                            },
+                        };
+
+                       chart = new ApexCharts(document.querySelector("#ReplacementReport"), options);
+                       chart.render()
+                   //}
+                }
+            })
+        }
+
+        // รายงาน Target
+        function datatable4(start,to,recruit)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleR4')) {
+                $('#DataTAbleR4').DataTable().clear().destroy();
+            }
+
+            if ($('#DataTAbleR4').length && $.fn.DataTable.isDataTable('#DataTAbleR4')) {
+              const oTable = $('#DataTAbleR4').DataTable();
+              oTable.clear().draw(); // ✅ ปลอดภัย
+            }
+
+            oTable = $('#DataTAbleR4').DataTable({
+                processing: true,
+                serverSide: true,
+                lengthChange: true,
+                retrieve: false,
+                paging: false,
+                searching: false,
+                ordering:false,
+                autoWidth: false,
+                responsive: true,
+                ajax: {
+                    type: 'post',
+                    url: '/Backend/Report?handler=Table',
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    data: {
+                        Project: $("#getprojectowner").val(),
+                        StartDate : start,
+                        EndDate: to,
+                        Type : 4,
+                        userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                        Status : $("#Status").val(),
+                    }
+                },
+                columns: [
+                { 'data': 'name', name: 'name' },
+                { 'data': 'total_lead', name: 'total_lead' },
+                { 'data': 'not_interested', name: 'not_interested' },
+                { 'data': 'screen_noshow', name: 'screen_noshow' },
+                { 'data': 'screen_notpass', name: 'screen_notpass' },
+                { 'data': 'client_noshow', name: 'client_noshow' },
+                { 'data': 'client_notpass', name: 'client_notpass' },
+                { 'data': 'notjoin', name: 'notjoin' }
+                ],
+            });
+
+            $('#DataTAbleR41').on('draw.dt', function () {
+                mergeRows('DataTAbleR41', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+            });
+        }
+
+        function table41(start,to,recruit)
+        {
+            if ($.fn.DataTable.isDataTable('#DataTAbleR41')) {
+                $('#DataTAbleR41').DataTable().clear().destroy();
+            }
+
+            if ($('#DataTAbleR41').length && $.fn.DataTable.isDataTable('#DataTAbleR41')) {
+              const oTable2 = $('#DataTAbleR41').DataTable();
+              oTable2.clear().draw(); // ✅ ปลอดภัย
+            }
+
+            oTable2 = $('#DataTAbleR41').DataTable({
+                processing: true,
+                serverSide: true,
+                lengthChange: true,
+                retrieve: false,
+                paging: false,
+                searching: false,
+                ordering:false,
+                autoWidth: false,
+                responsive: true,
+                ajax: {
+                    type: 'post',
+                    url: '/Backend/Report?handler=Table',
+                    dataType: "json",
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    data: {
+                        Project: $("#getprojectowner").val(),
+                        StartDate : start,
+                        EndDate: to,
+                        Type : 41,
+                        userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                        Status : $("#Status").val(),
+                    }
+                },
+                columns: [
+                { 'data': 'name', name: 'name' },
+                { 'data': 'total_lead', name: 'total_lead' },
+                { 'data': 'not_interested', name: 'not_interested' },
+                { 'data': 'screen_noshow', name: 'screen_noshow' },
+                { 'data': 'screen_notpass', name: 'screen_notpass' },
+                { 'data': 'client_noshow', name: 'client_noshow' },
+                ],
+            });
+
+            $('#DataTAbleR4').on('draw.dt', function () {
+                mergeRows('DataTAbleR4', 0); // merge column ที่ 0 (ชื่อ RC หรือ Port)
+            });
+        }
+
+        function mergeRows(tableId, columnIndex) {
+            var previous = null;
+            var rowspan = 1;
+
+            $('#' + tableId + ' tbody tr').each(function () {
+                var current = $('td', this).eq(columnIndex);
+                if (previous === null) {
+                    previous = current;
+                } else if (current.text().trim() === previous.text().trim()) {
+                    current.remove();
+                    previous.attr('rowspan', ++rowspan);
+                } else {
+                    previous = current;
+                    rowspan = 1;
+                }
+            });
+        }
+
+        function Target() {
+            document.getElementById('divRC').style.display = 'none';
+            document.getElementById('divRC2').style.display = 'none';
+            document.getElementById('divRC3').style.display = 'none';
+            document.getElementById('divRC4').style.display = 'block';
+
+            var start = $("#startdate").val();
+            var to = $("#enddate").val();
+            var recruit = $("#getuser").val();
+
+            datatable4(start,to,recruit);
+
+            table41(start,to,recruit);
+
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=ChartData',
+                data: {
+                    Project: $("#getprojectowner").val(),
+                    start: start,
+                    to, to,
+                    type : 4,
+                    userid: (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                        Status : $("#Status").val(),
+                },
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                   var options1 = {
+                        chart: {
+                            height: 280,
+                            type: "radialBar",
+                        },
+                        series: data.data,
+                        //series: [67, 84, 97],
+                        plotOptions: {
+                            radialBar: {
+                                dataLabels: {
+                                    name: {
+                                    fontSize: '22px',
+                                  },
+                                  value: {
+                                    fontSize: '16px',
+                                     formatter: function (val) {
+                                        return val; // แสดงค่าเฉย ๆ ไม่มี %
+                                      }
+                                  },
+                                    total: {
+                                        show: true,
+                                        label: 'Target',
+                                        formatter: function (w) {
+                                            // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                                            return data.count;
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        labels: data.detail
+                    };
+
+                   chart = new ApexCharts(document.querySelector("#Target"), options1);
+                   chart.render();
+                }
+            })
+        }
+
+        function Reset() {
+            document.getElementById("SendFrom").reset();
+        }
+
+        function Export() {
+            var type = $("#TypeReport").val();
+            //var project = $("#project").val();
+            var start = $("#startdate").val();
+            var to = $("#enddate").val();
+            var recruit = $("#getuser").val();
+            var getprojectowner = $("#getprojectowner").val();
+            if(type == 1 && type != -1)
+            {
+                var report = 'permission?.FirstOrDefault()?.reportteam';
+                if(report)
+                {
+                    //window.location.href = '/Backend/Report/Export_PerFormanceReportRC/Project=' + project + '&StartDate=' + start + '&EndDate=' + to + '&userid=' + recruit;
+                     $.ajax({
+                        type: 'get',
+                        url: '/Backend/Report?handler=Export_PerFormanceReportRC',
+                        data: {
+                           //Project:project,
+                            StartDate: start,
+                            EndDate:to,
+                            userid : (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                            projectownerid:(getprojectowner == null || getprojectowner == "" || getprojectowner == undefined) ? null : getprojectowner.toString(),
+                            Status : $("#Status").val(),
+                        },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (data)
+                        {
+                            window.location.href = '/Export/' + data.fileUrl;
+                        },
+                        error: (e) => {
+                            displayError(e);
+                        }
+                    })
+                }
+            }else if(type == 2)
+            {
+                var report2 = 'permission?.FirstOrDefault()?.reportinfo';
+                if(report2)
+                {
+                    //window.location.href = '/Backend/Report?handler=Export_PerFormanceReportPort';
+                      $.ajax({
+                        type: 'get',
+                        url: '/Backend/Report?handler=Export_PerFormanceReportPort',
+                        data: {
+                            //Project:project,
+                            StartDate: start,
+                            EndDate:to,
+                            userid : (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                            projectownerid:(getprojectowner == null || getprojectowner == "" || getprojectowner == undefined) ? null : getprojectowner.toString(),
+                                Status : $("#Status").val(),
+                        },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (data)
+                        {
+                            window.location.href = '/Export/' + data.fileUrl;
+                        },
+                        error: (e) => {
+                            displayError(e);
+                        }
+                    })
+                }
+            }
+            else if(type == 3)
+            {
+                var report3 = 'permission?.FirstOrDefault()?.reportproject';
+                if(report3)
+                {
+                    //window.location.href = '/Backend/Report?handler=Export_ReplacementReport';
+                    $.ajax({
+                        type: 'get',
+                        url: '/Backend/Report?handler=Export_ReplacementReport',
+                        data: {
+                            //Project:project,
+                            StartDate: start,
+                            EndDate:to,
+                            userid : (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                            projectownerid:(getprojectowner == null || getprojectowner == "" || getprojectowner == undefined) ? null : getprojectowner.toString(),
+                                Status : $("#Status").val(),
+                        },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (data)
+                        {
+                            window.location.href = '/Export/' + data.fileUrl;
+                        },
+                        error: (e) => {
+                            displayError(e);
+                        }
+                    })
+                }
+            }
+            else if(type == 4)
+            {
+                var report4 = 'permission?.FirstOrDefault()?.reporttargetvsachieved';
+                if(report4)
+                {
+                    //window.location.href = '/Backend/Report?handler=Export_TargetVsAchieved';
+                    $.ajax({
+                        type: 'get',
+                        url: '/Backend/Report?handler=Export_TargetVsAchieved',
+                        data: {
+                            //Project:project,
+                            StartDate: start,
+                            EndDate:to,
+                            userid : (recruit == null || recruit == "" || recruit == undefined) ? null : recruit.toString(),
+                            projectownerid:(getprojectowner == null || getprojectowner == "" || getprojectowner == undefined) ? null : getprojectowner.toString(),
+                                Status : $("#Status").val(),
+                        },
+                        headers:
+                        {
+                            "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (data)
+                        {
+                            window.location.href = '/Export/' + data.fileUrl;
+                        },
+                        error: (e) => {
+                            displayError(e);
+                        }
+                    })
+                }
+            }
+            else
+            {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: 'กรุณาเลือกประเภทก่อน กดรายงาน กรุณาลองใหม่อีกครั้ง',
+                })
+            }
+        }
+
+        function Project() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=Project',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        s += '<option value="' + c.id + '">' + c.name + '</option>';
+                    });
+                    $("#project").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function GetUser() {
+            $.ajax({
+                type: 'get',
+                url: '/Backend/Report?handler=User',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data) {
+                    var s = ''; //<option value="-1">กรุณาเลือกรายการ</option>
+                    $.each(data, function (v, c) {
+                                s += '<option value="' + c.userId + '">' + c.firstname + '</option>';
+                    });
+                    $("#getuser").html(s);
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+        function Getprojectowner(id) {
+            //console.log(id)
+             if (id != undefined) {
+
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=User',
+                    data: { userId: id },
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        $.ajax({
+                            type: 'get',
+                            url: '/Backend/Report?handler=Project',
+                            headers:
+                            {
+                                "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                            },
+                            success: function (res) {
+                                var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                                $.each(res, function (v, c) {
+                                    var selected = '';
+                                    if(c.id == data.db.project)
+                                    {
+                                        selected = 'selected';
+                                        $("#project_owner").text(c.name);
+                                    }
+                                    s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                                });
+                                $("#getprojectowner").html(s);
+                            },
+                            error: (e) => {
+                                displayError(e);
+                            }
+                        })
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+            else
+            {
+                $.ajax({
+                    type: 'get',
+                    url: '/Backend/Summary?handler=User',
+                    data: { userId: id },
+                    headers:
+                    {
+                        "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (data) {
+                        $.ajax({
+                            type: 'get',
+                            url: '/Backend/Report?handler=Project',
+                            headers:
+                            {
+                                "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                            },
+                            success: function (data) {
+                                var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                                $.each(data, function (v, c) {
+                                    s += '<option value="' + c.id + '">' + c.name + '</option>';
+                                });
+                                $("#project").html(s);
+                                $("#Editproject").html(s);
+
+                                $(".js-example-basic-single").select2();
+                            },
+                            error: (e) => {
+                                displayError(e);
+                            }
+                        })
+
+                        //Project(data.db.project);
+                    },
+                    error: (e) => {
+                        displayError(e);
+                    }
+                })
+            }
+        }
+
+        function GetStatus()
+        {
+            $.ajax({
+                type: 'get',
+                        url: '/Backend/Report?handler=RecruitmentStatus',
+                headers:
+                {
+                    "RequestVerificationToken": $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (data)
+                {
+                    var s = '<option value="-1">กรุณาเลือกรายการ</option>';
+                    $.each(data, function (v, c) {
+                        var selected = '';
+                        s += '<option value="' + c.id + '" ' + selected + '>' + c.name + '</option>';
+                    });
+                    $("#RecruitStatus").html(s);
+                    $("#Status").html(s);
+                    $(".js-example-basic-single").select2();
+                },
+                error: (e) => {
+                    displayError(e);
+                }
+            })
+        }
+
+    </script>
+}
