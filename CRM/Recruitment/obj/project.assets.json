@@ -9971,11 +9971,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Recruitment.csproj",
+      "projectUniqueName": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Recruitment.csproj",
       "projectName": "Recruitment",
-      "projectPath": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Recruitment.csproj",
+      "projectPath": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Recruitment.csproj",
       "packagesPath": "C:\\Users\\saimo\\.nuget\\packages\\",
-      "outputPath": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\obj\\",
+      "outputPath": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,53 +1,53 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Orange\\Recruitment\\CRM\\",
+  "WorkspaceRootPath": "D:\\Orange\\Recruitment-CRM\\CRM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\wwwroot\\assets\\js\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\js\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\wwwroot\\assets\\css\\datatables.bootstrap4.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\css\\datatables.bootstrap4.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss||{181FE41B-5A5D-479F-9F8F-BF665F4EBC2A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\wwwroot\\assets\\js\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\js\\jquery.datatables.min.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\wwwroot\\assets\\css\\datatables.bootstrap4.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\wwwroot\\assets\\css\\datatables.bootstrap4.min.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\pages\\backend\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\pages\\backend\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\pages\\backend\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\summary.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\repositories\\usersrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment\\crm\\recruitment\\pages\\backend\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|d:\\orange\\recruitment-crm\\crm\\recruitment\\pages\\backend\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DD7B5F9A-B884-408E-AAA8-50C1A74AC1E0}|Recruitment\\Recruitment.csproj|solutionrelative:recruitment\\pages\\backend\\summary.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -58,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 463,
-          "SelectedChildIndex": 28,
+          "SelectedChildIndex": 29,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,91 +154,86 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "datatable.scss",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
               "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
               "RelativeToolTip": "Recruitment\\wwwroot\\assets\\scss\\layout\\datatable.scss",
               "ViewState": "AgIAACEAAAAAAAAAAAAAACgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002663|",
-              "WhenOpened": "2026-01-29T09:20:32.193Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "chart-data.js",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
-              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
-              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-29T09:20:24.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-29T09:20:32.193Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "chart-data.js",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
-              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
-              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
-              "ViewState": "AgIAAO4BAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
+              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
+              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\plugins\\chartjs\\chart-data.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-29T09:20:01.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-29T09:20:24.877Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "jquery.dataTables.min.js",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
-              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
-              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Title": "chart-data.js",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
+              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
+              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\plugins\\apexchart\\chart-data.js",
+              "ViewState": "AgIAAO4BAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-29T09:19:34.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-29T09:20:01.541Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "dataTables.bootstrap4.min.css",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
-              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
-              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-29T09:19:24.278Z",
-              "EditorCaption": ""
+              "Title": "jquery.dataTables.min.js",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
+              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
+              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\js\\jquery.dataTables.min.js",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-29T09:19:34.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
+              "Title": "dataTables.bootstrap4.min.css",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
+              "RelativeDocumentMoniker": "Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
+              "RelativeToolTip": "Recruitment\\wwwroot\\assets\\css\\dataTables.bootstrap4.min.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-29T09:19:24.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\appsettings.json",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\appsettings.json",
               "RelativeDocumentMoniker": "Recruitment\\appsettings.json",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\appsettings.json",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\appsettings.json",
               "RelativeToolTip": "Recruitment\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-01-29T08:54:41.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Program.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Program.cs",
               "RelativeDocumentMoniker": "Recruitment\\Program.cs",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Program.cs",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Program.cs",
               "RelativeToolTip": "Recruitment\\Program.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAuwKkAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-29T08:53:31.14Z",
               "EditorCaption": ""
@@ -247,9 +242,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Summary.cshtml.cs",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
               "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
               "RelativeToolTip": "Recruitment\\Pages\\Backend\\Summary.cshtml.cs",
               "ViewState": "AgIAANQAAAAAAAAAAAAqwOoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -260,22 +255,21 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
               "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Index.cshtml",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml",
               "RelativeToolTip": "Recruitment\\Pages\\Backend\\Index.cshtml",
               "ViewState": "AgIAACAAAAAAAAAAAAAowDIAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-17T02:41:37.387Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-17T02:41:37.387Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Index.cshtml.cs",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Index.cshtml.cs",
               "RelativeToolTip": "Recruitment\\Pages\\Backend\\Index.cshtml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -286,9 +280,9 @@
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "UsersRepository.cs",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
               "RelativeDocumentMoniker": "Recruitment\\Repositories\\UsersRepository.cs",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Repositories\\UsersRepository.cs",
               "RelativeToolTip": "Recruitment\\Repositories\\UsersRepository.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAcwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -299,14 +293,13 @@
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "Summary.cshtml",
-              "DocumentMoniker": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "DocumentMoniker": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
               "RelativeDocumentMoniker": "Recruitment\\Pages\\Backend\\Summary.cshtml",
-              "ToolTip": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
+              "ToolTip": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Pages\\Backend\\Summary.cshtml",
               "RelativeToolTip": "Recruitment\\Pages\\Backend\\Summary.cshtml",
               "ViewState": "AgIAABoCAAAAAAAAAADwvycCAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-18T03:11:19.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-18T03:11:19.764Z"
             }
           ]
         },

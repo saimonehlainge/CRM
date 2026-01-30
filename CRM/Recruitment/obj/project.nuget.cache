@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oJNHl/QF2ZY=",
+  "dgSpecHash": "pewo1x6NQPs=",
   "success": true,
-  "projectFilePath": "D:\\Orange\\Recruitment\\CRM\\Recruitment\\Recruitment.csproj",
+  "projectFilePath": "D:\\Orange\\Recruitment-CRM\\CRM\\Recruitment\\Recruitment.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saimo\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\saimo\\.nuget\\packages\\azure.identity\\1.15.0\\azure.identity.1.15.0.nupkg.sha512",

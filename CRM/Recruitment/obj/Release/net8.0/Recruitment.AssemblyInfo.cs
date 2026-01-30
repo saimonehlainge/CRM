@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Recruitment")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb5632f433e021428507e2cd24aac78bfa320758")]
 [assembly: System.Reflection.AssemblyProductAttribute("Recruitment")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Recruitment")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
