@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CRM/Recruitment/logs/log-20250702.log
+/CRM/.vs/CRM/FileContentIndex/7af9144e-19b3-4080-a7c2-6f7528494085.vsidx
+/CRM/.vs/CRM/FileContentIndex/0c194742-45eb-4381-ad4b-89fe70a6168b.vsidx
